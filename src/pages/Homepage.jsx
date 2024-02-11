@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import ContactInfo from "../components/ContactInfo";
+import ExploreTop from "../components/ExploreTop";
 import TravelLogo from "../components/TravelLogo";
 import AboutCareerMobile from "../components/AboutCareerMobile";
 import FAQBlog from "../components/FAQBlog";
@@ -14,17 +14,11 @@ const Homepage = () => {
             <Header/>
             <Hero/>
             <Services/>
-            {/*<section*/}
-            {/*    className="self-stretch flex flex-row items-start justify-start pt-[0rem] pb-[4.5rem] pr-[1.19rem] pl-[0rem] box-border max-w-full shrink-0 mq1100:pb-[2.94rem] mq1100:box-border mq450:pb-[1.94rem] mq450:box-border">*/}
-            {/*    <div*/}
-            {/*        className="flex-1 flex flex-col items-center justify-start gap-[6.06rem] max-w-full shrink-0 mq750:gap-[6.06rem] mq450:gap-[6.06rem]">*/}
-            {/*        <ContactInfo/>*/}
-            {/*        <TravelLogo/>*/}
-            {/*    </div>*/}
-            {/*</section>*/}
+            <ExploreTop/>
             {/*<AboutCareerMobile/>*/}
             {/*<FAQBlog/>*/}
-            {/*<section className="self-stretch flex flex-col items-center justify-start pt-[0rem] px-[0rem] pb-[0.75rem] box-border gap-[0.06rem] max-w-full shrink-0 text-left text-[2.48rem] text-black font-urbanist">*/}
+            {/*<section*/}
+            {/*    className="self-stretch flex flex-col items-center justify-start pt-[0rem] px-[0rem] pb-[0.75rem] box-border gap-[0.06rem] max-w-full shrink-0 text-left text-[2.48rem] text-black font-urbanist">*/}
             {/*    <div*/}
             {/*        className="flex flex-row items-start justify-start pt-[0rem] px-[1.25rem] pb-[4.56rem] box-border max-w-full shrink-0">*/}
             {/*        <div*/}
@@ -49,7 +43,8 @@ const Homepage = () => {
             {/*    <IMGFrame/>*/}
             {/*    <FrameTravelBlogContent/>*/}
             {/*</section>*/}
-            {/*<footer className="w-full h-[22.5rem] flex flex-row items-center justify-between py-[0rem] px-[7.88rem] box-border gap-[1.25rem] text-left text-[1.44rem] text-grey-scale-black-50 font-urbanist">*/}
+            {/*<footer*/}
+            {/*    className="w-full h-[22.5rem] flex flex-row items-center justify-between py-[0rem] px-[7.88rem] box-border gap-[1.25rem] text-left text-[1.44rem] text-grey-scale-black-50 font-urbanist">*/}
             {/*    <div*/}
             {/*        className="w-[21.75rem] flex flex-col items-start justify-start gap-[4rem] max-w-[calc(100%_-_726px)] shrink-0 mq750:hidden mq1275:max-w-full mq450:gap-[4rem]">*/}
             {/*        <div*/}
