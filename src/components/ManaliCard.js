@@ -2,7 +2,7 @@ import { memo } from "react";
 
 const ManaliCard = memo(() => {
   return (
-    <div className="w-[30.63rem] shrink-0 flex flex-col items-start justify-start gap-[1.75rem] text-left text-[1.5rem] text-dimgray-200 font-urbanist">
+    <div className="w-[30.63rem] shrink-0 flex flex-col items-start justify-start gap-[1.75rem] text-left text-[1.5rem] text-dimgray-200 font-poppins">
       <img
         className="self-stretch h-[28.25rem] relative rounded-13xl max-w-full overflow-hidden shrink-0 object-cover"
         loading="eager"

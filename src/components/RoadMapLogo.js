@@ -11,7 +11,7 @@ const RoadMapLogo = memo(({ propAlignSelf, propFlex, propMarginLeft }) => {
 
   return (
     <div
-      className="self-stretch flex flex-row items-start justify-start gap-[1.63rem] max-w-full text-left text-[1.24rem] text-dimgray-200 font-urbanist mq1100:flex-wrap"
+      className="self-stretch flex flex-row items-start justify-start gap-[1.63rem] max-w-full text-left text-[1.24rem] text-dimgray-200 font-poppins mq1100:flex-wrap"
       style={roadMapLogoStyle}
     >
       <div className="flex-1 flex flex-col items-start justify-start py-[0rem] pr-[0.06rem] pl-[0rem] box-border min-w-[25rem] max-w-full shrink-0 mq750:min-w-full">

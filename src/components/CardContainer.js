@@ -16,7 +16,7 @@ const CardContainer = memo(
     }, [propMinWidth]);
 
     return (
-      <div className="flex flex-col items-center justify-start min-h-[69.81rem] max-w-full text-left text-[2.63rem] text-white font-urbanist">
+      <div className="flex flex-col items-center justify-start min-h-[69.81rem] max-w-full text-left text-[2.63rem] text-white font-poppins">
         <div className="self-stretch h-[69.81rem] relative">
           <img
             className="absolute top-[0rem] left-[0rem] w-full h-full object-cover"

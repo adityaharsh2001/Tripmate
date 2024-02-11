@@ -318,7 +318,7 @@ const PackageDetailPageTourInf = () => {
                   Travlog
                 </h3>
               </div>
-              <h3 className="m-0 self-stretch h-[11.56rem] relative text-[1.44rem] leading-[160%] inline-block italic font-thin font-urbanist text-grey-scale-black-50 mq450:text-[1.13rem] mq450:leading-[1.81rem]">
+              <h3 className="m-0 self-stretch h-[11.56rem] relative text-[1.44rem] leading-[160%] inline-block italic font-thin font-poppins text-grey-scale-black-50 mq450:text-[1.13rem] mq450:leading-[1.81rem]">
                 <p className="m-0">
                   Contrary to popular belief, Lorem Ipsum is not simply random
                   text. It has roots
@@ -350,7 +350,7 @@ const PackageDetailPageTourInf = () => {
           </div>
           <div className="w-[42.31rem] flex flex-row items-start justify-between min-w-[42.31rem] gap-[1.25rem] max-w-full text-[1.13rem] text-grey-scale-black-75 font-body mq850:flex-wrap mq1225:min-w-full mq1525:flex-1">
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Company
               </h3>
               <div className="relative leading-[160%]">About</div>
@@ -358,7 +358,7 @@ const PackageDetailPageTourInf = () => {
               <div className="relative leading-[160%]">Mobile</div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Contact
               </h3>
               <div className="relative leading-[160%]">Why Travlog?</div>
@@ -367,7 +367,7 @@ const PackageDetailPageTourInf = () => {
               <div className="relative leading-[160%]">Blog</div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <h3 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Meet Us
               </h3>
               <div className="relative leading-[160%] whitespace-nowrap">

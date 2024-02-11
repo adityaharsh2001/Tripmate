@@ -35,7 +35,7 @@ const TopNavBar = memo(
 
     return (
       <header
-        className="w-[80.31rem] [backdrop-filter:blur(4px)] overflow-hidden flex flex-row items-start justify-between py-[0.38rem] pr-[1.25rem] pl-[22.5rem] box-border mix-blend-normal gap-[1.25rem] top-[0] z-[99] sticky max-w-full text-left text-[1.06rem] text-white font-urbanist mq450:pl-[1.25rem] mq450:box-border mq1225:pl-[11.25rem] mq1225:box-border mq750:pl-[5.63rem] mq750:box-border"
+        className="w-[80.31rem] [backdrop-filter:blur(4px)] overflow-hidden flex flex-row items-start justify-between py-[0.38rem] pr-[1.25rem] pl-[22.5rem] box-border mix-blend-normal gap-[1.25rem] top-[0] z-[99] sticky max-w-full text-left text-[1.06rem] text-white font-poppins mq450:pl-[1.25rem] mq450:box-border mq1225:pl-[11.25rem] mq1225:box-border mq750:pl-[5.63rem] mq750:box-border"
         style={topNavBarStyle}
       >
         <div className="h-[4.38rem] w-[4.38rem] hidden flex-row items-center justify-center bg-cover bg-no-repeat bg-[top]">
@@ -76,7 +76,7 @@ const TopNavBar = memo(
             alt=""
             src="/rectangle-12.svg"
           />
-          <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-urbanist text-white text-left z-[1]">
+          <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-poppins text-white text-left z-[1]">
             Get in Touch
           </b>
         </button>

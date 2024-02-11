@@ -27,7 +27,7 @@ const PackageDetailPageTourPla = () => {
                   />
                 </div>
               </div>
-              <div className="w-[30rem] flex flex-row items-start justify-start gap-[1.94rem] max-w-full text-left text-[1.06rem] font-urbanist mq750:gap-[1.94rem] mq1050:w-[12.44rem]">
+              <div className="w-[30rem] flex flex-row items-start justify-start gap-[1.94rem] max-w-full text-left text-[1.06rem] font-poppins mq750:gap-[1.94rem] mq1050:w-[12.44rem]">
                 <div className="flex-1 flex flex-row items-start justify-between py-[0rem] pr-[0.06rem] pl-[0rem] gap-[1.25rem] mq1050:hidden">
                   <div className="relative font-medium z-[3]">Home</div>
                   <div className="relative font-medium z-[3]">About</div>
@@ -52,7 +52,7 @@ const PackageDetailPageTourPla = () => {
                   alt=""
                   src="/rectangle-12.svg"
                 />
-                <div className="relative text-[1.06rem] font-medium font-urbanist text-white text-left z-[1]">
+                <div className="relative text-[1.06rem] font-medium font-poppins text-white text-left z-[1]">
                   Get in Touch
                 </div>
               </button>
@@ -345,7 +345,7 @@ const PackageDetailPageTourPla = () => {
           </div>
         </section>
       </main>
-      <footer className="self-stretch flex flex-row flex-wrap items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] max-w-full shrink-0 text-left text-[1.44rem] text-grey-scale-black-50 font-urbanist mq750:gap-[9.56rem] mq750:pl-[2.56rem] mq750:pr-[2.56rem] mq750:box-border mq1050:gap-[9.56rem] mq1050:pl-[5.13rem] mq1050:pr-[5.13rem] mq1050:box-border">
+      <footer className="self-stretch flex flex-row flex-wrap items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] max-w-full shrink-0 text-left text-[1.44rem] text-grey-scale-black-50 font-poppins mq750:gap-[9.56rem] mq750:pl-[2.56rem] mq750:pr-[2.56rem] mq750:box-border mq1050:gap-[9.56rem] mq1050:pl-[5.13rem] mq1050:pr-[5.13rem] mq1050:box-border">
         <div className="h-[20.88rem] w-[21.75rem] flex flex-col items-start justify-start gap-[4rem] max-w-full mq450:gap-[4rem]">
           <div className="self-stretch flex flex-col items-start justify-start gap-[2rem] min-h-[16.5rem] shrink-0 mq450:gap-[2rem]">
             <div className="flex flex-row items-center justify-start">
@@ -389,7 +389,7 @@ const PackageDetailPageTourPla = () => {
         </div>
         <div className="flex-1 flex flex-row items-start justify-between py-[1.25rem] px-[0rem] box-border min-w-[44.25rem] gap-[1.25rem] max-w-full text-[1.13rem] text-grey-scale-black-75 font-body lg:min-w-full mq750:flex-wrap">
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Company
             </h2>
             <div className="relative leading-[160%]">About</div>
@@ -397,7 +397,7 @@ const PackageDetailPageTourPla = () => {
             <div className="relative leading-[160%]">Mobile</div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Contact
             </h2>
             <div className="relative leading-[160%]">Why Travlog?</div>
@@ -406,7 +406,7 @@ const PackageDetailPageTourPla = () => {
             <div className="relative leading-[160%]">Blog</div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <h2 className="m-0 relative text-[1.44rem] leading-[120%] font-bold font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Meet Us
             </h2>
             <div className="relative leading-[160%] whitespace-nowrap">

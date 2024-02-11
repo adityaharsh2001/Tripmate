@@ -4,14 +4,14 @@ import ManaliCard from "../components/ManaliCard";
 const MainFrame = () => {
   return (
     <div className="w-full relative bg-white overflow-hidden flex flex-col items-center justify-start pt-[0rem] px-[0rem] pb-[40.38rem] box-border gap-[5rem] tracking-[normal] mq1050:gap-[5rem] mq450:gap-[5rem]">
-      <section className="self-stretch flex flex-col items-center justify-start pt-[4.81rem] pb-[16.06rem] pr-[3.13rem] pl-[1.25rem] box-border relative gap-[12.81rem] bg-cover bg-no-repeat bg-[top] max-w-full text-center text-[5rem] text-white font-urbanist lg:gap-[12.81rem] lg:pr-[1.56rem] lg:box-border mq1050:pt-[3.13rem] mq1050:pb-[10.44rem] mq1050:box-border mq450:gap-[12.81rem] mq450:pt-[2rem] mq450:pb-[6.81rem] mq450:box-border mq750:gap-[12.81rem]">
+      <section className="self-stretch flex flex-col items-center justify-start pt-[4.81rem] pb-[16.06rem] pr-[3.13rem] pl-[1.25rem] box-border relative gap-[12.81rem] bg-cover bg-no-repeat bg-[top] max-w-full text-center text-[5rem] text-white font-poppins lg:gap-[12.81rem] lg:pr-[1.56rem] lg:box-border mq1050:pt-[3.13rem] mq1050:pb-[10.44rem] mq1050:box-border mq450:gap-[12.81rem] mq450:pt-[2rem] mq450:pb-[6.81rem] mq450:box-border mq750:gap-[12.81rem]">
         <img
           className="w-[108rem] relative max-h-full object-cover hidden max-w-full z-[0]"
           alt=""
           src="/image-14@2x.png"
         />
         <div className="w-full h-full absolute my-0 mx-[!important] top-[0rem] right-[0rem] bottom-[0rem] bg-gray1-300 z-[1]" />
-        <header className="w-[81.75rem] flex flex-row items-start justify-start py-[0rem] pr-[0rem] pl-[1.44rem] box-border top-[0] z-[99] sticky max-w-full text-left text-[1.06rem] text-white font-urbanist">
+        <header className="w-[81.75rem] flex flex-row items-start justify-start py-[0rem] pr-[0rem] pl-[1.44rem] box-border top-[0] z-[99] sticky max-w-full text-left text-[1.06rem] text-white font-poppins">
           <div className="flex-1 [backdrop-filter:blur(4px)] overflow-hidden flex flex-row items-center justify-between py-[0.38rem] pr-[1.25rem] pl-[22.5rem] box-border mix-blend-normal gap-[1.25rem] max-w-full z-[2] lg:pl-[11.25rem] lg:box-border mq450:pl-[1.25rem] mq450:box-border mq750:pl-[5.63rem] mq750:box-border">
             <div className="h-[4.38rem] w-[4.38rem] hidden flex-row items-center justify-center bg-cover bg-no-repeat bg-[top]">
               <img
@@ -34,7 +34,7 @@ const MainFrame = () => {
                 alt=""
                 src="/rectangle-12.svg"
               />
-              <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-urbanist text-white text-left z-[1]">
+              <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-poppins text-white text-left z-[1]">
                 Get in Touch
               </b>
             </button>
@@ -45,11 +45,11 @@ const MainFrame = () => {
           a new adventure.
         </h1>
       </section>
-      <section className="flex flex-col items-start justify-start py-[0rem] px-[1.25rem] box-border gap-[7.44rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-urbanist mq450:gap-[7.44rem] mq750:gap-[7.44rem]">
+      <section className="flex flex-col items-start justify-start py-[0rem] px-[1.25rem] box-border gap-[7.44rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-poppins mq450:gap-[7.44rem] mq750:gap-[7.44rem]">
         <div className="w-[57rem] flex flex-col items-start justify-start gap-[3rem] max-w-full mq450:gap-[3rem]">
           <div className="self-stretch rounded-61xl box-border flex flex-row items-center justify-between py-[1.31rem] px-[2.88rem] min-h-[4.88rem] gap-[1.25rem] max-w-full border-[1px] border-solid border-darkgray-200 mq750:flex-wrap mq750:pl-[1.44rem] mq750:pr-[1.44rem] mq750:box-border">
             <input
-              className="w-[25.75rem] [border:none] [outline:none] font-medium font-urbanist text-[1.5rem] bg-[transparent] h-[1.81rem] relative text-darkgray-100 text-center inline-block max-w-full mq450:text-[1.19rem]"
+              className="w-[25.75rem] [border:none] [outline:none] font-medium font-poppins text-[1.5rem] bg-[transparent] h-[1.81rem] relative text-darkgray-100 text-center inline-block max-w-full mq450:text-[1.19rem]"
               placeholder="Search for places, hotels or restaurants"
               type="text"
             />

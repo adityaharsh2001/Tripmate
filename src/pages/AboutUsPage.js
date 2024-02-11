@@ -23,7 +23,7 @@ const AboutUsPage = () => {
             />
           </div>
           <div className="w-[30rem] flex flex-col items-start justify-start pt-[0.44rem] px-[0rem] pb-[0rem] box-border max-w-full mq900:w-[0rem]">
-            <nav className="m-0 self-stretch flex flex-row items-end justify-between py-[0rem] pr-[0.06rem] pl-[0rem] gap-[1.25rem] text-left text-[1.06rem] text-white font-urbanist mq900:hidden">
+            <nav className="m-0 self-stretch flex flex-row items-end justify-between py-[0rem] pr-[0.06rem] pl-[0rem] gap-[1.25rem] text-left text-[1.06rem] text-white font-poppins mq900:hidden">
               <div className="relative font-medium">Home</div>
               <div className="relative font-medium">About</div>
               <div className="relative font-medium">Services</div>
@@ -46,7 +46,7 @@ const AboutUsPage = () => {
               alt=""
               src="/rectangle-12.svg"
             />
-            <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-urbanist text-white text-left z-[1]">
+            <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-poppins text-white text-left z-[1]">
               Get in Touch
             </b>
           </button>
@@ -367,7 +367,7 @@ const AboutUsPage = () => {
                   Travlog
                 </div>
               </div>
-              <i className="self-stretch h-[11.56rem] relative text-[1.44rem] leading-[160%] inline-block font-thin font-urbanist text-grey-scale-black-50 mq450:text-[1.13rem] mq450:leading-[1.81rem]">
+              <i className="self-stretch h-[11.56rem] relative text-[1.44rem] leading-[160%] inline-block font-thin font-poppins text-grey-scale-black-50 mq450:text-[1.13rem] mq450:leading-[1.81rem]">
                 <p className="m-0">
                   Contrary to popular belief, Lorem Ipsum is not simply random
                   text. It has roots
@@ -399,7 +399,7 @@ const AboutUsPage = () => {
           </div>
           <div className="w-[42.31rem] flex flex-row items-start justify-between min-w-[42.31rem] gap-[1.25rem] max-w-full text-[1.13rem] text-grey-scale-black-75 font-body mq900:flex-wrap mq1275:min-w-full mq1600:flex-1">
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Company
               </b>
               <div className="relative leading-[160%]">About</div>
@@ -407,7 +407,7 @@ const AboutUsPage = () => {
               <div className="relative leading-[160%]">Mobile</div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Contact
               </b>
               <div className="relative leading-[160%]">Why Travlog?</div>
@@ -416,7 +416,7 @@ const AboutUsPage = () => {
               <div className="relative leading-[160%]">Blog</div>
             </div>
             <div className="flex flex-col items-start justify-start gap-[2rem]">
-              <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+              <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                 Meet Us
               </b>
               <div className="relative leading-[160%] whitespace-nowrap">

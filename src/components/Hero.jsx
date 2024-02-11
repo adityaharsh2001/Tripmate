@@ -3,7 +3,7 @@ import Services from "./services";
 
 const Hero = memo(() => {
     return (<div
-        className="w-full h-[calc(100vh-10px)] md:flex-row flex-col text-center md:text-left text-[4.31rem] py-10 text-secondary font-urbanist md:px-20 px-4 max-w-[100vw]
+        className="w-full items-center h-[calc(100vh-10px)] md:flex-row flex-col text-center md:text-left text-[4.31rem] py-10 text-secondary font-poppins md:px-20 px-4 max-w-[100vw]
              flex justify-between">
         <div className="flex w-full max-h-full flex-col items-start justify-start">
             <div
@@ -13,7 +13,7 @@ const Hero = memo(() => {
                     <button
                         className="cursor-pointer [border:none] py-[1rem] px-[2rem] bg-white rounded-81xl
                         shadow-[0px_856px_240px_rgba(0,_0,_0,_0),_0px_548px_219px_rgba(0,_0,_0,_0.01),_0px_308px_185px_rgba(0,_0,_0,_0.04),_0px_137px_137px_rgba(0,_0,_0,_0.06),_0px_34px_75px_rgba(0,_0,_0,_0.07),_0px_0px_0px_rgba(0,_0,_0,_0.07)] flex flex-row items-center justify-start gap-[1rem] hover:bg-gainsboro">
-                        <b className="relative text-[0.88rem] leading-[120%] font-urbanist text-secondary text-left">
+                        <b className="relative text-[0.88rem] leading-[120%] font-poppins text-secondary text-left">
                             Explore
                         </b>
                         <img
@@ -40,7 +40,7 @@ const Hero = memo(() => {
                     <div className="flex flex-row items-start justify-start gap-[1rem]">
                         <button
                             className="cursor-pointer [border:none] py-[1rem] pr-[1.81rem] pl-[2rem] bg-primary rounded-81xl shadow-[0px_126px_35px_rgba(0,_0,_0,_0),_0px_81px_32px_rgba(0,_0,_0,_0.01),_0px_45px_27px_rgba(0,_0,_0,_0.05),_0px_20px_20px_rgba(0,_0,_0,_0.09),_0px_5px_11px_rgba(0,_0,_0,_0.1),_0px_0px_0px_rgba(0,_0,_0,_0.1)] flex flex-row items-start justify-start whitespace-nowrap hover:bg-mediumpurple">
-                            <b className="relative text-[0.88rem] leading-[120%] font-urbanist text-light text-left">
+                            <b className="relative text-[0.88rem] leading-[120%] font-poppins text-light text-left">
                                 Get Started
                             </b>
                         </button>
@@ -51,7 +51,7 @@ const Hero = memo(() => {
                                 alt=""
                                 src="/playcircle5-1.svg"
                             />
-                            <b className="relative text-[0.88rem] leading-[120%] font-urbanist text-dark text-left">{`Showcase`}</b>
+                            <b className="relative text-[0.88rem] leading-[120%] font-poppins text-dark text-left">{`Showcase`}</b>
                         </button>
                     </div>
                 </div>

@@ -41,7 +41,7 @@ for (let i = 0; i < 4; i++) {
 const Services = () => {
     return (
         <div
-            className="self-stretch h-screen flex flex-col md:flex-row items-center justify-start md:justify-end text-[1.44rem]">
+            className="self-stretch md:h-screen mt-10 flex flex-col md:flex-row items-center justify-start md:justify-end text-[1.44rem]">
             <div
                 className="md:pl-20 p-10 flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
                 <b className="w-[9.94rem] relative tracking-[0.2em] leading-[120%] uppercase inline-block pr-[1.25rem]">
@@ -58,7 +58,20 @@ const Services = () => {
                     delay: 2500,
                     disableOnInteraction: false,
                 }}
-                slidesPerView={3}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 50,
+                    },
+                }}
                 spaceBetween={30}
                 modules={[Autoplay, Virtual]}
                 className={"md:w-full w-[1200px] p-10 right-0 md:max-w-[calc(100%-20rem)] md:p-0 flex flex-row items-center justify-start relative md:right-[-10rem]"}

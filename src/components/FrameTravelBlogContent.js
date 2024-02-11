@@ -2,7 +2,7 @@ import { memo } from "react";
 
 const FrameTravelBlogContent = memo(() => {
   return (
-    <div className="self-stretch flex flex-col items-center justify-start py-[22.44rem] pr-[1.25rem] pl-[3.69rem] box-border relative gap-[4rem] max-w-full shrink-0 text-center text-[1.44rem] text-secondary font-urbanist mq750:gap-[4rem] mq750:pt-[9.44rem] mq750:pb-[9.44rem] mq750:box-border mq1275:gap-[4rem] mq1275:pl-[1.81rem] mq1275:pt-[14.56rem] mq1275:pb-[14.56rem] mq1275:box-border">
+    <div className="self-stretch flex flex-col items-center justify-start py-[22.44rem] pr-[1.25rem] pl-[3.69rem] box-border relative gap-[4rem] max-w-full shrink-0 text-center text-[1.44rem] text-secondary font-poppins mq750:gap-[4rem] mq750:pt-[9.44rem] mq750:pb-[9.44rem] mq750:box-border mq1275:gap-[4rem] mq1275:pl-[1.81rem] mq1275:pt-[14.56rem] mq1275:pb-[14.56rem] mq1275:box-border">
       <img
         className="w-[164.3rem] h-[calc(100%_-_0.1px)] absolute my-0 mx-[!important] top-[0rem] bottom-[0.01rem] left-[-50.06rem] max-h-full overflow-hidden object-contain"
         alt=""

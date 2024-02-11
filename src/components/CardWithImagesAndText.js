@@ -29,7 +29,7 @@ const CardWithImagesAndText = memo(
     }, [propWidth1]);
 
     return (
-      <div className="flex-1 flex flex-col items-start justify-start gap-[1.75rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-urbanist">
+      <div className="flex-1 flex flex-col items-start justify-start gap-[1.75rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-poppins">
         <div
           className="self-stretch h-[30.69rem] relative rounded-13xl overflow-hidden shrink-0 bg-[url('/public/image-10@2x.png')] bg-cover bg-no-repeat bg-[top]"
           style={nestedFramesWithImagesStyle}

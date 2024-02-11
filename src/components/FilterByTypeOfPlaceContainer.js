@@ -3,7 +3,7 @@ import { memo } from "react";
 const FilterByTypeOfPlaceContainer = memo(
   ({ filterByTypeOfPlace, allTypes }) => {
     return (
-      <div className="flex-1 flex flex-col items-start justify-start gap-[1rem] min-w-[17.94rem] max-w-full text-center text-[1.5rem] text-black font-urbanist">
+      <div className="flex-1 flex flex-col items-start justify-start gap-[1rem] min-w-[17.94rem] max-w-full text-center text-[1.5rem] text-black font-poppins">
         <div className="relative font-medium mq450:text-[1.19rem]">
           {filterByTypeOfPlace}
         </div>

@@ -1,6 +1,6 @@
 const MainFrame1 = () => {
   return (
-    <footer className="w-full relative flex flex-row items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] tracking-[normal] text-left text-[1.44rem] text-grey-scale-black-50 font-urbanist mq1125:gap-[9.56rem] mq1125:pl-[5.13rem] mq1125:pr-[5.13rem] mq1125:box-border mq450:gap-[9.56rem] mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq1350:flex-wrap">
+    <footer className="w-full relative flex flex-row items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] tracking-[normal] text-left text-[1.44rem] text-grey-scale-black-50 font-poppins mq1125:gap-[9.56rem] mq1125:pl-[5.13rem] mq1125:pr-[5.13rem] mq1125:box-border mq450:gap-[9.56rem] mq450:pl-[1.25rem] mq450:pr-[1.25rem] mq450:box-border mq1350:flex-wrap">
       <div className="h-[20.88rem] w-[21.75rem] flex flex-col items-start justify-start gap-[4rem] min-w-[21.75rem] max-w-full mq800:min-w-full mq450:gap-[4rem] mq1350:flex-1">
         <div className="self-stretch flex flex-col items-start justify-start gap-[2rem] min-h-[16.5rem] shrink-0 mq450:gap-[2rem]">
           <button className="cursor-pointer [border:none] p-0 bg-[transparent] flex flex-row items-center justify-start">
@@ -43,7 +43,7 @@ const MainFrame1 = () => {
       </div>
       <div className="flex-1 flex flex-row items-start justify-between py-[1.25rem] px-[0rem] box-border min-w-[36.44rem] gap-[1.25rem] max-w-full text-[1.13rem] text-grey-scale-black-75 font-body mq800:flex-wrap mq1125:min-w-full">
         <div className="flex flex-col items-start justify-start gap-[2rem]">
-          <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+          <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
             Company
           </b>
           <div className="relative leading-[160%]">About</div>
@@ -51,7 +51,7 @@ const MainFrame1 = () => {
           <div className="relative leading-[160%]">Mobile</div>
         </div>
         <div className="flex flex-col items-start justify-start gap-[2rem]">
-          <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+          <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
             Contact
           </b>
           <div className="relative leading-[160%]">Why Travlog?</div>
@@ -60,7 +60,7 @@ const MainFrame1 = () => {
           <div className="relative leading-[160%]">Blog</div>
         </div>
         <div className="flex flex-col items-start justify-start gap-[2rem]">
-          <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+          <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
             Meet Us
           </b>
           <div className="relative leading-[160%] whitespace-nowrap">

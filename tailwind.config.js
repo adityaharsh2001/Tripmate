@@ -61,7 +61,7 @@ module.exports = {
             spacing: {},
             fontFamily: {
                 body: "Inter",
-                urbanist: "Urbanist",
+                poppins: "poppins",
                 poppins: "Poppins",
                 volkhov: "Volkhov",
                 yesteryear: "Yesteryear",

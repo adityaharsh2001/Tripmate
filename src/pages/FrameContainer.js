@@ -6,7 +6,7 @@ import FooterCardForm from "../components/FooterCardForm";
 
 const FrameContainer = () => {
   return (
-    <div className="w-full relative bg-white overflow-hidden flex flex-col items-center justify-start pt-[0rem] px-[0rem] pb-[4.94rem] box-border gap-[8.75rem] tracking-[normal] text-left text-[2.63rem] text-white font-urbanist mq450:gap-[8.75rem] mq1125:gap-[8.75rem]">
+    <div className="w-full relative bg-white overflow-hidden flex flex-col items-center justify-start pt-[0rem] px-[0rem] pb-[4.94rem] box-border gap-[8.75rem] tracking-[normal] text-left text-[2.63rem] text-white font-poppins mq450:gap-[8.75rem] mq1125:gap-[8.75rem]">
       <div className="self-stretch h-[69.81rem] flex flex-col items-center justify-start py-[4.81rem] pr-[0rem] pl-[0.06rem] box-border relative max-w-full mq450:h-auto">
         <div className="w-full my-0 mx-[!important] absolute h-full top-[0rem] right-[0rem] bottom-[0rem] left-[0rem] grid flex-row items-start justify-start max-w-full grid-cols-[repeat(3,_minmax(432px,_1fr))] mq800:grid-cols-[minmax(432px,_1fr)] mq1350:[grid-row-gap:20px] mq1350:justify-center mq1350:grid-cols-[repeat(2,_minmax(432px,_749px))]">
           <CardContainer
@@ -54,7 +54,7 @@ const FrameContainer = () => {
               src="/img-20220906-104553-589--2-removebgpreview70x70-1@2x.png"
             />
           </div>
-          <nav className="m-0 w-[30rem] flex flex-row items-start justify-start py-[1.25rem] pr-[0.06rem] pl-[0rem] box-border gap-[3.25rem] max-w-full text-left text-[1.06rem] text-white font-urbanist mq800:hidden mq800:gap-[3.25rem]">
+          <nav className="m-0 w-[30rem] flex flex-row items-start justify-start py-[1.25rem] pr-[0.06rem] pl-[0rem] box-border gap-[3.25rem] max-w-full text-left text-[1.06rem] text-white font-poppins mq800:hidden mq800:gap-[3.25rem]">
             <div className="relative font-medium">Home</div>
             <div className="relative font-medium">About</div>
             <div className="relative font-medium">Services</div>
@@ -68,14 +68,14 @@ const FrameContainer = () => {
               alt=""
               src="/rectangle-12.svg"
             />
-            <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-urbanist text-white text-left z-[1]">
+            <b className="absolute my-0 mx-[!important] top-[1.13rem] left-[1.63rem] text-[1.06rem] inline-block font-poppins text-white text-left z-[1]">
               Get in Touch
             </b>
           </button>
         </div>
       </div>
-      <main className="w-[97.5rem] flex flex-col items-center justify-start pt-[0rem] px-[1.25rem] pb-[9.06rem] box-border gap-[4.13rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-urbanist mq450:gap-[4.13rem] mq800:gap-[4.13rem] mq800:pb-[1.63rem] mq800:box-border mq1350:pb-[2.5rem] mq1350:box-border">
-        <section className="self-stretch flex flex-row flex-wrap items-start justify-start max-w-full text-left text-[3rem] text-black font-urbanist">
+      <main className="w-[97.5rem] flex flex-col items-center justify-start pt-[0rem] px-[1.25rem] pb-[9.06rem] box-border gap-[4.13rem] max-w-full text-left text-[1.5rem] text-dimgray-200 font-poppins mq450:gap-[4.13rem] mq800:gap-[4.13rem] mq800:pb-[1.63rem] mq800:box-border mq1350:pb-[2.5rem] mq1350:box-border">
+        <section className="self-stretch flex flex-row flex-wrap items-start justify-start max-w-full text-left text-[3rem] text-black font-poppins">
           <div className="flex-1 flex flex-row items-center justify-between gap-[1.25rem] max-w-full mq800:flex-wrap">
             <div className="flex flex-col items-start justify-start gap-[1.25rem] max-w-full">
               <h1 className="m-0 relative text-inherit font-bold font-inherit inline-block max-w-full mq450:text-[1.81rem] mq800:text-[2.38rem]">
@@ -86,7 +86,7 @@ const FrameContainer = () => {
               </div>
             </div>
             <button className="cursor-pointer p-[1.25rem] bg-[transparent] w-[14.44rem] rounded-[40px] box-border flex flex-row items-center justify-center whitespace-nowrap border-[1px] border-solid border-royalblue-200 hover:bg-royalblue-300 hover:box-border hover:border-[1px] hover:border-solid hover:border-royalblue-100">
-              <div className="h-[1.81rem] relative text-[1.5rem] font-semibold font-urbanist text-royalblue-200 text-left inline-block">
+              <div className="h-[1.81rem] relative text-[1.5rem] font-semibold font-poppins text-royalblue-200 text-left inline-block">
                 View All Stories
               </div>
             </button>

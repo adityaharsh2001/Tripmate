@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,500;0,600;0,700;0,800;1,100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=poppins:ital,wght@0,500;0,600;0,700;0,800;1,100&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
@@ -42,7 +42,8 @@ body {
 .App {
     background-image: linear-gradient(to right bottom, #fecaba, #ffd2d0, #ffdce4, #fde7f2, #fbf2fb, #fcf3fc, #fef5fc, #fff6fd, #ffeef3, #ffe8e2, #ffe4ce, #f2e5be);
     background-size: cover;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 *,
 ::before,
@@ -50,27 +51,15 @@ body {
     border-width: 0;
 }
 
-.swiper-container {
-    list-style: none;
-
+.swiper {
+    width: 100%;
 }
 
-.pagination {
-    bottom: 0;
-    padding-bottom: 4px;
-}
-
-.swiper-wrapper {
+.swiper-slide {
+    text-align: center;
+    /* Center slide text vertically */
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-}
-
-.slide {
-    /*text-align: center;*/
-    /*height: 320px;*/
-    /*line-height: 320px;
-    */
-    /*background: #364d79;*/
-    overflow: hidden;
 }

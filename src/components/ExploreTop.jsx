@@ -11,10 +11,32 @@ import "swiper/swiper-bundle.css";
 import clsx from "clsx";
 
 const ExploreTop = memo(() => {
+    const slides = [];
+    for (let i = 0; i < 5; i++) {
+        slides.push(
+            <SwiperSlide>
+                <div
+                    className="w-72 text-left relative rounded-xl duration-500 ">
+                    <img
+                        src="/image-3@2x.png"
+                        alt="Product" className=" shadow-m hover:shadow-xl h-72 w-72 object-cover rounded-xl"/>
+                    <div className="flex items-center absolute top-0 left-0 bg-white rounded-br-xl p-4">
+                        <span className="text-lg font-semibold text-black cursor-auto">₹149/person</span>
+                    </div>
+                    <div className="w-72 flex flex-col gap-2">
+                        <div className="text-gray-200 mr-3 text-[12px] mt-2">Magnificent Shimla Manali Dharamshala
+                            Dalhousie Tour
+                        </div>
+                        <div className="text-lg font-bold text-black truncate block capitalize">Himachal Pradesh</div>
+                    </div>
+                </div>
+            </SwiperSlide>
+        );
+    }
     return (
-        <div className={"h-screen"}>
+        <div className={"md:min-h-screen"}>
             <div
-                className="self-stretch flex flex-row items-start justify-between py-[4rem] px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-urbanist">
+                className="self-stretch flex flex-row items-start justify-between py-[4rem] px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins">
                 <div className="flex flex-col items-start justify-start gap-[1rem] max-w-full">
                     <b className="relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                         Top Destination
@@ -42,23 +64,18 @@ const ExploreTop = memo(() => {
                 </div>
             </div>
             <div
-                className="w-full px-20 flex flex-row items-center justify-center box-border max-w-full text-left text-[0.98rem] text-dimgray-200 font-urbanist">
+                className="w-full px-20 flex flex-row items-center justify-center box-border max-w-full text-left text-[0.98rem] text-dimgray-200 font-poppins">
                 <div className="flex-1 flex flex-row items-start justify-start relative max-w-full">
-                    <img
-                        className="h-[6.66rem] w-[6.69rem] absolute my-0 mx-[!important] top-[-3.12rem] right-[10.44rem] overflow-hidden shrink-0"
-                        alt=""
-                        src="/objects-1.svg"
-                    />
                     <Swiper
-                        centeredSlides={true}
-                        spaceBetween={30}
+                        slidesPerView={1}
+                        spaceBetween={10}
                         breakpoints={{
                             640: {
-                                slidesPerView: 1,
+                                slidesPerView: 2,
                                 spaceBetween: 20,
                             },
                             768: {
-                                slidesPerView: 2,
+                                slidesPerView: 3,
                                 spaceBetween: 40,
                             },
                             1024: {
@@ -66,174 +83,21 @@ const ExploreTop = memo(() => {
                                 spaceBetween: 50,
                             },
                         }}
-                        hashNavigation={{
-                            watchState: true,
-                        }}
-                        navigation={{
-                            prevEl: '.prev',
-                            nextEl: '.next',
-                        }}
-                        loop={true}
-                        modules={[Navigation, HashNavigation, Autoplay, Virtual]}
+                        navigation = {
+                            {
+                                nextEl: ".next",
+                                prevEl: ".prev",
+                            }
+                        }
+                        className={clsx("w-full", "max-w-full")}
+                        modules={[Navigation, Pagination, HashNavigation, Autoplay, Virtual]}
                     >
-                        <SwiperSlide>
-                            <div
-                                className="md:h-[24.25rem] md:w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">
-                                <img
-                                    className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"
-                                    loading="eager"
-                                    alt=""
-                                    src="/frame-17@2x.png"
-                                />
-                                <div
-                                    className="self-stretch h-[4.69rem] flex flex-col items-start justify-start gap-[0.57rem]">
-                                    <div className="self-stretch flex-1 relative font-medium">
-                                        Magnificent Shimla Manali Dharamshala Dalhousie Tour
-                                    </div>
-                                    <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">
-                                        Himachal Pradesh
-                                    </b>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div
-                                className="md:h-[24.25rem] w-[10rem] md:w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">
-                                <img
-                                    className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"
-                                    loading="eager"
-                                    alt=""
-                                    src="/frame-17@2x.png"
-                                />
-                                <div
-                                    className="self-stretch h-[4.69rem] flex flex-col items-start justify-start gap-[0.57rem]">
-                                    <div className="self-stretch flex-1 relative font-medium">
-                                        Magnificent Shimla Manali Dharamshala Dalhousie Tour
-                                    </div>
-                                    <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">
-                                        Himachal Pradesh
-                                    </b>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div
-                                className="md:h-[24.25rem] w-[10rem] md:w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">
-                                <img
-                                    className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"
-                                    loading="eager"
-                                    alt=""
-                                    src="/frame-17@2x.png"
-                                />
-                                <div
-                                    className="self-stretch h-[4.69rem] flex flex-col items-start justify-start gap-[0.57rem]">
-                                    <div className="self-stretch flex-1 relative font-medium">
-                                        Magnificent Shimla Manali Dharamshala Dalhousie Tour
-                                    </div>
-                                    <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">
-                                        Himachal Pradesh
-                                    </b>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide>
-                            <div
-                                className="md:h-[24.25rem] w-[10rem] md:w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">
-                                <img
-                                    className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"
-                                    loading="eager"
-                                    alt=""
-                                    src="/frame-17@2x.png"
-                                />
-                                <div
-                                    className="self-stretch h-[4.69rem] flex flex-col items-start justify-start gap-[0.57rem]">
-                                    <div className="self-stretch flex-1 relative font-medium">
-                                        Magnificent Shimla Manali Dharamshala Dalhousie Tour
-                                    </div>
-                                    <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">
-                                        Himachal Pradesh
-                                    </b>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-
+                        {slides}
                     </Swiper>
-                    {/*<Swiper*/}
-                    {/*    spaceBetween={10}*/}
-                    {/*    slidesPerView={3}*/}
-                    {/*    navigation*/}
-                    {/*    // pagination={{clickable: true}}*/}
-                    {/*    loop={true}*/}
-                    {/*    autoplay={{*/}
-                    {/*        delay: 2500,*/}
-                    {/*        disableOnInteraction: false,*/}
-                    {/*    }}*/}
-                    {/*    virtual*/}
-                    {/*    className={clsx(*/}
-                    {/*        "w-full",*/}
-                    {/*    )}*/}
-                    {/*>*/}
-                    {/*    <SwiperSlide>*/}
-                    {/*        <div*/}
-                    {/*            className="h-[24.25rem] w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">*/}
-                    {/*            <img*/}
-                    {/*                className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"*/}
-                    {/*                loading="eager"*/}
-                    {/*                alt=""*/}
-                    {/*                src="/frame-17@2x.png"*/}
-                    {/*            />*/}
-                    {/*            <div*/}
-                    {/*                className="self-stretch h-[4.69rem] flex flex-col items-start justify-start gap-[0.57rem]">*/}
-                    {/*                <div className="self-stretch flex-1 relative font-medium">*/}
-                    {/*                    Magnificent Shimla Manali Dharamshala Dalhousie Tour*/}
-                    {/*                </div>*/}
-                    {/*                <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">*/}
-                    {/*                    Himachal Pradesh*/}
-                    {/*                </b>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    </SwiperSlide>*/}
-                    {/*    <SwiperSlide>*/}
-                    {/*        <div*/}
-                    {/*            className="h-[23.06rem] w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">*/}
-                    {/*            <img*/}
-                    {/*                className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"*/}
-                    {/*                alt=""*/}
-                    {/*                src="/frame-17-1@2x.png"*/}
-                    {/*            />*/}
-                    {/*            <div className="self-stretch flex flex-col items-start justify-start gap-[0.57rem]">*/}
-                    {/*                <a*/}
-                    {/*                    className="self-stretch relative [text-decoration:underline] font-medium text-[inherit]"*/}
-                    {/*                    href="https://www.sbgtourism.com/tour/mussoorie-package-from-delhi"*/}
-                    {/*                    target="_blank"*/}
-                    {/*                >*/}
-                    {/*                    Mussoorie Tour Package*/}
-                    {/*                </a>*/}
-                    {/*                <b className="self-stretch h-[1.75rem] relative text-[1.47rem] inline-block text-black mq450:text-[1.19rem]">{`Uttarakhand `}</b>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    </SwiperSlide>*/}
-                    {/*    <SwiperSlide>*/}
-                    {/*        <div*/}
-                    {/*            className="h-[23.06rem] w-[19.95rem] flex flex-col items-start justify-start gap-[1.14rem]">*/}
-                    {/*            <img*/}
-                    {/*                className="self-stretch flex-1 relative rounded-[20.85px] max-w-full overflow-hidden max-h-full object-cover"*/}
-                    {/*                alt=""*/}
-                    {/*                src="/frame-17-2@2x.png"*/}
-                    {/*            />*/}
-                    {/*            <div className="self-stretch flex flex-col items-start justify-start gap-[0.57rem]">*/}
-                    {/*                <div className="self-stretch relative font-medium">Jaipur</div>*/}
-                    {/*                <b className="self-stretch relative text-[1.47rem] text-black mq450:text-[1.19rem]">*/}
-                    {/*                    Rajasthan*/}
-                    {/*                </b>*/}
-                    {/*            </div>*/}
-                    {/*        </div>*/}
-                    {/*    </SwiperSlide>*/}
-                    {/*</Swiper>*/}
                 </div>
             </div>
         </div>
-    );
+);
 });
 
 export default ExploreTop;

@@ -22,7 +22,7 @@ const FooterCardForm = memo(
 
     return (
       <footer
-        className="self-stretch flex flex-row flex-wrap items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] max-w-full shrink-0 text-left text-[1.44rem] text-grey-scale-black-50 font-urbanist mq1050:gap-[9.56rem] mq1050:pl-[5.13rem] mq1050:pr-[5.13rem] mq1050:box-border mq750:gap-[9.56rem] mq750:pl-[2.56rem] mq750:pr-[2.56rem] mq750:box-border"
+        className="self-stretch flex flex-row flex-wrap items-center justify-center py-[0rem] px-[10.31rem] box-border gap-[9.56rem] max-w-full shrink-0 text-left text-[1.44rem] text-grey-scale-black-50 font-poppins mq1050:gap-[9.56rem] mq1050:pl-[5.13rem] mq1050:pr-[5.13rem] mq1050:box-border mq750:gap-[9.56rem] mq750:pl-[2.56rem] mq750:pr-[2.56rem] mq750:box-border"
         style={frameFooterStyle}
       >
         <div
@@ -74,7 +74,7 @@ const FooterCardForm = memo(
           style={infoCircleRectangleStyle}
         >
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Company
             </b>
             <div className="relative leading-[160%]">About</div>
@@ -82,7 +82,7 @@ const FooterCardForm = memo(
             <div className="relative leading-[160%]">Mobile</div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Contact
             </b>
             <div className="relative leading-[160%]">Why Travlog?</div>
@@ -91,7 +91,7 @@ const FooterCardForm = memo(
             <div className="relative leading-[160%]">Blog</div>
           </div>
           <div className="flex flex-col items-start justify-start gap-[2rem]">
-            <b className="relative text-[1.44rem] leading-[120%] font-urbanist text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+            <b className="relative text-[1.44rem] leading-[120%] font-poppins text-grey-scale-black mq450:text-[1.13rem] mq450:leading-[1.38rem]">
               Meet Us
             </b>
             <div className="relative leading-[160%] whitespace-nowrap">

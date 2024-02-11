@@ -9,7 +9,7 @@ const FormFooterManali = memo(({ propPadding }) => {
 
   return (
     <div
-      className="w-[95rem] shrink-0 flex flex-col items-start justify-start pt-[158.44rem] px-[0rem] pb-[0rem] box-border ml-[-95rem] text-left text-[1.5rem] text-dimgray-200 font-urbanist"
+      className="w-[95rem] shrink-0 flex flex-col items-start justify-start pt-[158.44rem] px-[0rem] pb-[0rem] box-border ml-[-95rem] text-left text-[1.5rem] text-dimgray-200 font-poppins"
       style={frameFooterManali1Style}
     >
       <div className="self-stretch flex flex-row items-start justify-start gap-[2rem] max-w-full">
