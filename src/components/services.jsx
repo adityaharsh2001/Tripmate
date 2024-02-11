@@ -1,11 +1,8 @@
 import React from 'react'
 import {Swiper, SwiperSlide,} from "swiper/react";
-import SwiperCore, {
-    Navigation,
-    Pagination,
+import {
     Autoplay,
     Virtual,
-    EffectCoverflow
 } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import clsx from "clsx";
