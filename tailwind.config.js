@@ -10,8 +10,8 @@ module.exports = {
                 "grey-scale-black": "#191825",
                 "grey-scale-black-50": "rgba(25, 24, 37, 0.5)",
                 "grey-scale-black-5": "rgba(25, 24, 37, 0.05)",
-                secondary: "#f85e9f",
-                primary: "#5d50c6",
+                secondary: "#0077b6",
+                primary: "#00B4D8",
                 orange: "#ff5722",
                 "grey-scale-black-10": "rgba(25, 24, 37, 0.1)",
                 royalblue: {

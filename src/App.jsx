@@ -6,13 +6,13 @@ import {
     useLocation,
 } from "react-router-dom";
 import Homepage from "./pages/Homepage";
-import PackageDetailPageTourPla from "./pages/PackageDetailPageTourPla";
-import PackageDetailPageTourGal from "./pages/PackageDetailPageTourGal";
-import PackageDetailPageTourInf from "./pages/PackageDetailPageTourInf";
+
+import PackageDetails from "./pages/PackageDetails";
 import AboutUsPage from "./pages/AboutUsPage";
-import MainFrame from "./pages/MainFrame";
-import MainFrame1 from "./pages/MainFrame1";
-import FrameContainer from "./pages/FrameContainer";
+import Explore from "./pages/Explore";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Contact from "./pages/Contact";
 
 function App() {
     const action = useNavigationType();
@@ -79,26 +79,21 @@ function App() {
     }, [pathname]);
 
     return (<div className={"App"}>
-
+            <Header/>
+            <a href="https://api.whatsapp.com/send?phone=393661273612." className="float bounce" target="_blank">
+                <i className="fa fa-whatsapp my-float"></i>
+            </a>
             <Routes>
                 <Route path="/" element={<Homepage/>}/>
                 <Route
-                    path="/package-detail-page-tour-plan"
-                    element={<PackageDetailPageTourPla/>}
+                    path="/package-detail"
+                    element={<PackageDetails/>}
                 />
-                <Route
-                    path="/package-detail-page-tour-gallery"
-                    element={<PackageDetailPageTourGal/>}
-                />
-                <Route
-                    path="/package-detail-page-tour-information"
-                    element={<PackageDetailPageTourInf/>}
-                />
-                <Route path="/about-us-page" element={<AboutUsPage/>}/>
-                <Route path="/main-frame" element={<MainFrame/>}/>
-                <Route path="/main-frame1" element={<MainFrame1/>}/>
-                <Route path="/frame-container" element={<FrameContainer/>}/>
+                <Route path="/about-us" element={<AboutUsPage/>}/>
+                <Route path="/explore" element={<Explore/>}/>
+                <Route path="/contact" element={<Contact/>}/>
             </Routes>
+            <Footer/>
         </div>
     );
 }

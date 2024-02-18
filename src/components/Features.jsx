@@ -5,28 +5,28 @@ const Features = memo(() => {
     return (<div className={"p-10 md:p-20 h-fit flex md:flex-row items-center flex-col mt-[40px] md:h-screen"}>
         <div className="flex flex-col h-fit items-center justify-between box-border  text-secondary font-poppins">
             <div
-                className="self-stretch flex flex-col items-center justify-between gap-[2rem] max-w-full mq750:gap-[4rem] mq450:gap-[4rem]">
-                <div className="self-stretch flex flex-col items-center justify-center gap-[2rem] mq750:gap-[2rem]">
-                    <div className="self-stretch flex flex-col items-center justify-center gap-[1rem]">
-                        <b className="self-stretch relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+                className="flex flex-col items-center justify-between gap-[2rem] max-w-full mq750:gap-[4rem] mq450:gap-[4rem]">
+                <div className=" flex flex-col items-center justify-center gap-[2rem] mq750:gap-[2rem]">
+                    <div className=" flex flex-col items-center justify-center gap-[1rem]">
+                        <b className=" relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                             Key features
                         </b>
-                        <h1 className="m-0 self-stretch relative text-[2.75rem] leading-[120%] font-bold font-inherit text-grey-scale-black">
+                        <h1 className="relative text-[2.75rem] leading-[120%] font-bold font-inherit text-grey-scale-black">
                             We offer best services
                         </h1>
                     </div>
                     <div className="text-[1.13rem] leading-[160%] font-body text-grey-scale-black-50 inline-block">
-                        <p className="m-0">
+                        <p className="">
                             Contrary to popular belief, Lorem Ipsum is not simply random
                             text. It has roots in a piece of classical Latin literature
                         </p>
-                        <p className="m-0">from 45 BC.</p>
+                        <p className="">from 45 BC.</p>
                     </div>
                 </div>
                 <div
-                    className="self-stretch md:w-[590px] text-center md:text-left w-[400px] flex flex-col gap-3 items-center justify-center max-w-full text-grey-scale-black">
+                    className="md:w-[590px] text-center md:text-left w-full flex flex-col gap-3 items-center justify-center max-w-full text-grey-scale-black">
                     <div
-                        className="self-stretch rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
+                        className=" rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
                         <div
                             className="rounded-13xl bg-orange flex flex-row items-center justify-center p-[1.63rem]">
                             <div className="p-2 relative rounded-4xl bg-orange hidden"/>
@@ -49,7 +49,7 @@ const Features = memo(() => {
                         </div>
                     </div>
                     <div
-                        className="self-stretch rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
+                        className=" rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
                         <div
                             className="rounded-13xl bg-yellow flex flex-row items-center justify-center p-[1.63rem]">
                             <div className="p-2 relative rounded-4xl bg-orange hidden"/>
@@ -72,7 +72,7 @@ const Features = memo(() => {
                         </div>
                     </div>
                     <div
-                        className="self-stretch rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
+                        className=" rounded-13xl text-center md:text-left bg-white flex flex-col md:flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full">
                         <div
                             className="rounded-13xl bg-[#f85e9f] flex flex-row items-center justify-center p-[1.63rem]">
                             <div className="p-2 relative rounded-4xl bg-orange hidden"/>
