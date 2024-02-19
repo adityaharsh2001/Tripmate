@@ -1,4 +1,5 @@
 import SearchComponent from "../components/Search";
+import PackageCard from "../components/PackageCard";
 
 const Explore = () => {
     return (
