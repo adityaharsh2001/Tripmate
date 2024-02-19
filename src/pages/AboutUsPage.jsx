@@ -5,7 +5,7 @@ import AboutsUsTestimonials from "../components/AboutsUsTestimonials";
 const AboutUsPage = () => {
     return (<div className="flex flex-col pb-12 text-secondary justify-start items-start !font-poppins">
             <div
-                className="flex overflow-hidden relative flex-col justify-center px-0.5 w-full max-h-[500px] text-white max-md:max-w-full">
+                className="flex overflow-hidden relative flex-col justify-center md:h-[50vh] px-0.5 w-full max-h-[500px] text-white max-md:max-w-full">
                 <img
                     alt={"Explore top destination"}
                     loading="lazy"
@@ -15,7 +15,7 @@ const AboutUsPage = () => {
                 <div
                     className="flex relative justify-center font-[Yesteryear] items-center w-full h-full bg-black bg-opacity-30 max-md:px-5 max-md:max-w-full">
                     <div
-                        className="text-[2.75rem] pt-56 mx-auto mt-7 mb-44 w-full font-extrabold text-center max-md:pt-10 max-md:mb-10 max-md:max-w-full max-md:text-4xl">
+                        className="text-[2.75rem] max-md:text-[1.5rem] max-md:leading-[120%] max-md:font-bold max-md:text-center max-md:mt-10">
                         About Us
                     </div>
                 </div>
@@ -24,7 +24,7 @@ const AboutUsPage = () => {
                 <div className="m-auto w-full max-md:my-10 max-md:max-w-full">
                     <div className="flex gap-5 max-md:flex-col max-md:gap-0 max-md:">
                         <div className="flex flex-col max-md:ml-0 max-md:w-full">
-                            <div className="flex flex-col py-5 mt-36 max-md:mt-10 max-md:max-w-full">
+                            <div className="flex flex-col py-5 max-md:mt-10 max-md:max-w-full">
                                 <div
                                     className="flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
                                     <b className="w-[9.94rem] relative tracking-[0.2em] leading-[120%] uppercase inline-block pr-[1.25rem]">

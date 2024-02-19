@@ -29,7 +29,7 @@ const people = [
 
 export default function Team() {
     return (
-        <div className="w-full px-10 md:px-20 text-secondary text-[1.44rem]">
+        <div className="w-full px-10 mt-10 md:px-20 text-secondary text-[1.44rem]">
             <div className="mx-auto grid max-w-7xl gap-x-8 xl:grid-cols-3">
                 <div className="flex flex-col py-5 max-md:mt-10 max-md:max-w-full">
                     <div

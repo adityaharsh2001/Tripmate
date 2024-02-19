@@ -1,5 +1,3 @@
-import {memo} from "react";
-
 const PackageCard = ({price, Name, Place}) => {
     return (
         <div

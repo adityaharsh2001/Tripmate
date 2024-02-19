@@ -8,12 +8,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-*,
-::before,
-::after {
-    box-sizing: border-box;
-
+* {
+    margin:0px;
+    padding:0px;
 }
+*, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing: border-box; }
 .float{
     position:fixed;
     width:60px;
@@ -365,3 +364,23 @@ body {
         right: 133.5%;
     }
 }
+
+.clearfix:before, .clearfix:after { display: table; content: ''; }
+.clearfix:after { clear: both; }
+
+input:focus, textarea:focus, keygen:focus, select:focus {
+    outline: none;
+}
+::-moz-placeholder {
+    color: #666;
+    font-weight: 300;
+    opacity: 1;
+}
+
+::-webkit-input-placeholder {
+    color: #666;
+    font-weight: 300;
+}
+
+
+/* Contact Form Styling */
