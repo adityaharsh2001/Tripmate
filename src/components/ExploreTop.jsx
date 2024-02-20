@@ -23,12 +23,12 @@ const ExploreTop = memo(() => {
     return (
         <>
             <div
-                className="self-stretch flex flex-col md:flex-row items-center justify-between py-[4rem] px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins">
+                className="self-stretch flex flex-col md:flex-row items-center justify-between py-4 px-10 md:px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins">
                 <div className="flex-col items-start justify-start gap-[1rem] max-w-full">
                     <b className="relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">
                         Top Destination
                     </b>
-                    <h1 className="m-0 relative text-[2.75rem] font-bold font-inherit text-grey-scale-black">
+                    <h1 className="m-0 relative text-[1.75rem] md:text-[2.75rem] font-bold font-inherit text-grey-scale-black">
                         Explore top destination
                     </h1>
                 </div>
