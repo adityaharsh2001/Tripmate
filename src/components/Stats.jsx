@@ -3,7 +3,7 @@ import StatsBox from "./StatsBox";
 
 const Stats = memo(() => {
     return (
-            <div className="flex-1 w-full p-10 h-fit md:h-screen flex flex-row items-center justify-center gap-[2rem] flex-wrap max-w-full">
+            <div className="flex-1 w-full p-10 h-fit flex flex-row items-center justify-center gap-[2rem] flex-wrap max-w-full">
                 <img
                     className="max-w-[40rem] w-full relative object-cover mq1275:flex-1"
                     loading="eager"

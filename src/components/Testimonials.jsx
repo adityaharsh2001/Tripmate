@@ -34,31 +34,10 @@ const Testimonials = memo(() => {
             </span>
                             </div>
                             <div className="flex gap-4 justify-center self-center mt-8 w-56 max-w-full">
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/82e0ea08427f148d2f095de52796b28ca0769b87beae943d9b4108e11fa2338b?apiKey=541b99f033084413ad47876370bcfa8c&"
-                                    className="flex-1 shrink-0 w-full aspect-square"
-                                />
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/82e0ea08427f148d2f095de52796b28ca0769b87beae943d9b4108e11fa2338b?apiKey=541b99f033084413ad47876370bcfa8c&"
-                                    className="flex-1 shrink-0 w-full aspect-square"
-                                />
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/82e0ea08427f148d2f095de52796b28ca0769b87beae943d9b4108e11fa2338b?apiKey=541b99f033084413ad47876370bcfa8c&"
-                                    className="flex-1 shrink-0 w-full aspect-square"
-                                />
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/82e0ea08427f148d2f095de52796b28ca0769b87beae943d9b4108e11fa2338b?apiKey=541b99f033084413ad47876370bcfa8c&"
-                                    className="flex-1 shrink-0 w-full aspect-square"
-                                />
-                                <img
-                                    loading="lazy"
-                                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/82e0ea08427f148d2f095de52796b28ca0769b87beae943d9b4108e11fa2338b?apiKey=541b99f033084413ad47876370bcfa8c&"
-                                    className="flex-1 shrink-0 w-full aspect-square"
-                                />
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <img width="28" height="28" src="https://img.icons8.com/fluency/48/star--v1.png"
+                                         alt="star--v1"/>
+                                ))}
                             </div>
                             <div
                                 className="mt-8 text-2xl italic font-thin leading-9 text-center text-gray-900 text-opacity-80 max-md:max-w-full">
@@ -74,16 +53,12 @@ const Testimonials = memo(() => {
 
             return (
                 <div
-                    className="flex overflow-hidden md:px-20 w-full px-10 relative min-h-screen top-0 flex-col text-black justify-center">
+                    className="flex overflow-hidden md:px-20 w-full px-10 py-10 relative top-0 flex-col text-black justify-center">
                     <div
                         className="flex relative gap-0 items-center py-1">
                         <button
-                            className="hover:bg-gainsboro cursor-pointer prev p-10 bg-white rounded-full box-border hidden md:flex flex-row items-center justify-center border-[1px] border-solid border-grey-scale-black-10 hover:bg-gray-200">
-                            <img
-                                alt=""
-                                src="/arrowleft-1.svg"
-                            />
-                        </button>
+                            className="hover:bg-gainsboro cursor-pointer prev p-6 bg-white rounded-full box-border flex flex-row items-center justify-center border-[1px] border-solid border-grey-scale-black-10 hover:bg-gray-200">
+                            <img alt="" src="/arrowleft-1.svg"/></button>
                         <Swiper
                             slidesPerView={1}
                             spaceBetween={10}
@@ -114,13 +89,9 @@ const Testimonials = memo(() => {
                             {slides}
                         </Swiper>
                         <button
-                            className="hover:bg-mediumpurple next cursor-pointer [border:none] p-10 bg-primary rounded-81xl shadow-[0px_181px_51px_rgba(0,_0,_0,_0),_0px_116px_46px_rgba(0,_0,_0,_0.01),_0px_65px_39px_rgba(0,_0,_0,_0.04),_0px_29px_29px_rgba(0,_0,_0,_0.06),_0px_7px_16px_rgba(0,_0,_0,_0.07),_0px_0px_0px_rgba(0,_0,_0,_0.08)] hidden md:flex flex-row items-center justify-center box-border">
-                            <img
-                                className="relative overflow-hidden shrink-0 object-contain z-[1]"
-                                alt=""
-                                src="/arrowleft-2.svg"
-                            />
-                        </button>
+                            className="hover:bg-mediumpurple next cursor-pointer [border:none] p-6 bg-primary rounded-81xl flex flex-row items-center justify-center box-border">
+                            <img className="relative overflow-hidden shrink-0 object-contain z-[1]" alt=""
+                                 src="/arrowleft-2.svg"/></button>
                     </div>
                 </div>
             );

@@ -16,12 +16,12 @@ const ExploreTop = memo(() => {
     for (let i = 0; i < 5; i++) {
         slides.push(
             <SwiperSlide>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                <PackageCard Place={"Manali, Himachal Pradesh"} price={200} Description={"Travel and find happiness within yourself. Experience holidays in Manali, Kasol, Atal Tunnel"}/>
             </SwiperSlide>
         );
     }
     return (
-        <div className={"md:min-h-screen"}>
+        <>
             <div
                 className="self-stretch flex flex-col md:flex-row items-center justify-between py-[4rem] px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins">
                 <div className="flex-col items-start justify-start gap-[1rem] max-w-full">
@@ -50,8 +50,7 @@ const ExploreTop = memo(() => {
                     </button>
                 </div>
             </div>
-            <div
-                className="w-full px-10 md:px-20 flex flex-row items-center justify-center box-border max-w-full text-left text-[0.98rem] text-dimgray-200 font-poppins">
+            <div className="w-full px-10 md:px-20 flex flex-row items-center justify-center box-border max-w-full text-left text-[0.98rem] text-dimgray-200 font-poppins">
                 <div className="flex-1 flex flex-row items-start justify-start relative max-w-full">
                     <Swiper
                         slidesPerView={1}
@@ -63,17 +62,23 @@ const ExploreTop = memo(() => {
                             },
                             768: {
                                 slidesPerView: 3,
-                                spaceBetween: 40,
+                                spaceBetween: 30,
                             },
                             1024: {
                                 slidesPerView: 3,
-                                spaceBetween: 50,
+                                spaceBetween: 30,
                             },
                         }}
                         navigation = {
                             {
                                 nextEl: ".next",
                                 prevEl: ".prev",
+                            }
+                        }
+                        pagination = {
+                            {
+                                el: ".swiper-pagination",
+                                clickable: true,
                             }
                         }
                         className={clsx("w-full", "max-w-full")}
@@ -83,7 +88,7 @@ const ExploreTop = memo(() => {
                     </Swiper>
                 </div>
             </div>
-        </div>
+        </>
 );
 });
 

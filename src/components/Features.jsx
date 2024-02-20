@@ -2,8 +2,8 @@ import {memo} from "react";
 import Testimonials from "./Testimonials";
 
 const Features = memo(() => {
-    return (<div className={"p-10 md:p-20 h-fit flex md:flex-row items-center flex-col mt-[40px] md:h-screen"}>
-        <div className="flex flex-col h-fit items-center justify-between box-border  text-secondary font-poppins">
+    return (<div className={"p-10 md:p-20 h-fit flex md:flex-row items-center flex-col mt-[40px]"}>
+        <div className="flex flex-col h-fit items-center justify-between box-border text-secondary font-poppins">
             <div
                 className="flex flex-col items-center justify-between gap-[2rem] max-w-full mq750:gap-[4rem] mq450:gap-[4rem]">
                 <div className=" flex flex-col items-center justify-center gap-[2rem] mq750:gap-[2rem]">
@@ -98,7 +98,7 @@ const Features = memo(() => {
                 </div>
             </div>
         </div>
-        <div className="h-fit w-full flex flex-row items-center p-4 justify-center box-border max-w-full">
+        <div className="h-fit w-full flex flex-row items-center p-4 justify-end box-border max-w-full">
             <img
                 loading="eager"
                 alt=""

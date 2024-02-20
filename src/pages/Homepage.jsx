@@ -6,12 +6,13 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Services from "../components/services";
 import Footer from "../components/Footer";
+import Partners from "../components/Partners";
 
 const Homepage = () => {
     return (
-        <div className={"text-secondary font-poppins mt-10"}>
+        <div className={"text-secondary font-poppins"}>
             <Hero/>
-            <Services/>
+            <Partners/>
             <ExploreTop/>
             <Stats/>
             <Features/>
