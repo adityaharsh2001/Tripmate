@@ -13,13 +13,6 @@ const PackageCard = ({price, Name, Place, Description}) => {
             <div className="mt-2.5 text-slate-600 text-opacity-70">
                 {Description}
             </div>
-            {/*rating*/}
-            {/*<div className="flex gap-4 justify-center self-center mt-8 w-56 max-w-full">*/}
-            {/*    {[1, 2, 3, 4, 5].map((star) => (*/}
-            {/*        <img width="28" height="28" src="https://img.icons8.com/fluency/48/star--v1.png"*/}
-            {/*             alt="star--v1"/>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
             <div className="flex gap-5 justify-between mt-12 p-5 w-full whitespace-nowrap text-slate-600">
                 <div>15,000</div>
                 <div className="flex gap-1.5 justify-between">

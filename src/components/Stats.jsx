@@ -3,7 +3,7 @@ import StatsBox from "./StatsBox";
 
 const Stats = memo(() => {
     return (
-            <div className="flex-1 w-full p-10 h-fit flex flex-row items-center justify-center gap-[2rem] flex-wrap max-w-full">
+            <div className="flex-1 w-full p-10 h-fit flex flex-row items-center text-[1.44rem] justify-center gap-[2rem] flex-wrap max-w-full">
                 <img
                     className="max-w-[40rem] w-full relative object-cover mq1275:flex-1"
                     loading="eager"
@@ -11,7 +11,7 @@ const Stats = memo(() => {
                     src="/group-9238@2x.png"
                 />
                 <div
-                    className="max-w-[30.31rem] w-full flex flex-col items-center justify-center box-border gap-[2rem]">
+                    className="max-w-[50%] flex flex-col items-center justify-center box-border gap-[2rem]">
                     <div className="self-stretch flex flex-col gap-[0.5rem] items-center justify-between">
                         <div className="self-stretch flex flex-col items-start justify-start gap-[1rem]">
                             <b className="self-stretch relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">

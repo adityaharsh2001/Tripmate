@@ -102,8 +102,6 @@ ul.vertical-ul {
     }
 }
 ul.vertical-ul {
-    /* ... other styles remain the same ... */
-    /* Target the last child's first nested li element */
     li.vertical-li:last-child li:first-child:before {
         border-left: none;
     }
