@@ -21,7 +21,7 @@ for (let i = 0; i < 4; i++) {
                         className="w-[4rem] h-[4rem] relative object-cover"
                         loading="eager"
                         alt=""
-                        src="/destination-1@2x.png"
+                        src="/images/destination-1@2x.png"
                     />
                     <div className="self-stretch flex flex-col items-center justify-start gap-[2rem]">
                         <h3 className="m-0 self-stretch relative text-inherit leading-[120%] font-bold font-inherit mq450:text-[1.38rem] mq450:leading-[1.69rem]">

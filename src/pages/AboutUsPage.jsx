@@ -9,7 +9,7 @@ const AboutUsPage = () => {
                 <img
                     alt={"Explore top destination"}
                     loading="lazy"
-                    srcSet="/about-us.jpeg"
+                    srcSet="/images/about-us.jpeg"
                     className="object-cover absolute inset-0 size-full"
                 />
                 <div
@@ -47,7 +47,7 @@ const AboutUsPage = () => {
                                         <img
                                             className="h-[1.5rem] w-[1.5rem] relative overflow-hidden shrink-0"
                                             alt=""
-                                            src="/work-1.svg"
+                                            src="/images/work-1.svg"
                                         />
                                     </button>
                                 </div>

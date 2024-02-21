@@ -9,7 +9,7 @@ const Footer = () => {
                     <img
                         alt={"Your Tripmate"}
                         loading="lazy"
-                        src="/logo.png"
+                        src="/images/logo.png"
                         className="ml-5 aspect-square w-[70px] max-md:ml-2.5"
                     />
                     <div className="max-md:mt-10 max-md:max-w-full">
@@ -44,9 +44,9 @@ const Footer = () => {
                 <div className="flex flex-col mt-2 w-full basis-0">
                     <div className={"font-bold"}>FOLLOW</div>
                     <div className={"flex mt-2 gap-2"}>
-                        <img alt={"facebook"} src="/fontawesomefacebookf.svg" className="w-6 h-6"/>
+                        <img alt={"facebook"} src="/images/fontawesomefacebookf.svg" className="w-6 h-6"/>
                         {/*<img alt={"instagram"} src="/fontawesomeinstagram.svg" className="w-6 h-6"/>*/}
-                        <img alt={"twitter"} src="/fontawesometwitter.svg" className="w-6 h-6"/>
+                        <img alt={"twitter"} src="/images/fontawesometwitter.svg" className="w-6 h-6"/>
                     </div>
                 </div>
             </div>

@@ -25,7 +25,7 @@ const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu}) => {
                     <img
                         className="h-[1.5rem] w-[1.5rem] relative overflow-hidden shrink-0"
                         alt=""
-                        src="/work-1.svg"
+                        src="/images/work-1.svg"
                     />
                 </button>
                 <button
@@ -57,7 +57,7 @@ const Header = memo(() => {
                 <div className="flex items-center justify-between">
                     <div className="flex shrink-0">
                         <a aria-current="page" className="flex items-center" href="/">
-                            <img className="h-10 w-auto" src="/logo.png" alt=""/>
+                            <img className="h-10 w-auto" src="/images/logo.png" alt=""/>
                             <p className="sr-only">Website Title</p>
                         </a>
                     </div>
@@ -90,7 +90,7 @@ const Header = memo(() => {
                             <img
                                 className="h-[1.5rem] w-[1.5rem] relative overflow-hidden shrink-0"
                                 alt=""
-                                src="/work-1.svg"
+                                src="/images/work-1.svg"
                             />
                         </button>
                         <button
