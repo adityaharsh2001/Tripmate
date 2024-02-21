@@ -55,17 +55,12 @@ const Features = memo(() => {
                     className="rounded-13xl text-left md:text-left w-full bg-white flex flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full"
                 >
                     <div className="rounded-13xl bg-orange flex flex-row items-center justify-center p-[1.63rem]">
-                        <div className="p-2 relative rounded-4xl bg-orange hidden" />
-                        <img
-                            className="h-[2rem] w-[2rem] relative overflow-hidden shrink-0 z-[1]"
-                            loading="eager"
-                            alt=""
-                            src="/images/location-2.svg"
-                        />
+                        <div className="p-2 relative rounded-4xl bg-orange hidden"/>
+                        <span className="material-symbols-outlined text-[2rem] text-white">currency_rupee</span>
                     </div>
                     <div className="flex-1 flex flex-col items-cente justify-cente  gap-[0.5rem] max-w-full">
-                        <b className="relative leading-[120%] mq450:text-[1rem] text-xl">
-                            We offer best services
+                        <b className="relative leading-[120%] mq450:text-[1rem] text-lg">
+                            Affordable Prices And Peak Enjoyment
                         </b>
                     </div>
                 </motion.div>
@@ -87,8 +82,8 @@ const Features = memo(() => {
                         />
                     </div>
                     <div className="flex-1 flex flex-col gap-[0.5rem] max-w-full">
-                        <b className="relative leading-[120%] mq450:text-[1rem] text-xl">
-                            Batches Every Day
+                        <b className="relative leading-[120%] mq450:text-[1rem] text-lg">
+                            Daily Departures from the Heart of Delhi
                         </b>
                     </div>
                 </motion.div>
@@ -101,17 +96,12 @@ const Features = memo(() => {
                     className=" rounded-13xl text-left w-full md:text-left bg-white flex lex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full"
                 >
                     <div className="rounded-13xl bg-[#f85e9f] flex flex-row items-center justify-center p-[1.63rem]">
-                        <div className="p-2 relative rounded-4xl bg-orange hidden" />
-                        <img
-                            className="h-[2rem] w-[2rem] relative overflow-hidden shrink-0 z-[1]"
-                            loading="eager"
-                            alt=""
-                            src="/images/ticket-1.svg"
-                        />
+                        <div className="p-2 relative rounded-4xl bg-orange hidden"/>
+                        <span className="material-symbols-outlined text-white text-[2rem]">group</span>
                     </div>
                     <div className="flex-1 flex flex-col gap-[0.5rem] max-w-full">
-                        <b className="relative leading-[120%] mq450:text-[1rem] text-xl">
-                            Get Discount Price
+                        <b className="relative leading-[120%] mq450:text-[1rem] text-lg">
+                            Collective Excursions
                         </b>
                     </div>
                 </motion.div>

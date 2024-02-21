@@ -33,11 +33,11 @@ const Stats = memo(() => {
                         </h1>
                     </div>
                 </div>
-                <div className="self-stretch flex flex-col items-start justify-start gap-[1rem] text-xl text-orange">
-                    <StatsBox frameWithImage="500+" holidayPackage="Holiday Package" frame="100"
-                              luxuryHotel="4 ⭐️ Luxury Hotels"/>
-                    <StatsBox frameWithImage="7" holidayPackage="Premium Airlines" frame="2k+"
-                              luxuryHotel="Happy Customer"/>
+                <div className="text-xl text-orange grid grid-cols-2 gap-5">
+                    <StatsBox stats="25+" desc="Iteneraries"/>
+                    <StatsBox stats="50+" desc="Destinations"/>
+                    <StatsBox stats="12K+" desc="Happy Travelers"/>
+                    <StatsBox stats="9k+" desc="Successful Trips"/>
                 </div>
             </div>
         </motion.div>
