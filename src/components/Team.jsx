@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const people = [
     {
@@ -28,10 +30,25 @@ const people = [
 ]
 
 export default function Team() {
+    const controls = useAnimation();
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            controls.start({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5 },
+            });
+        }
+    }, [controls, inView]);
+
     return (
         <div className="w-full px-10 mt-10 md:px-20 text-secondary text-[1.44rem]">
             <div className="mx-auto grid max-w-7xl gap-x-8 xl:grid-cols-3">
-                <div className="flex flex-col py-5 max-md:mt-10 max-md:max-w-full">
+                <div ref={ref} className="flex flex-col py-5 max-md:mt-10 max-md:max-w-full"
+                     animate={controls}
+                     initial={{ opacity: 0, y: 50 }}>
                     <div
                         className="flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
                         <b className="w-[9.94rem] relative tracking-[0.2em] leading-[120%] uppercase inline-block ">
@@ -47,15 +64,18 @@ export default function Team() {
                 </div>
                 <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
                     {people.map((person) => (
-                        <li key={person.name}>
+                        <motion.li key={person.name}
+                                   ref={ref}
+                                   animate={controls}
+                                   initial={{ opacity: 0, y: 50 }}>
                             <div className="flex items-center gap-x-6">
-                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt=""/>
+                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
                                 <div>
                                     <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
                                     <p className="text-sm font-semibold leading-6 text-primary">{person.role}</p>
                                 </div>
                             </div>
-                        </li>
+                        </motion.li>
                     ))}
                 </ul>
             </div>

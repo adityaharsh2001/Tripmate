@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 const testimonialData = [
     {
@@ -21,13 +23,13 @@ const testimonialData = [
     },
 ];
 
-const TestimonialItem = ({name, role, imageSrc, text}) => {
+const TestimonialItem = ({ name, role, imageSrc, text }) => {
     return (
         <div
             className="aspect-auto p-8 w-full h-fit border border-gray-100 rounded-3xl bg-white shadow-2xl shadow-gray-600/10">
             <div className="flex gap-4 w-full items-cente justify-start">
                 <img className="w-12 h-12 rounded-full" src={imageSrc} alt="user avatar" width="200" height="200"
-                     loading="lazy"/>
+                     loading="lazy" />
                 <div className={'flex flex-col gap-1'}>
                     <span className="text-lg font-medium text-gray-700">{name}</span>
                     <span className="text-sm text-gray-500">{role}</span>
@@ -38,7 +40,20 @@ const TestimonialItem = ({name, role, imageSrc, text}) => {
     );
 };
 
-const AboutsUsTestimonials = ({testimonials = testimonialData}) => {
+const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
+    const controls = useAnimation();
+    const { ref, inView } = useInView();
+
+    useEffect(() => {
+        if (inView) {
+            controls.start({
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.5 , delay: 0.5, ease: 'easeInOut' }
+            });
+        }
+    }, [controls, inView]);
+
     return (
         <div className="text-gray-600 dark:text-gray-300 mt-8 text-[1.44rem]" id="reviews">
             <div className="mx-auto md:px-20 px-10">
@@ -55,19 +70,24 @@ const AboutsUsTestimonials = ({testimonials = testimonialData}) => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8">
                     {testimonials.map((testimonial, index) => (
-                        <TestimonialItem
+                        <motion.div
                             key={index}
-                            name={testimonial.name}
-                            role={testimonial.role}
-                            imageSrc={testimonial.imageSrc}
-                            text={testimonial.text}
-                        />
+                            ref={ref}
+                            animate={controls}
+                            initial={{ opacity: 0, y: 50 }}
+                        >
+                            <TestimonialItem
+                                name={testimonial.name}
+                                role={testimonial.role}
+                                imageSrc={testimonial.imageSrc}
+                                text={testimonial.text}
+                            />
+                        </motion.div>
                     ))}
                 </div>
             </div>
         </div>
     );
 };
-
 
 export default AboutsUsTestimonials;

@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {
     Routes,
     Route,
@@ -12,12 +12,24 @@ import Explore from "./pages/Explore";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
+import Popup from "./components/Popup";
 
 function App() {
     const action = useNavigationType();
     const location = useLocation();
     const pathname = location.pathname;
-
+    const [Visited, setVisited] = useState(false);
+    useEffect(() => {
+        // const visited = localStorage.getItem("visited");
+        // if (!visited) {
+        //     setVisited(true);
+        //     localStorage.setItem("visited", "true");
+        // }
+        setVisited(true);
+    }, []);
+    const onClose = () => {
+        setVisited(false);
+    }
     useEffect(() => {
         if (action !== "POP") {
             window.scrollTo(0, 0);
@@ -77,8 +89,10 @@ function App() {
         }
     }, [pathname]);
 
-    return (<div className={"App"}>
+    return (
+        <div className={"App"}>
             <Header/>
+            {Visited && <Popup onClose={onClose}/>}
             <a href="https://api.whatsapp.com/send?phone=393661273612." className="float bounce" target="_blank">
                 <i className="fa fa-whatsapp my-float"></i>
             </a>
