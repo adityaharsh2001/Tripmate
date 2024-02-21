@@ -18,7 +18,7 @@ const Stats = memo(() => {
         <motion.div style={{scale}}
                     className="flex-1 w-full p-5 md:p-10 relative h-full flex flex-col md:flex-row items-center gap-10 text-[1.2rem] justify-center gap-[8rem]  max-w-full">
             <img
-                className="md:w-[400px] relative md:object-cover max-md:max-w-full max-md:w-[50%] max-md:h-[300px] max-md:object-cover max-md:object-center max-md:rounded-13xl max-md:overflow-hidden max-md:shrink-0 max-md:z-[1]"
+                className="md:w-[500px] relative md:object-cover max-md:max-w-full max-md:w-[50%] max-md:h-[300px] max-md:object-cover max-md:object-center max-md:rounded-13xl max-md:overflow-hidden max-md:shrink-0 max-md:z-[1]"
                 loading="eager"
                 alt=""
                 src="/images/stats.svg"
@@ -42,7 +42,7 @@ const Stats = memo(() => {
                         </div>
                     </div>
                 </div>
-                <div className="text-xl text-orange grid grid-cols-2 gap-5">
+                <div className="text-xl w-full text-orange grid grid-cols-2 gap-5">
                     <StatsBox stats="25+" desc="Iteneraries"/>
                     <StatsBox stats="50+" desc="Destinations"/>
                     <StatsBox stats="12K+" desc="Happy Travelers"/>
