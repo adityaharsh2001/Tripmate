@@ -4,7 +4,7 @@ const HeroSearch = () => {
     return (
         <div className={"max-md:absolute bottom-5 flex flex-col gap-5"}>
             <div
-                className="text-poppins w-full border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
+                className="text-poppins md:dabsolute bottom-0 left-0 right-0 mx-auto w-full border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center justify-between w-full gap-10">

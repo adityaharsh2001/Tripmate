@@ -27,13 +27,13 @@ const Hero = memo(() => {
                         </p>
                         <p className="m-0">{`as many choices as possible `}</p>
                     </div>
-                    <HeroSearch/>
                 </div>
             </div>
         </div>
         <div>
             <img className={"w-full md:w-[35vw]"} src={"/hero.svg"} alt={"hero"}/>
         </div>
+        <HeroSearch/>
     </div>);
 });
 
