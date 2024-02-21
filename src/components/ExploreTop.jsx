@@ -1,11 +1,7 @@
 import {memo} from "react";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {
-    Navigation,
-    Pagination,
-    HashNavigation,
-    Autoplay,
-    Virtual,
+    Navigation, Pagination, EffectCoverflow, Autoplay,
 } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import clsx from "clsx";
@@ -13,15 +9,13 @@ import PackageCard from "./PackageCard";
 
 const ExploreTop = memo(() => {
     const slides = [];
-    for (let i = 0; i < 5; i++) {
-        slides.push(
-            <SwiperSlide>
-                <PackageCard Place={"Manali, Himachal Pradesh"} price={200} Description={"Travel and find happiness within yourself. Experience holidays in Manali, Kasol, Atal Tunnel"}/>
-            </SwiperSlide>
-        );
+    for (let i = 0; i < 10; i++) {
+        slides.push(<SwiperSlide style={{width: "300px"}}> {/* Adjust width as needed */}
+            <PackageCard Place={"Manali, Himachal Pradesh"} price={200}
+                         Description={"Travel and find happiness within yourself. Experience holidays in Manali, Kasol, Atal Tunnel"}/>
+        </SwiperSlide>);
     }
-    return (
-        <>
+    return (<>
             <div
                 className="self-stretch flex flex-col md:flex-row items-center justify-between py-4 px-10 md:px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins">
                 <div className="flex-col items-start justify-start gap-[1rem] max-w-full">
@@ -50,46 +44,30 @@ const ExploreTop = memo(() => {
                     </button>
                 </div>
             </div>
-            <div className="w-full px-10 md:px-20 flex flex-row items-center justify-center box-border max-w-full text-left text-[0.98rem] text-dimgray-200 font-poppins">
-                <div className="flex-1 flex flex-row items-start justify-start relative max-w-full">
-                    <Swiper
-                        slidesPerView={1}
-                        spaceBetween={10}
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 2,
-                                spaceBetween: 20,
-                            },
-                            768: {
-                                slidesPerView: 3,
-                                spaceBetween: 30,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                                spaceBetween: 30,
-                            },
-                        }}
-                        navigation = {
-                            {
-                                nextEl: ".next",
-                                prevEl: ".prev",
-                            }
-                        }
-                        pagination = {
-                            {
-                                el: ".swiper-pagination",
-                                clickable: true,
-                            }
-                        }
-                        className={clsx("w-full", "max-w-full")}
-                        modules={[Navigation, Pagination, HashNavigation, Autoplay, Virtual]}
-                    >
-                        {slides}
-                    </Swiper>
-                </div>
+            <div className="w-[40rem] mx-auto relative">
+                <Swiper
+                    effect={'coverflow'}
+                    grabCursor={true}
+                    centeredSlides={true}
+                    loop={true}
+                    slidesPerView={'auto'}
+                    coverflowEffect={{
+                        rotate: 0, stretch: 0, depth: 100, modifier: 2.5,
+                    }}
+                    pagination={{el: '.swiper-pagination', clickable: true}}
+                    navigation={{
+                        nextEl: '.next', prevEl: '.prev', clickable: true,
+                    }}
+                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    className="w-[40rem] h-[100%] max-w-[100%] max-h-[100%] relative"
+                >
+                    {slides}
+                    <div className="slider-controler">
+                        <div className="swiper-pagination relative w-[15rem] mx-auto mt-10"/>
+                    </div>
+                </Swiper>
             </div>
-        </>
-);
+        </>);
 });
 
 export default ExploreTop;

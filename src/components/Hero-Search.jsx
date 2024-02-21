@@ -4,10 +4,10 @@ const HeroSearch = () => {
     return (
         <div className={"max-md:absolute bottom-5 flex flex-col gap-5"}>
             <div
-                className="text-poppins md:dabsolute bottom-0 left-0 right-0 mx-auto w-full border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
+                className="text-poppins md:absolute bottom-0 left-0 right-0 mx-auto w-fit border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center justify-between w-full gap-10">
+                    <div className="flex items-center justify-between whitespace-nowrap">
+                        <div className="flex items-center justify-between gap-10">
                             <div className={"flex items-center text-black justify-between gap-3"}>
                                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
