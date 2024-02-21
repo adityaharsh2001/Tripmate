@@ -32,15 +32,13 @@ const Features = memo(() => {
                         Key features
                     </b>
                     <h1 className="relative text-[2.75rem] leading-[120%] font-bold font-inherit text-grey-scale-black">
-                        We offer best services
+                        What We Provide?
                     </h1>
                 </div>
                 <div className="text-[1rem] leading-[160%] font-body text-grey-scale-black-50 inline-block">
                     <p className="">
-                        Contrary to popular belief, Lorem Ipsum is not simply random
-                        text. It has roots in a piece of classical Latin literature
+                        We Will Provides our best to best, we are here not only for one time earn from you, we promised we will give our best to you, so after trip ends, others ko bhi hume hi suggest karein, and also we want more Clients by your reference so just no worry about our service.
                     </p>
-                    <p className="">from 45 BC.</p>
                 </div>
             </div>
             <div
