@@ -44,21 +44,25 @@ const ExploreTop = memo(() => {
                     </button>
                 </div>
             </div>
-            <div className="w-[40rem] mx-auto relative">
+            <div className="md:w-[40rem] mx-auto relative">
                 <Swiper
                     effect={'coverflow'}
                     grabCursor={true}
                     centeredSlides={true}
                     loop={true}
                     slidesPerView={'auto'}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
                     coverflowEffect={{
-                        rotate: 0, stretch: 0, depth: 100, modifier: 2.5,
+                        rotate: 0, stretch: 0, depth: 100, modifier: 5.5,
                     }}
                     pagination={{el: '.swiper-pagination', clickable: true}}
                     navigation={{
                         nextEl: '.next', prevEl: '.prev', clickable: true,
                     }}
-                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
                     className="w-[40rem] h-[100%] max-w-[100%] max-h-[100%] relative"
                 >
                     {slides}
