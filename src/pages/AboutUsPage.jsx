@@ -3,6 +3,7 @@ import Team from "../components/Team";
 import AboutsUsTestimonials from "../components/AboutsUsTestimonials";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import ContactUs from "../components/ContactUs";
 
 const AboutUsPage = () => {
     const controls = useAnimation();
@@ -82,6 +83,7 @@ const AboutUsPage = () => {
                 className="mt-20 w-full aspect-[2.86] max-md:mt-10 max-md:max-w-full"
             />
             <Team />
+            <ContactUs />
             <AboutsUsTestimonials />
         </motion.div>
     );

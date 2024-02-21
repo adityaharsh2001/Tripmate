@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import React, {useEffect} from 'react';
+import {motion, useAnimation} from 'framer-motion';
+import {useInView} from 'react-intersection-observer';
 
 const people = [
     {
@@ -31,14 +31,14 @@ const people = [
 
 export default function Team() {
     const controls = useAnimation();
-    const { ref, inView } = useInView();
+    const {ref, inView} = useInView();
 
     useEffect(() => {
         if (inView) {
             controls.start({
                 opacity: 1,
                 y: 0,
-                transition: { duration: 0.5 },
+                transition: {duration: 0.5},
             });
         }
     }, [controls, inView]);
@@ -48,28 +48,29 @@ export default function Team() {
             <div className="mx-auto grid max-w-7xl gap-x-8 xl:grid-cols-3">
                 <div ref={ref} className="flex flex-col py-5 max-md:mt-10 max-md:max-w-full"
                      animate={controls}
-                     initial={{ opacity: 0, y: 50 }}>
+                     initial={{opacity: 0, y: 50}}>
                     <div
                         className="flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
                         <b className="w-[9.94rem] relative tracking-[0.2em] leading-[120%] uppercase inline-block ">
                             Meet Our Leadership
                         </b>
-                        <p className="mt-8 text-base leading-7 text-black max-md:max-w-full">
-                            Et labore harum non nobis ipsum eum molestias mollitia et
-                            corporis praesentium a laudantium internos. Non quis eius quo
-                            eligendi corrupti et fugiat nulla qui soluta recusandae in
-                            maxime quasi aut ducimus illum aut optio quibusdam!
+                        <p className="text-base leading-7 text-black max-md:max-w-full">
+                            We are a travel agency with 5 years of experience in Group Trip and Customise trips, for
+                            Solo, Friends, Couple, corporate, Families and all, our Expert team provides you a budget
+                            friendly package and will also provide an unforgettable experience…Have questions ? our
+                            experienced team are always happy to talk to you
+
                         </p>
                     </div>
                 </div>
-                <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+                <ul role="list" className="grid items-center gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
                     {people.map((person) => (
                         <motion.li key={person.name}
                                    ref={ref}
                                    animate={controls}
-                                   initial={{ opacity: 0, y: 50 }}>
+                                   initial={{opacity: 0, y: 50}}>
                             <div className="flex items-center gap-x-6">
-                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt="" />
+                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt=""/>
                                 <div>
                                     <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
                                     <p className="text-sm font-semibold leading-6 text-primary">{person.role}</p>
