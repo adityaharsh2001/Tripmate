@@ -21,7 +21,7 @@ const AboutUsPage = () => {
 
     return (
         <motion.div
-            className="flex flex-col pb-12 text-secondary justify-start items-start !font-poppins"
+            className="flex flex-col text-secondary pb-10 justify-start items-start !font-poppins"
             animate={controls}
             initial={{ opacity: 0, y: 50 }}
             ref={ref}
@@ -83,8 +83,8 @@ const AboutUsPage = () => {
                 className="mt-20 w-full aspect-[2.86] max-md:mt-10 max-md:max-w-full"
             />
             <Team />
-            <ContactUs />
             <AboutsUsTestimonials />
+            {/*<ContactUs />*/}
         </motion.div>
     );
 };

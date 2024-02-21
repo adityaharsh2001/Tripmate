@@ -20,12 +20,11 @@ function App() {
     const pathname = location.pathname;
     const [Visited, setVisited] = useState(false);
     useEffect(() => {
-        // const visited = localStorage.getItem("visited");
-        // if (!visited) {
-        //     setVisited(true);
-        //     localStorage.setItem("visited", "true");
-        // }
-        setVisited(true);
+        const visited = localStorage.getItem("visited");
+        if (!visited) {
+            setVisited(true);
+            localStorage.setItem("visited", "true");
+        }
     }, []);
     const onClose = () => {
         setVisited(false);

@@ -36,10 +36,11 @@ const ContactForm = () => {
     });
 
     return (
-        <form className="w-full max-w-lg" onSubmit={formik.handleSubmit}>
+        <form className="w-full max-w-lg bg-whitesmoke p-10 rounded-lg mx-auto mt-10 text-secondary text-[1.44rem] font-poppins"
+              onSubmit={formik.handleSubmit}>
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    <label className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2"
                            htmlFor="grid-name">
                         Name
                     </label>
@@ -51,11 +52,11 @@ const ContactForm = () => {
                         {...formik.getFieldProps('name')}
                     />
                     {formik.touched.name && formik.errors.name ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.name}</p>
+                        <p className="text-red-500 text-[12px] italic">{formik.errors.name}</p>
                     ) : null}
                 </div>
                 <div className="w-full md:w-1/2 px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    <label className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2"
                            htmlFor="grid-mobile-number">
                         Mobile
                     </label>
@@ -67,13 +68,13 @@ const ContactForm = () => {
                         {...formik.getFieldProps('mobileNumber')}
                     />
                     {formik.touched.mobileNumber && formik.errors.mobileNumber ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.mobileNumber}</p>
+                        <p className="text-red-500 text-[12px] italic">{formik.errors.mobileNumber}</p>
                     ) : null}
                 </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    <label className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2"
                            htmlFor="grid-email">
                         Email
                     </label>
@@ -85,14 +86,14 @@ const ContactForm = () => {
                         {...formik.getFieldProps('email')}
                     />
                     {formik.touched.email && formik.errors.email ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.email}</p>
+                        <span className="text-red-500 text-[12px] italic">{formik.errors.email}</span>
                     ) : null}
                 </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label
-                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 whitespace-nowrap"
+                        className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2 whitespace-nowrap"
                         htmlFor="grid-number-of-persons">
                         No of person
                     </label>
@@ -104,11 +105,11 @@ const ContactForm = () => {
                         {...formik.getFieldProps('numberOfPersons')}
                     />
                     {formik.touched.numberOfPersons && formik.errors.numberOfPersons ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.numberOfPersons}</p>
+                        <p className="text-red-500 text-[12px] italic">{formik.errors.numberOfPersons}</p>
                     ) : null}
                 </div>
                 <div className="w-full md:w-1/2 px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    <label className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2"
                            htmlFor="grid-destination">
                         Destination
                     </label>
@@ -120,13 +121,13 @@ const ContactForm = () => {
                         {...formik.getFieldProps('destination')}
                     />
                     {formik.touched.destination && formik.errors.destination ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.destination}</p>
+                        <p className="text-red-500 text-[12px] italic">{formik.errors.destination}</p>
                     ) : null}
                 </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                    <label className="block uppercase tracking-wide text-gray-700 text-[12px] font-bold mb-2"
                            htmlFor="grid-departure-date">
                         Departure Dates
                     </label>
@@ -137,7 +138,7 @@ const ContactForm = () => {
                         {...formik.getFieldProps('departureDate')}
                     />
                     {formik.touched.departureDate && formik.errors.departureDate ? (
-                        <p className="text-red-500 text-xs italic">{formik.errors.departureDate}</p>
+                        <p className="text-red-500 text-[12px] italic">{formik.errors.departureDate}</p>
                     ) : null}
                 </div>
             </div>

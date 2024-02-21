@@ -55,12 +55,12 @@ const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
     }, [controls, inView]);
 
     return (
-        <div className="text-gray-600 dark:text-gray-300 mt-8 text-[1.44rem]" id="reviews">
+        <div className="text-gray-600 dark:text-gray-300 text-[1.44rem]" id="reviews">
             <div className="mx-auto md:px-20 px-10">
-                <div className="flex flex-col py-5 mt-36 max-md:mt-10 max-md:max-w-full">
+                <div className="flex flex-col py-5 mt-10 max-md:mt-10 max-md:max-w-full">
                     <div
-                        className="flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
-                        <b className="w-full relative tracking-[0.2em] leading-[120%] uppercase inline-block pr-[1.25rem]">
+                        className="flex flex-col items-center justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
+                        <b className="w-full relative text-center tracking-[0.2em] leading-[120%] uppercase inline-block pr-[1.25rem]">
                             What People Say About Us
                         </b>
                         <h1 className="m-0 text-[2.5rem] leading-[120%] font-bold font-inherit text-grey-scale-black ">
