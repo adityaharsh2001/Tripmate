@@ -129,7 +129,7 @@ module.exports = {
             'sm': '600px',
             // => @media (min-width: 640px) { ... }
 
-            'md': '768px',
+            'md': '1000px',
             // => @media (min-width: 768px) { ... }
 
             'lg': '1024px',
