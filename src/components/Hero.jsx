@@ -17,7 +17,7 @@ const HeroSection = () => {
                             <div className="m-0 w-full relative md:text-inherit leading-[120%] font-bold font-inherit inline-block shrink-0 text-[2.5rem]">
                                 <p className="m-0">
                                     <span className="text-black">{`Travel `}</span>
-                                    <span>top destination</span>
+                                    <span>Test</span>
                                     <span className="text-black">{` `}</span>
                                 </p>
                                 <p className="m-0 text-black">in India</p>
