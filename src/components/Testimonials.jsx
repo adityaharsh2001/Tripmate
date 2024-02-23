@@ -57,7 +57,7 @@ const Testimonials = memo(() => {
                     <div
                         className="flex relative gap-0 items-center py-1">
                         <button
-                            className="hover:bg-gainsboro cursor-pointer prev p-6 bg-white rounded-full box-border flex flex-row items-center justify-center border-[1px] border-solid border-grey-scale-black-10 hover:bg-gray-200">
+                            className="max-md:hidden hover:bg-gainsboro cursor-pointer prev p-6 bg-white rounded-full box-border flex flex-row items-center justify-center border-[1px] border-solid border-grey-scale-black-10 hover:bg-gray-200">
                             <img alt="" src="/images/arrowleft-1.svg"/></button>
                         <Swiper
                             slidesPerView={1}
@@ -89,7 +89,7 @@ const Testimonials = memo(() => {
                             {slides}
                         </Swiper>
                         <button
-                            className="hover:bg-mediumpurple next cursor-pointer [border:none] p-6 bg-primary rounded-81xl flex flex-row items-center justify-center box-border">
+                            className="max-md:hidden hover:bg-mediumpurple next cursor-pointer [border:none] p-6 bg-primary rounded-81xl flex flex-row items-center justify-center box-border">
                             <img className="relative overflow-hidden shrink-0 object-contain z-[1]" alt=""
                                  src="/images/arrowleft-2.svg"/></button>
                     </div>

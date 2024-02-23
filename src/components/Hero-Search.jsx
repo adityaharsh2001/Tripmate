@@ -1,8 +1,10 @@
 import React from 'react'
+import { InView } from 'react-intersection-observer'
+import { motion, useAnimation } from 'framer-motion'
 
 const HeroSearch = () => {
     return (
-        <div className={"max-md:absolute bottom-5 flex flex-col gap-5"}>
+        <div className={"absolute mx-auto bottom-5 w-full flex flex-col gap-5"}>
             <div
                 className="text-poppins md:absolute bottom-0 left-0 right-0 mx-auto w-fit border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">

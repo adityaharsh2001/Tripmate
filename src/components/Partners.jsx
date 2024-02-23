@@ -1,34 +1,105 @@
-import * as React from "react";
+import React, {useEffect} from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
-const Partners = () => {
-    return (
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16 my-10 xl:gap-20">
-            <div className="w-20 md:w-24 lg:w-28 xl:w-32">
-                <img src="/partners/EaseMyTrip.svg" alt="EaseMyTrip" />
-            </div>
-            <div className="w-8 md:w-10 lg:w-12 xl:w-14">
-                <img src="/partners/HelloTravel.svg" alt="HelloTravel" className="w-8 md:w-10 lg:w-12 xl:w-14" />
-            </div>
-            <div className="w-20 md:w-24 lg:w-28 xl:w-32">
-                <img src="/partners/tripadvisor.svg" alt="TripAdvisor" className="w-16 md:w-20 lg:w-24 xl:w-28" />
-            </div>
-            <div className="w-28 md:w-32 lg:w-36 xl:w-40">
-                <img src="/partners/Traveltriangle.png" alt="TravelTriangle" className="w-28 md:w-32 lg:w-36 xl:w-40" />
-            </div>
-            <div className="w-8 md:w-10 lg:w-12 xl:w-14">
-                <img src="/partners/thrillophilia-logos-id-kJWZRDY.png" alt="Thrillophilia" className="w-8 md:w-10 lg:w-12 xl:w-14" />
-            </div>
-            <div className="w-20 md:w-24 lg:w-28 xl:w-32">
-                <img src="/partners/makemytrip-seeklogo.svg" alt="MakeMyTrip" className="w-16 md:w-20 lg:w-24 xl:w-28" />
-            </div>
-            <div className="w-20 md:w-24 lg:w-28 xl:w-32">
-                <img src="/partners/tour-travel-world-logos-idx8tLLF5f.png" alt="TourTravelWorld" className="w-16 md:w-20 lg:w-24 xl:w-28" />
-            </div>
-            <div className="w-20 md:w-24 lg:w-28 xl:w-32">
-                <img src="/partners/justdial-seeklogo.svg" alt="JustDial" className="w-16 md:w-20 lg:w-24 xl:w-28" />
-            </div>
-        </div>
-    );
+function Index() {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // This ensures the animation only plays once
+    threshold: 0.5, // This specifies the percentage of the element's visibility required to trigger the animation
+  });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+        controls.start("visible");
+    } else {
+        controls.start("hidden");
+    }
+}, [controls, inView]);
+
+  return (
+    <>
+      <div className="grid px-10 py-10 md:px-20 grid-cols-2 md:grid-cols-4 gap-4">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5 }}
+          className="p-4 flex items-center justify-center"
+        >
+          <img
+            src="/partners/1.svg"
+            alt="partner"
+            style={{ width: "100px", height: "60px", objectFit: "cover" }}
+          />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="p-4 flex items-center justify-center"
+        >
+          <img src="/partners/2.svg" alt="partner" style={{ maxWidth: "50px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="p-4 flex items-center justify-center"
+        >
+          <img src="/partners/3.svg" alt="partner" style={{ maxWidth: "100px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="p-4 flex items-center justify-center"
+        >
+          <img src="/partners/4.png" alt="partner" style={{ maxWidth: "100px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="p-4 flex items-center justify-center"
+        >
+            <img src="/partners/5.png" alt="partner" style={{ maxWidth: "150px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="p-4 flex items-center justify-center"
+        >
+            <img src="/partners/6.png" alt="partner" style={{ maxWidth: "150px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="p-4 flex items-center justify-center"
+        >
+            <img src="/partners/7.svg" alt="partner" style={{ maxWidth: "100px" }} />
+        </motion.div>
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className="p-4 flex items-center justify-center"
+        >
+            <img src="/partners/8.svg" alt="partner" style={{ maxWidth: "100px" }} />
+        </motion.div>
+    
+      </div>
+    </>
+  );
 }
 
-export default Partners;
+export default Index;

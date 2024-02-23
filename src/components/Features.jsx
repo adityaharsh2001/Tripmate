@@ -1,7 +1,6 @@
 import { memo, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import Testimonials from "./Testimonials";
 
 const Features = memo(() => {
     const controls = useAnimation();
@@ -23,24 +22,53 @@ const Features = memo(() => {
     }, [controls, inView]);
 
     return (
-        <div
+        <motion.div
+            ref={ref}   
+            animate={controls}
+            initial="hidden"
+            variants={variants}
+            transition={{ duration: 0.6 }}
             className="p-10 md:p-20 h-full mb-10 text-secondary font-poppins mt-[40px] flex max-md:flex-col items-start justify-between gap-[2rem] max-w-full mq750:gap-[4rem] mq450:gap-[4rem]"
         >
-            <div className="flex flex-col max-md:w-full w-[50%] items-start justify-center gap-[2rem] mq750:gap-[2rem]">
+            <motion.div 
+                ref={ref}
+                animate={controls}
+                initial="hidden"
+                variants={variants}
+                transition={{ duration: 0.6 }}
+            className="flex flex-col max-md:w-full w-[50%] items-start justify-center gap-[2rem] mq750:gap-[2rem]">
                 <div className="flex flex-col items-start justify-center gap-[1rem]">
-                    <b className="relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1rem] mq450:leading-[1.38rem]">
+                    <motion.b
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={variants}
+                        transition={{ duration: 0.6 , delay: 0.2}}
+                        className="relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1rem] mq450:leading-[1.38rem]">
                         Key features
-                    </b>
-                    <h1 className="relative text-[2.75rem] leading-[120%] font-bold font-inherit text-grey-scale-black">
+                    </motion.b>
+                    <motion.h1 
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={variants}
+                        transition={{ duration: 0.6 , delay: 0.3}}
+                    className="relative text-[2.75rem] leading-[120%] font-bold font-inherit text-grey-scale-black">
                         What We Provide?
-                    </h1>
+                    </motion.h1>
                 </div>
                 <div className="text-[1rem] leading-[160%] font-body text-grey-scale-black-50 inline-block">
-                    <p className="">
+                    <motion.p
+                        ref={ref}
+                        animate={controls}
+                        initial="hidden"
+                        variants={variants}
+                        transition={{ duration: 0.6 , delay: 0.4}}
+                    className="m-0">
                         We Will Provides our best to best, we are here not only for one time earn from you, we promised we will give our best to you, so after trip ends, others ko bhi hume hi suggest karein, and also we want more Clients by your reference so just no worry about our service.
-                    </p>
+                    </motion.p>
                 </div>
-            </div>
+            </motion.div>
             <div
                 className="md:w-[590px] text-left md:text-left w-full flex flex-col gap-3 items-center justify-center max-w-full text-grey-scale-black"
             >
@@ -49,7 +77,7 @@ const Features = memo(() => {
                     animate={controls}
                     initial="hidden"
                     variants={variants}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6 , delay: 0.6}}
                     className="rounded-13xl text-left md:text-left w-full bg-white flex flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full"
                 >
                     <div className="rounded-13xl bg-orange flex flex-row items-center justify-center p-[1.63rem]">
@@ -67,7 +95,7 @@ const Features = memo(() => {
                     animate={controls}
                     initial="hidden"
                     variants={variants}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6 , delay: 0.7}}
                     className=" rounded-13xl text-left  w-full md:text-left bg-white flex flex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full"
                 >
                     <div className="rounded-13xl bg-yellow flex flex-row items-center justify-center p-[1.63rem]">
@@ -90,7 +118,7 @@ const Features = memo(() => {
                     animate={controls}
                     initial="hidden"
                     variants={variants}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.6 , delay: 0.8}}
                     className=" rounded-13xl text-left w-full md:text-left bg-white flex lex-row items-center justify-center py-[1rem] pr-[2.94rem] pl-[2rem] box-border gap-[2rem] max-w-full"
                 >
                     <div className="rounded-13xl bg-[#f85e9f] flex flex-row items-center justify-center p-[1.63rem]">
@@ -104,7 +132,7 @@ const Features = memo(() => {
                     </div>
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     );
 });
 

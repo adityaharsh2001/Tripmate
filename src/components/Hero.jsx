@@ -3,7 +3,7 @@ import HeroSearch from "./Hero-Search";
 
 const HeroSection = () => {
     return (
-        <div className="w-full relative items-center mt-10 h-screen md:h-[calc(100vh-60px)] md:flex-row flex-col text-center md:text-left text-[4.31rem] py-10 text-secondary font-poppins md:px-20 px-4 max-w-[100vw] flex justify-center gap-3 md:justify-between">
+        <div className="w-full relative  items-center md:mt-10 h-screen md:h-[calc(100vh-65px)] md:flex-row flex-col text-center md:text-left text-[4.31rem] py-10 text-secondary font-poppins md:px-20 px-4 max-w-[100vw] flex justify-center gap-3 md:justify-between">
             <AnimatePresence>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -17,7 +17,7 @@ const HeroSection = () => {
                             <div className="m-0 w-full relative md:text-inherit leading-[120%] font-bold font-inherit inline-block shrink-0 text-[2.5rem]">
                                 <p className="m-0">
                                     <span className="text-black">{`Travel `}</span>
-                                    <span>Test</span>
+                                    <span>top destination</span>
                                     <span className="text-black">{` `}</span>
                                 </p>
                                 <p className="m-0 text-black">in India</p>
