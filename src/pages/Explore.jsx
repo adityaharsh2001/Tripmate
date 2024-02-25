@@ -22,16 +22,37 @@ const Explore = () => {
                 </div>
             </div>
             {" "}
-            <SearchComponent/>
-            <div className="md:px-20 px-10 flex w-full items-center justify-between self-center mt-10 flex-wrap gap-[20px] max-md:mt-10 max-md:max-w-full">
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
-                <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+            <div className="flex md:px-20 px-10  items-start justify-center gap-10 w-full">
+                <div className="flex flex-col items-start mt-10 justify-center gap-5 w-1/3">
+                    <div clasName="flex text-sm flex-col px-4 bg-primary items-center justify-center gap-5 w-full">
+                        <span className={"font-bold"}>Destination</span>
+                        <div className="flex flex-col items-start justify-center mt-5 gap-5 w-full">
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                        </div>
+                    </div>
+                    <div clasName="flex flex-col px-4 bg-primary items-center justify-center gap-5 w-full">
+                        <span className={"font-bold"}>Number of People</span>
+                        <div className="flex flex-col items-start justify-center mt-5 gap-5 w-full">
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                            <input type={'checkbox'} id={'manali'} name={'manali'} value={'manali'}/>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    className="flex w-full items-center justify-between self-center mt-10 flex-wrap gap-[20px] max-md:mt-10 max-md:max-w-full">
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                    <PackageCard Place={"Manali"} price={200} Name={"Manali, Kasol, Atal Tunnel"}/>
+                </div>
             </div>
-            {/*<Footer/>*/}
         </div>
     );
 };

@@ -1,6 +1,6 @@
 const PackageCard = ({price, Name, Place, Description}) => {
     return (
-        <div className="flex flex-col items-center pb-7 w-[350px] bg-white rounded-2xl shadow-[0px_4px_16px_rgba(0,_0,_0,_0.1),_0px_4px_16px_rgba(0,_0,_0,_0.1)]">
+        <div className="flex flex-col items-center w-[250px] bg-white rounded-2xl">
             <img
                 alt={"Name"}
                 loading="lazy"

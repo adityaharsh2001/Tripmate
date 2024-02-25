@@ -36,7 +36,7 @@ const ExploreTop = memo(() => {
           <PackageCard
             Place={"Manali, Himachal Pradesh"}
             price={200}
-            Description={"Travel and find happiness within yourself. Experience holidays in Manali, Kasol, Atal Tunnel"}
+            Description={"Experience holidays in Manali, Kasol, Atal Tunnel"}
           />
         </motion.div>
       </SwiperSlide>
@@ -49,13 +49,13 @@ const ExploreTop = memo(() => {
         ref={ref}
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
-        className="self-stretch flex flex-col md:flex-row items-center justify-between py-4 px-10 md:px-20 box-border gap-[1.25rem] max-w-full text-left text-[1.44rem] text-secondary font-poppins"
+        className="self-stretch flex flex-col md:flex-row items-center justify-between py-4 px-10 md:px-20 box-border gap-[1.25rem] max-w-full text-left  text-secondary font-poppins"
       >
         <div className="flex-col items-start justify-start gap-[1rem] max-w-full">
-          <b className="relative tracking-[0.2em] leading-[120%] uppercase mq450:text-[1.13rem] mq450:leading-[1.38rem]">
+          <b className="relative tracking-[0.2em] leading-[120%] uppercase text-[18px]">
             Top Destination
           </b>
-          <h1 className="m-0 relative text-[1.75rem] md:text-[2.75rem] font-bold font-inherit text-grey-scale-black">
+          <h1 className="m-0 relative text-[32px] font-bold font-inherit text-grey-scale-black">
             Explore top destination
           </h1>
         </div>
@@ -75,7 +75,7 @@ const ExploreTop = memo(() => {
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
-        className="max-w-[680px] mx-auto left-0 right-0 relative"
+        className="max-w-[475px] mx-auto left-0 right-0 relative"
       >
         <Swiper
           effect={'coverflow'}
@@ -90,14 +90,14 @@ const ExploreTop = memo(() => {
           coverflowEffect={{
             rotate: 0,
             stretch: 0,
-            depth: 100, // Adjust the depth value to increase the depth of the slides
-            modifier: 6.5, // Adjust the modifier value to show equal tiles on both sides
-            slideShadows: false,
+            depth: 150,
+            modifier: 8,
+            slideShadows : false,
           }}
           pagination={{ el: '.swiper-pagination', clickable: true }}
           navigation={{ nextEl: '.next', prevEl: '.prev', clickable: true }}
           modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-          className="w-[700px] h-[100%] mx-auto left-0 relative"
+          className="w-full h-[100%] mx-auto left-0 relative"
         >
           {slides}
           <div className="slider-controler">

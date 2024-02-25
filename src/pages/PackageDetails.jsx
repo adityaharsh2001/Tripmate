@@ -4,7 +4,7 @@ import Tabs from "../components/Tabs";
 const PackageDetails = () => {
     return (
         <div className="w-full relative font-poppins flex flex-col items-center justify-start gap-[3.81rem] tracking-[normal]">
-        <Banner/>
+        <Banner {...{Head: "Manali Sissu Kasol "}}/>
         <Tabs/>
     </div>
     );

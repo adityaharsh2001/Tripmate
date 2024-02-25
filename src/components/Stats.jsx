@@ -19,7 +19,7 @@ const Stats = memo(() => {
   return (
     <div
       ref={ref}
-      className="flex-1 w-full p-5 md:p-10 relative h-full flex flex-col md:flex-row items-center gap-10 text-[1.2rem] justify-center gap-[8rem] max-w-full"
+      className="flex-1 w-full p-5 md:p-10 relative h-full flex flex-col md:flex-row items-center gap-10 justify-center gap-[8rem] max-w-full"
     >
       <motion.img
         initial={{ opacity: 0, y: 50 }}
@@ -37,10 +37,10 @@ const Stats = memo(() => {
       <div className="max-w-full md:max-w-[50%] flex flex-col items-center justify-center box-border gap-[1rem]">
         <div className="self-stretch flex flex-col gap-[0.5rem] items-center justify-between">
           <div className="self-stretch flex flex-col items-start justify-start gap-[1rem]">
-            <b className="self-stretch relative tracking-[0.2em] leading-[120%] uppercase text-lg md:text-xl lg:text-2xl xl:text-3xl">
+            <b className="self-stretch relative tracking-[0.2em] leading-[120%] uppercase text-[18px]">
               Your Trip Mate
             </b>
-            <h1 className="m-0 self-stretch relative text-[2rem] leading-[120%] font-bold font-inherit text-grey-scale-black md:text-xl lg:text-2xl xl:text-3xl">
+            <h1 className="m-0 self-stretch relative text-[32px] leading-[120%] font-bold font-inherit text-grey-scale-black ">
               We will helping you to fulfil your dream destination
             </h1>
             <div className="text-[1rem] leading-[160%] font-body text-grey-scale-black-50 inline-block">

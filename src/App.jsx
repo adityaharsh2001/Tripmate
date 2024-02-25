@@ -20,10 +20,12 @@ function App() {
     const pathname = location.pathname;
     const [Visited, setVisited] = useState(false);
     useEffect(() => {
-        const visited = localStorage.getItem("visited");
-        if (!visited) {
+        if (localStorage.getItem("visited")) {
             setVisited(true);
             localStorage.setItem("visited", "true");
+        }
+        else {
+            setVisited(false);
         }
     }, []);
     const onClose = () => {
@@ -91,14 +93,21 @@ function App() {
     return (
         <div className={"App"}>
             <Header/>
-            {Visited && <Popup onClose={onClose}/>}
-            <a href="https://api.whatsapp.com/send?phone=393661273612." className="float bounce" target="_blank">
-                <i className="fa fa-whatsapp my-float"></i>
-            </a>
+            {!Visited ? <Popup onClose={onClose}/> : null}
+            <div className="bounce float flex flex-col gap-5 fixed bottom-10 right-10 z-50">
+                <a href="http://wa.me/7488123552?text=Hello%20I%20want%20to%20book%20a%20tour"
+                 className={"bg-[#25d366] w-[50px] rounded-full p-4 flex items-center justify-center shadow-lg"} target="_blank">
+                    <i className="fa fa-whatsapp"/>
+                </a>
+                <a href="tel:393661273612"
+                   className={"bg-primary text-white rounded-full p-4 flex items-center justify-center shadow-lg"}>
+                    <i className="fa fa-phone"/>
+                </a>
+            </div>
             <Routes>
                 <Route path="/" element={<Homepage/>}/>
                 <Route
-                    path="/package-detail"
+                    path="/package-details"
                     element={<PackageDetails/>}
                 />
                 <Route path="/about-us" element={<AboutUsPage/>}/>

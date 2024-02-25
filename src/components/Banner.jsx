@@ -1,6 +1,6 @@
 import {memo, useMemo} from "react";
 
-const Banner = memo(() => {
+const Banner = memo(({Head}) => {
 
     return (
         <div
@@ -16,7 +16,7 @@ const Banner = memo(() => {
                         style={{zIndex: 2}}
                     >
                         <div className="relative m-auto inline-block z-[3] mq750:text-[3.94rem] mq450:text-[2.44rem]">
-                            Manali-Sissu-Kasol
+                            {Head}
                         </div>
                         <div
                             className="w-[48.5rem] flex flex-row items-start justify-center py-[0rem] px-[1.25rem] box-border max-w-full">
