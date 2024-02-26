@@ -1,5 +1,6 @@
 import {memo, useState} from "react";
 import {Link} from "react-router-dom";
+import {usePopup} from "../context/PopUpContext";
 
 const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu}) => {
     return (
@@ -41,7 +42,7 @@ const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu}) => {
 
 const Header = memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const { openPopup } = usePopup();
     const navLinks = [{name: "Home", path: "/"}, {name: "About", path: "/about-us"}, {
         name: "Contact",
         path: "/contact"
@@ -94,6 +95,7 @@ const Header = memo(() => {
                             />
                         </button>
                         <button
+                            onClick={openPopup}
                             className="cursor-pointer bg-primary [border:none] py-3 px-6 rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-start gap-[1rem] hover:bg-mediumpurple">
                             <b className="relative text-[0.88rem] leading-[120%] font-poppins text-white text-left">
                                 Book Now

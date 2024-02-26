@@ -1,9 +1,6 @@
 import {useEffect, useState} from "react";
 import {
-    Routes,
-    Route,
-    useNavigationType,
-    useLocation,
+    Routes, Route, useNavigationType, useLocation,
 } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import PackageDetails from "./pages/PackageDetails";
@@ -13,18 +10,20 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Contact from "./pages/Contact";
 import Popup from "./components/Popup";
+import {PopupProvider} from './context/PopUpContext';
 
 function App() {
     const action = useNavigationType();
     const location = useLocation();
     const pathname = location.pathname;
     const [Visited, setVisited] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+
     useEffect(() => {
         if (localStorage.getItem("visited")) {
             setVisited(true);
             localStorage.setItem("visited", "true");
-        }
-        else {
+        } else {
             setVisited(false);
         }
     }, []);
@@ -36,6 +35,13 @@ function App() {
             window.scrollTo(0, 0);
         }
     }, [action, pathname]);
+
+    useEffect(() => {
+        if (!Visited) {
+            setShowPopup(true);
+        }
+    }, [Visited]);
+
 
     useEffect(() => {
         let title = "";
@@ -81,22 +87,20 @@ function App() {
         }
 
         if (metaDescription) {
-            const metaDescriptionTag = document.querySelector(
-                'head > meta[name="description"]'
-            );
+            const metaDescriptionTag = document.querySelector('head > meta[name="description"]');
             if (metaDescriptionTag) {
                 metaDescriptionTag.content = metaDescription;
             }
         }
     }, [pathname]);
 
-    return (
-        <div className={"App"}>
+    return (<PopupProvider>
+        <div className={"App bg-whitesmoke"}>
             <Header/>
-            {!Visited ? <Popup onClose={onClose}/> : null}
             <div className="bounce float flex flex-col gap-5 fixed bottom-10 right-10 z-50">
                 <a href="http://wa.me/7488123552?text=Hello%20I%20want%20to%20book%20a%20tour"
-                 className={"bg-[#25d366] w-[50px] rounded-full p-4 flex items-center justify-center shadow-lg"} target="_blank">
+                   className={"bg-[#25d366] w-[50px] rounded-full p-4 flex items-center justify-center shadow-lg"}
+                   target="_blank">
                     <i className="fa fa-whatsapp"/>
                 </a>
                 <a href="tel:393661273612"
@@ -116,7 +120,7 @@ function App() {
             </Routes>
             <Footer/>
         </div>
-    );
+    </PopupProvider>);
 }
 
 export default App;

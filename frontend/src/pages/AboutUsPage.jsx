@@ -3,7 +3,6 @@ import Team from "../components/Team";
 import AboutsUsTestimonials from "../components/AboutsUsTestimonials";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import ContactUs from "../components/ContactUs";
 
 const AboutUsPage = () => {
     const controls = useAnimation();

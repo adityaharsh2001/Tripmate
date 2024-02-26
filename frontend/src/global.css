@@ -130,7 +130,7 @@ body {
     cursor: pointer;
 }
 .App {
-    background-image: linear-gradient(to right bottom, #00b4d8, #6ac0e7, #9cccf0, #c3d9f6, #e2e8fa, #e4eefc, #e8f4fe, #eef9ff, #d1f9ff, #affaff, #88fbff, #5ffbf1);;
+    /*@apply bg-whitesmoke*/
     background-size: cover;
     overflow-x: hidden;
     overflow-y: scroll;

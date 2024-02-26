@@ -4,12 +4,12 @@ import { motion, useAnimation } from 'framer-motion'
 
 const HeroSearch = () => {
     return (
-        <div className={"mx-auto px-[20px] w-full flex flex-col justify-around"}>
+        <div className={"mx-auto w-full flex flex-col justify-around"}>
             <div
                 className="text-poppins bottom-0 left-0 right-0 mx-auto max-md:w-full w-fit border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">
                     <div className="flex items-center justify-between whitespace-nowrap">
-                        <div className="flex items-center justify-between gap-10">
+                        <div className="flex items-center justify-between md:gap-10 gap-4">
                             <div className={"flex items-center text-black justify-between gap-3"}>
                                 <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -92,7 +92,7 @@ const HeroSearch = () => {
                 </div>
             </div>
             <button
-                className="md:hidden w-[100] cursor-pointer bg-primary [border:none] py-3 rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-center gap-[1rem] hover:bg-mediumpurple">
+                className="md:hidden w-[100] mt-5 cursor-pointer bg-primary [border:none] py-3 rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-center gap-[1rem] hover:bg-mediumpurple">
                 <b className=" text-[0.88rem] leading-[120%] font-poppins text-white text-left">
                     Search
                 </b>

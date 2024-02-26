@@ -24,7 +24,7 @@ pids
 *.log
 
 # Editor directories and files
-.idea
+../.idea
 .vscode/
 *.swp
 *.swo

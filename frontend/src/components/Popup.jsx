@@ -1,13 +1,13 @@
 import React, {useRef, useEffect, useState} from 'react';
 
-const Popup = ({onClose}) => {
+const Popup = ({isOpen, closePopup}) => {
     const popupRef = useRef(null);
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (popupRef.current && !popupRef.current.contains(event.target)) {
-                onClose();
+                closePopup();
             }
         };
 
@@ -15,11 +15,12 @@ const Popup = ({onClose}) => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [onClose]);
+    }, [closePopup]);
 
     return (
         <>
-            <div className="min-w-screen fixed mx-auto left-0 right-0 z-[999] min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+            {isOpen && (<div
+                className="min-w-screen fixed m-auto left-0 top-0 bottom-0 right-0 z-[999] min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
                 <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
                      style={{maxWidth: "1000px"}}>
                     <div className="md:flex w-full">
@@ -123,12 +124,14 @@ const Popup = ({onClose}) => {
                                            <span className="flex items-center text-sm justify-between w-full">
                                                   Select Destination
                                            </span>
-                                                <span onClick={() => setOpen(!open)} className="cursor-pointer material-symbols-outlined text-[1.4rem] text-gray-400">
+                                                <span onClick={() => setOpen(!open)}
+                                                      className="cursor-pointer material-symbols-outlined text-[1.4rem] text-gray-400">
                                                   expand_more
                                                </span>
                                             </div>
                                             {
-                                                open &&  <div className="flex absolute top-8 left-0 right-0 w-full bg-white mt-2 rounded-lg px-4 py-2 flex-col items-start justify-start">
+                                                open && <div
+                                                    className="flex absolute top-8 left-0 right-0 w-full bg-white mt-2 rounded-lg px-4 py-2 flex-col items-start justify-start">
                                                     <span className="py-1 text-gray-400">Himachal Pradesh</span>
                                                     <span className="py-1 text-gray-400">Kerala</span>
                                                     <span className="py-1 text-gray-400">Goa</span>
@@ -149,7 +152,8 @@ const Popup = ({onClose}) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>)
+            }
         </>
     );
 };
