@@ -18,7 +18,7 @@ const Login = () => {
             toast('Logged in successfully', {
                 icon: '🎉'
             })
-            // localStorage.setItem('token', response.data.tokens)
+            localStorage.setItem('token', JSON.stringify(response.data.tokens))
             navigate('/dashboard')
 
         } catch (e) {
