@@ -1,30 +1,17 @@
 import React from 'react';
 
-const renderPackageData = (data, prefix = '') => {
-    return Object.entries(data).map(([key, value]) => {
-        const displayKey = prefix ? `${prefix}.${key}` : key;
-
-        if (typeof value === 'object' && value !== null) {
-            // If the value is an object and not null, recursively render its properties
-            return renderPackageData(value, displayKey);
-        } else {
-            // If the value is not an object, display the key-value pair
-            return (
-                <p key={displayKey} className="text-sm text-gray-500">{`${displayKey}: ${value}`}</p>
-            );
-        }
-    });
-};
-
 const PackageDetailsPopup = ({packageData, setOpen}) => {
     return (
-        <div className="popup-container">
-            <div className="popup-content">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900 bg-opacity-50">
+            <div className="bg-white rounded-lg p-8 max-w-lg w-full">
                 <button onClick={() => setOpen(false)
-                } className="close-button">Close
+                } className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 focus:outline-none">
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
                 </button>
-                <h2>Package Details</h2>
-                <div className="package-details">
+                <h2 className="text-xl font-bold mb-4">Package Details</h2>
+                <div className="space-y-4">
                     <p><strong>Name:</strong> {packageData.name}</p>
                     <p><strong>Description:</strong> {packageData.description}</p>
                     <p><strong>Price:</strong> {packageData.price}</p>
@@ -32,7 +19,7 @@ const PackageDetailsPopup = ({packageData, setOpen}) => {
                     <p><strong>Featured:</strong> {packageData.featured ? 'Yes' : 'No'}</p>
                     <div>
                         <strong>Fields:</strong>
-                        <ul>
+                        <ul className="list-disc pl-4">
                             {packageData.fields.map((field, index) => (
                                 <li key={index}>
                                     <p><strong>Heading:</strong> {field.heading}</p>
@@ -43,10 +30,10 @@ const PackageDetailsPopup = ({packageData, setOpen}) => {
                     </div>
                     <div>
                         <strong>Images:</strong>
-                        <ul>
+                        <ul className="grid grid-cols-3 gap-4">
                             {packageData.images.map((image, index) => (
                                 <li key={index}>
-                                    <img src={image} alt={`Image ${index + 1}`}/>
+                                    <img src={image} alt={`Image ${index + 1}`} className="w-full h-auto"/>
                                 </li>
                             ))}
                         </ul>
@@ -54,7 +41,7 @@ const PackageDetailsPopup = ({packageData, setOpen}) => {
                     <p><strong>Featured Image:</strong> {packageData.featuredImage}</p>
                     <div>
                         <strong>Tour Plan:</strong>
-                        <ul>
+                        <ul className="list-disc pl-4">
                             {packageData.tourPlan.map((day, index) => (
                                 <li key={index}>
                                     <p><strong>Day:</strong> {day.day}</p>
