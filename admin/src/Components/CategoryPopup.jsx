@@ -5,12 +5,14 @@ import {toast} from "react-hot-toast";
 const CategoryPopup = ({open, setOpen}) => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
+    const [image, setImage] = useState('')
     const handleCreateCategory = async (e) => {
         try {
             e.preventDefault()
             await axios.post('http://localhost:3000/v1/packages/categories', {
                     name,
                     description,
+                    image
                 }, {
                     withCredentials: true,
                     headers: {
@@ -20,6 +22,27 @@ const CategoryPopup = ({open, setOpen}) => {
             )
             setOpen(false)
             toast('Category created successfully', {
+                icon: '🎉'
+            })
+        } catch (e) {
+            toast.error(e.response.data.message)
+        }
+    }
+
+    const uploadSingleImage = async (e) => {
+        try {
+            const file = e.target.files[0]
+            const formData = new FormData()
+            formData.append('image', file)
+            const res = await axios.post('http://localhost:3000/v1/packages/upload/image', formData, {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                }
+            })
+            setImage(res.data.location)
+            toast('Image uploaded successfully', {
                 icon: '🎉'
             })
         } catch (e) {
@@ -87,6 +110,23 @@ const CategoryPopup = ({open, setOpen}) => {
                                             required=""
                                         />
                                     </div>
+                                    <div className={"col-span-2"}>
+                                        <label
+                                            htmlFor="image"
+                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Image
+                                        </label>
+                                        <input
+                                            onChange={uploadSingleImage}
+                                            type="file"
+                                            name="image"
+                                            id="image"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="Type product name"
+                                            required=""
+                                        />
+                                    </div>
                                     <div className="col-span-2">
                                         <label
                                             htmlFor="description"
@@ -126,7 +166,6 @@ const CategoryPopup = ({open, setOpen}) => {
                             </form>
                         </div>
                     </div>
-
                 </div>
             }
         </>

@@ -3,7 +3,7 @@ import {motion, useAnimation} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
 import {Navigation, Pagination, EffectCoverflow, Autoplay} from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import PackageCard from "./PackageCard";
+import axios from "axios";
 import {useInView} from "react-intersection-observer";
 
 const Category = memo(() => {
