@@ -9,7 +9,7 @@ const CategoryPopup = ({open, setOpen}) => {
     const handleCreateCategory = async (e) => {
         try {
             e.preventDefault()
-            await axios.post('http://localhost:3000/v1/packages/categories', {
+            await axios.post('http://localhost:9000/v1/packages/categories', {
                     name,
                     description,
                     image
@@ -34,7 +34,7 @@ const CategoryPopup = ({open, setOpen}) => {
             const file = e.target.files[0]
             const formData = new FormData()
             formData.append('image', file)
-            const res = await axios.post('http://localhost:3000/v1/packages/upload/image', formData, {
+            const res = await axios.post('http://localhost:9000/v1/packages/upload/image', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',

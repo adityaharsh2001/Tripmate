@@ -6,7 +6,7 @@ import "swiper/swiper-bundle.css";
 import axios from "axios";
 import {useInView} from "react-intersection-observer";
 
-const Category = memo(() => {
+const Category = memo(({categories}) => {
     const slides = [];
     const controls = useAnimation();
     const {ref, inView} = useInView();
@@ -21,21 +21,22 @@ const Category = memo(() => {
         }
     }, [controls, inView]);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < categories.length; i++) {
         slides.push(<SwiperSlide key={i} style={{width: "350px"}}>
             <motion.div
-                className={"relative w-[250px]"}
+                className={"relative w-[250px] cursor-pointer"}
                 initial={{opacity: 0, y: 50}}
                 animate={controls}
                 transition={{duration: 1, delay: i * 0.5}}
             >
-                <img src="/images/frame-17@2x.png" alt="hero" className="rounded-[20px] w-full h-full object-cover"/>
+                <img src={categories[i]?.image}
+                         alt="hero" className="rounded-[20px] w-[250px] h-[250px] object-cover"/>
                 <div className={"absolute w-full bottom-2 rounded-b-[20px] text-white mx-auto p-2 text-sm left-0 right-0 bg-black/50"}>
                     <p className="font-bold font-inherit">
-                        Bali
+                        {categories[i]?.name}
                     </p>
                     <p className="font-body">
-                        Bali is an Indonesian island known for its forested volcanic mountains, iconic rice paddies, beaches and coral reefs.
+                        {categories[i]?.description}
                     </p>
                 </div>
             </motion.div>

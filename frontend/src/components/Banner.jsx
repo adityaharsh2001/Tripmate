@@ -1,10 +1,16 @@
 import {memo, useMemo} from "react";
 
-const Banner = memo(({Head}) => {
+const Banner = ({packageData}) => {
 
     return (
         <div
-            className="self-stretch flex flex-row items-center justify-center pt-[0.19rem] px-[0rem] pb-[0rem] box-border relative bg-[url('/public/images/rectangle-19290@2x.png')] bg-cover bg-no-repeat bg-[top] max-w-full text-left text-[1.25rem] text-darkslategray-200 font-poppins">
+            className={`self-stretch flex flex-row items-center justify-center pt-[0.19rem] px-[0rem] pb-[0rem] box-border relative
+            bg-cover bg-no-repeat bg-[top] max-w-full text-left text-[1.25rem]
+            text-darkslategray-200 font-poppins`}
+            style={{
+                backgroundImage: `url(${packageData?.bannerImage})`,
+            }}
+            >
             <div
                 className="flex-1 flex flex-col items-center justify-start py-5 box-border relative gap-[7.88rem] max-w-full z-[1] mq850:gap-[7.88rem] mq850:pt-[3rem] mq850:pb-[6.13rem] mq850:box-border mq1225:gap-[7.88rem] mq450:gap-[7.88rem]">
                 <div
@@ -16,7 +22,7 @@ const Banner = memo(({Head}) => {
                         style={{zIndex: 2}}
                     >
                         <div className="relative m-auto inline-block z-[3] mq750:text-[3.94rem] mq450:text-[2.44rem]">
-                            {Head}
+                            {packageData?.name}
                         </div>
                         <div
                             className="w-[48.5rem] flex flex-row items-start justify-center py-[0rem] px-[1.25rem] box-border max-w-full">
@@ -26,6 +32,6 @@ const Banner = memo(({Head}) => {
             </div>
         </div>
     );
-});
+};
 
 export default Banner;

@@ -6,16 +6,52 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import Partners from "../components/Partners";
 import Popup from "../components/Popup";
-import { usePopup } from '../context/PopUpContext';
+import {usePopup} from '../context/PopUpContext';
 import Category from "../components/Catogeries";
+import axios from "axios";
+
 const Homepage = () => {
-    const { isOpen, closePopup } = usePopup();
+    const {isOpen, closePopup} = usePopup();
+    const [categories, setCategories] = useState([{}])
+    const [featuredPackages, setFeaturedPackages] = useState([{}])
+    const getCategory = async () => {
+        try {
+            const response = await axios.get(`http://localhost:9000/v1/packages/categories`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            )
+            setCategories(response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    const getFeaturedPackages = async () => {
+        try {
+            const response = await axios.get(`http://localhost:9000/v1/packages/featured`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            )
+            setFeaturedPackages(response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    useEffect(() => {
+        getCategory()
+        getFeaturedPackages()
+    }, [])
     return (
         <div className={"text-secondary font-poppins"}>
             <Popup isOpen={isOpen} closePopup={closePopup}/>
             <Hero/>
-            <ExploreTop/>
-            <Category/>
+            <ExploreTop {...{featuredPackages}}/>
+            <Category {...{categories}}/>
             <Stats/>
             <Features/>
             <Partners/>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Information from "./Information";
 import Gallary from "./Gallary";
 import TourPlan from "./TourPlan";
-const Tabs = () => {
+const Tabs = ({ packageData }) => {
     const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (index) => {
@@ -10,9 +10,9 @@ const Tabs = () => {
     };
 
     const tabs = [
-        { title: 'Information', content: <Information />, logo: '/informationLogo.svg' },
-        { title: 'Tour Plan', content: <TourPlan/> , logo: '/Plan.svg'},
-        { title: 'Gallery', content: <Gallary /> , logo: '/GalleryLogo.svg'},
+        { title: 'Information', content: <Information {...{ packageData }} />, logo: '/Information.svg'},
+        { title: 'Tour Plan', content: <TourPlan {...{ packageData }} />, logo: '/TourPlanLogo.svg'},
+        { title: 'Gallery', content: <Gallary {...{ packageData }} />, logo: '/GalleryLogo.svg'}
     ];
 
     return (

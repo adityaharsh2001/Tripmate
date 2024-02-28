@@ -10,6 +10,7 @@ const Popup = ({open, setOpen, categories}) => {
     const [category, setCategory] = React.useState('');
     const [images, setImage] = React.useState('');
     const [featuredImage, setSetFeaturedImage] = React.useState('');
+    const [bannerImage, setBannerImage] = React.useState('');
     const [fields, setFields] = React.useState([{
         heading: '', description: [''], type: {
             type: String, enum: ['bullet', 'text'], default: '',
@@ -22,11 +23,11 @@ const Popup = ({open, setOpen, categories}) => {
         day: '', title: '', description: [''],
     }]);
 
-    const uploadFeaturedImage = async (e) => {
+    const uploadSingleImage = async (e, type) => {
         try {
             const formData = new FormData();
             formData.append('image', e.target.files[0]);
-            const res = await axios.post('http://localhost:3000/v1/packages/upload/image', formData, {
+            const res = await axios.post('http://localhost:9000/v1/packages/upload/image', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -35,7 +36,13 @@ const Popup = ({open, setOpen, categories}) => {
             toast('Featured image uploaded successfully', {
                 icon: '🎉'
             });
-            setSetFeaturedImage(res.data.location);
+            // setSetFeaturedImage(res.data.location);
+            if (type === 'featured') {
+                setSetFeaturedImage(res.data.location);
+            }
+            if (type === 'banner') {
+                setBannerImage(res.data.location);
+            }
         } catch (error) {
             toast.error(error.response.data.message);
         }
@@ -46,7 +53,7 @@ const Popup = ({open, setOpen, categories}) => {
             for (let i = 0; i < e.target.files.length; i++) {
                 formData.append('images', e.target.files[i])
             }
-            const res = await axios.post('http://localhost:3000/v1/packages/upload/images', formData, {
+            const res = await axios.post('http://localhost:9000/v1/packages/upload/images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -63,11 +70,11 @@ const Popup = ({open, setOpen, categories}) => {
     const handleCreateProduct = async (e) => {
         try {
             const payload = {
-                name, description, price, fields, tourPlan, category, featured, images, featuredImage
+                name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
             };
             console.log(payload)
             e.preventDefault();
-            await axios.post('http://localhost:3000/v1/packages/packages', payload, {
+            await axios.post('http://localhost:9000/v1/packages/packages', payload, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -176,7 +183,7 @@ const Popup = ({open, setOpen, categories}) => {
                             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                    htmlFor="file_input">Upload file</label>
                             <input
-                                onChange={uploadFeaturedImage}
+                                onChange={(e) => uploadSingleImage(e, 'featured')}
                                 className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                 aria-describedby="file_input_help" id="file_input" type="file"/>
                             <p className="mt-1 text-sm text-gray-500 dark:text-gray-300" id="file_input_help">SVG, PNG,
@@ -189,6 +196,15 @@ const Popup = ({open, setOpen, categories}) => {
                                 onChange={uploadImages}
                                 className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                                 id="multiple_files" type="file" multiple/>
+                        </div>
+                        {/*//upload banner image*/}
+                        <div className="col-span-2 sm:col-span-1">
+                            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   htmlFor="banner_image">Upload Banner Image</label>
+                            <input
+                                onChange={(e) => uploadSingleImage(e, 'banner')}
+                                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                id="banner_image" type="file"/>
                         </div>
                         <div className="col-span-2 sm:col-span-1">
                             <label
@@ -273,18 +289,15 @@ const Popup = ({open, setOpen, categories}) => {
                                             <i className="fa fa-trash me-1 -ms-1"/>
                                             Remove
                                         </button>
-                                    </div>
-                                ))) : (
-                                    <textarea
-                                        onChange={(e) => handleFieldChange(index, 'description', e.target.value, 0)}
-                                        id={`description-${index}`}
-                                        rows={4}
-                                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white
+                                    </div>))) : (<textarea
+                                    onChange={(e) => handleFieldChange(index, 'description', e.target.value, 0)}
+                                    id={`description-${index}`}
+                                    rows={4}
+                                    className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white
                                                         dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Write product description here"
-                                        defaultValue={""}
-                                    />
-                                )}
+                                    placeholder="Write product description here"
+                                    defaultValue={""}
+                                />)}
                             </div>
                             <div className="flex justify-between gap-5 col-span-2">
                                 <button onClick={() => {
@@ -298,87 +311,82 @@ const Popup = ({open, setOpen, categories}) => {
                                 </button>
                             </div>
                         </div>))}
-                        {tourPlan.map((plan, index) => (
-                            <div key={index} className="grid gap-4 mb-4 grid-cols-2">
-                                <div className="col-span-2">
-                                    <label htmlFor={`day-${index}`}
-                                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Day</label>
-                                    <input
-                                        onChange={(e) => tourPlanChange(index, 'day', e.target.value)}
-                                        type="text"
-                                        name={`day-${index}`}
-                                        id={`day-${index}`}
-                                        value={plan.day}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Enter field heading"
-                                        required=""
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <label htmlFor={`title-${index}`}
-                                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                    <input
-                                        onChange={(e) => tourPlanChange(index, 'title', e.target.value)}
-                                        type="text"
-                                        name={`title-${index}`}
-                                        id={`title-${index}`}
-                                        value={plan.title}
-                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Enter title"
-                                        required=""
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <label htmlFor={`description-${index}`}
-                                           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                    {
-                                        plan.description.map((description, i) => (
-                                            <div key={i} className="flex gap-2 items-center">
-                                                <input
-                                                    onChange={(e) => tourPlanChange(index, 'description', e.target.value, i)}
-                                                    type="text"
-                                                    name={`description-${index}-${i}`}
-                                                    id={`description-${index}-${i}`}
-                                                    value={description}
-                                                    className="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                                    placeholder="Enter bullet point"
-                                                    required=""
-                                                />
-                                                <button onClick={() => {
-                                                    const updatedFields = [...tourPlan];
-                                                    updatedFields[index].description.push('');
-                                                    setTourPlan(updatedFields);
-                                                }} type="button"
-                                                        className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                                    <i className="fa fa-plus me-1 -ms-1"/>
-                                                    Add
-                                                </button>
-                                                <button onClick={() => {
-                                                    const updatedFields = [...tourPlan];
-                                                    updatedFields[index].description.splice(i, 1);
-                                                    setTourPlan(updatedFields);
-                                                }} type="button"
-                                                        className="text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                                    <i className="fa fa-trash me-1 -ms-1"/>
-                                                    Remove
-                                                </button>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                                <div className="flex justify-between gap-5 col-span-2">
-                                    <button onClick={() => {
-                                        const updatedFields = [...tourPlan];
-                                        updatedFields.splice(index, 1);
-                                        setTourPlan(updatedFields);
-                                    }} type="button"
-                                            className="text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                                        <i className="fa fa-trash me-1 -ms-1"/>
-                                        Remove Field
-                                    </button>
-                                </div>
+                        {tourPlan.map((plan, index) => (<div key={index} className="grid gap-4 mb-4 grid-cols-2">
+                            <div className="col-span-2">
+                                <label htmlFor={`day-${index}`}
+                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Day</label>
+                                <input
+                                    onChange={(e) => tourPlanChange(index, 'day', e.target.value)}
+                                    type="text"
+                                    name={`day-${index}`}
+                                    id={`day-${index}`}
+                                    value={plan.day}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Enter field heading"
+                                    required=""
+                                />
                             </div>
-                        ))}
+                            <div className="col-span-2">
+                                <label htmlFor={`title-${index}`}
+                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                                <input
+                                    onChange={(e) => tourPlanChange(index, 'title', e.target.value)}
+                                    type="text"
+                                    name={`title-${index}`}
+                                    id={`title-${index}`}
+                                    value={plan.title}
+                                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                    placeholder="Enter title"
+                                    required=""
+                                />
+                            </div>
+                            <div className="col-span-2">
+                                <label htmlFor={`description-${index}`}
+                                       className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                {plan.description.map((description, i) => (
+                                    <div key={i} className="flex gap-2 items-center">
+                                        <input
+                                            onChange={(e) => tourPlanChange(index, 'description', e.target.value, i)}
+                                            type="text"
+                                            name={`description-${index}-${i}`}
+                                            id={`description-${index}-${i}`}
+                                            value={description}
+                                            className="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="Enter bullet point"
+                                            required=""
+                                        />
+                                        <button onClick={() => {
+                                            const updatedFields = [...tourPlan];
+                                            updatedFields[index].description.push('');
+                                            setTourPlan(updatedFields);
+                                        }} type="button"
+                                                className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            <i className="fa fa-plus me-1 -ms-1"/>
+                                            Add
+                                        </button>
+                                        <button onClick={() => {
+                                            const updatedFields = [...tourPlan];
+                                            updatedFields[index].description.splice(i, 1);
+                                            setTourPlan(updatedFields);
+                                        }} type="button"
+                                                className="text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                            <i className="fa fa-trash me-1 -ms-1"/>
+                                            Remove
+                                        </button>
+                                    </div>))}
+                            </div>
+                            <div className="flex justify-between gap-5 col-span-2">
+                                <button onClick={() => {
+                                    const updatedFields = [...tourPlan];
+                                    updatedFields.splice(index, 1);
+                                    setTourPlan(updatedFields);
+                                }} type="button"
+                                        className="text-white inline-flex items-center bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                    <i className="fa fa-trash me-1 -ms-1"/>
+                                    Remove Field
+                                </button>
+                            </div>
+                        </div>))}
                         <div className={'flex justify-between gap-5 mt-5'}>
                             <button
                                 type={'button'}

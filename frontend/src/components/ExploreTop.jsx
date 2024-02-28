@@ -7,11 +7,9 @@ import clsx from "clsx";
 import PackageCard from "./PackageCard";
 import {useInView} from "react-intersection-observer";
 
-const ExploreTop = memo(() => {
-    const slides = [];
+const ExploreTop = ({featuredPackages}) => {
     const controls = useAnimation();
     const {ref, inView} = useInView();
-
     useEffect(() => {
         if (inView) {
             controls.start({
@@ -21,22 +19,6 @@ const ExploreTop = memo(() => {
             controls.start({opacity: 0, y: 50, transition: {duration: 1, easing: "easeInOut", delay: 0.5}});
         }
     }, [controls, inView]);
-
-    for (let i = 0; i < 5; i++) {
-        slides.push(<SwiperSlide key={i} style={{width: "350px"}}>
-            <motion.div
-                initial={{opacity: 0, y: 50}}
-                animate={controls}
-                transition={{duration: 1, delay: i * 0.5}}
-            >
-                <PackageCard
-                    Place={"Manali, Himachal Pradesh"}
-                    price={200}
-                    Description={"Experience holidays in Manali, Kasol, Atal Tunnel"}
-                />
-            </motion.div>
-        </SwiperSlide>);
-    }
 
     return (<>
         <motion.div
@@ -100,13 +82,27 @@ const ExploreTop = memo(() => {
                 modules={[Pagination, Navigation, Autoplay]}
                 className="w-full h-[100%] mx-auto left-0 relative"
             >
-                {slides}
+                {
+                    featuredPackages.map((featuredPackage, i) => (
+                        <SwiperSlide key={i} style={{width: "350px"}}>
+                            <motion.div
+                                initial={{opacity: 0, y: 50}}
+                                animate={controls}
+                                transition={{duration: 1, delay: i * 0.5}}
+                            >
+                                <PackageCard
+                                    {...{featuredPackage}}
+                                />
+                            </motion.div>
+                        </SwiperSlide>
+                    ))
+                }
                 <div className="slider-controler">
                     <div className="swiper-pagination relative w-[15rem] mx-auto mt-10"/>
                 </div>
             </Swiper>
         </motion.div>
     </>);
-});
+};
 
 export default ExploreTop;

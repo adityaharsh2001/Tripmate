@@ -14,7 +14,7 @@ const Dashboard = () => {
 
     const getAllCategories = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/v1/packages/categories', {
+            const response = await axios.get('http://localhost:9000/v1/packages/categories', {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -28,7 +28,7 @@ const Dashboard = () => {
 
     const getAllPackages = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/v1/packages/packages', {
+            const response = await axios.get('http://localhost:9000/v1/packages/packages', {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,

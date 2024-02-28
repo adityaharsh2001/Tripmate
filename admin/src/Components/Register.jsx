@@ -20,13 +20,13 @@ const Register = () => {
         try {
             if (password !== repeatPassword)
                 return alert('Passwords do not match')
-            await axios.post('http://localhost:3000/v1/auth/register', {
+            await axios.post('http://localhost:9000/v1/auth/register', {
                 name: name,
                 email: email,
                 password: password
             })
             toast.success('Account created successfully')
-            await axios.post('http://localhost:3000/v1/auth/verify-email', {
+            await axios.post('http://localhost:9000/v1/auth/verify-email', {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             })
             toast('Email verification sent to your email', {
