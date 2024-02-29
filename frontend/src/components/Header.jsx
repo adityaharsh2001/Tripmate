@@ -4,19 +4,16 @@ import {usePopup} from "../context/PopUpContext";
 import axios from "axios";
 
 const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu}) => {
-    return (
-        <div
+    return (<div
             className={`${isMenuOpen ? "translate-x-0" : "-translate-x-full"} fixed inset-0 bg-white/80 shadow backdrop-blur-lg z-50 w-full py-10 h-full flex flex-col items-start px-10 justify-between gap-5 transition-all duration-300 md:hidden`}>
             <div className="flex flex-col items-start mt-[80px] justify-start gap-5">
-                {navLinks.map((link, index) => (
-                    <Link
+                {navLinks.map((link, index) => (<Link
                         key={index}
                         to={link.path}
                         onClick={toggleMenu}
                     >
                         {link.name}
-                    </Link>
-                ))}
+                    </Link>))}
             </div>
             <div className="flex flex-col w-full items-center justify-center gap-5">
                 <button
@@ -39,8 +36,7 @@ const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu}) => {
                     </b>
                 </button>
             </div>
-        </div>
-    );
+        </div>);
 };
 
 const Header = memo(() => {
@@ -48,12 +44,10 @@ const Header = memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [open, setOpen] = useState(false);
     const {openPopup} = usePopup();
-    const navLinks = [
-        {name: "Home", path: "/"},
-        {name: "About", path: "/about-us"},
-        {name: "Contact", path: "/contact"},
-        {name: "Weekend Trips", path: "/weekend-trips"},
-    ];
+    const navLinks = [{name: "Home", path: "/"}, {name: "About", path: "/about-us"}, {
+        name: "Contact",
+        path: "/contact"
+    }, {name: "Weekend Trips", path: "/weekend-trips"},];
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -61,8 +55,7 @@ const Header = memo(() => {
 
     const getAllCategories = async () => {
         try {
-            const response = await axios.get('https://admintm.geekyadi.dev/api/v1/packages/categories', {
-            });
+            const response = await axios.get('https://admintm.geekyadi.dev/api/v1/packages/categories', {});
             setCategories(response.data);
         } catch (error) {
             console.error('Error fetching categories:', error);
@@ -84,14 +77,12 @@ const Header = memo(() => {
                         </a>
                     </div>
                     <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-                        {navLinks.map((link, index) => (
-                            <Link
+                        {navLinks.map((link, index) => (<Link
                                 key={index}
                                 to={link.path}
                                 className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
                                 {link.name}
-                            </Link>
-                        ))}
+                            </Link>))}
                         <div
                             className="inline-block relative rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">
                             <div className="flex items-center gap-2" onClick={() => setOpen(!open)}>
@@ -99,20 +90,18 @@ const Header = memo(() => {
                                 <span
                                     className="cursor-pointer material-symbols-outlined text-[1.4rem] text-gray-400">expand_more</span>
                             </div>
-                            {
-                                open &&
+                            {open &&
                                 <div className="absolute bg-white shadow-lg rounded-lg py-3 px-5 top-[50px] left-0">
                                     <ul className="flex flex-col gap-2">
                                         <li className="text-gray-900 text-sm cursor-pointer font-medium hover:text-primary">All</li>
-                                        {
-                                            categories.map((category, index) => (
+                                        {categories.map((category, index) => (
+                                            <Link key={index} to={`/explore?category=${category.name}`}>
                                                 <li key={index}
                                                     className="text-gray-900 text-sm cursor-pointer font-medium hover:text-primary">{category.name}</li>
-                                            ))
-                                        }
+                                                ))
+                                            </Link>))}
                                     </ul>
-                                </div>
-                            }
+                                </div>}
                         </div>
                     </div>
                     <div className="flex items-center justify-end gap-3 md:hidden">

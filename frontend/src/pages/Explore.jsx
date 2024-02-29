@@ -14,14 +14,6 @@ const Explore = () => {
         try {
             const response = await axios.get(
                 `https://admintm.geekyadi.dev/api/v1/packages/categories`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${
-                            JSON.parse(localStorage.getItem("token"))?.access
-                                .token
-                        }`,
-                    },
-                }
             );
             setCategories(response.data);
         } catch (error) {
