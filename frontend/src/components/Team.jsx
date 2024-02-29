@@ -1,35 +1,7 @@
 import React, {useEffect} from 'react';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from 'react-intersection-observer';
-
-const people = [
-    {
-        name: 'Leslie Alexander',
-        role: 'Co-Founder / CEO',
-        imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-        name: 'Michael Foster',
-        role: 'Co-Founder / CTO',
-        imageUrl:
-            'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-        name: 'Dries Vincent',
-        role: 'Manager, Business Relations',
-        imageUrl:
-            'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-        name: 'Lindsay Walton',
-        role: 'Frontend Engineer',
-        imageUrl:
-            'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-]
-
-export default function Team() {
+export default function Team({people}) {
     const controls = useAnimation();
     const {ref, inView} = useInView();
 
@@ -70,10 +42,10 @@ export default function Team() {
                                    animate={controls}
                                    initial={{opacity: 0, y: 50}}>
                             <div className="flex items-center gap-x-6">
-                                <img className="h-16 w-16 rounded-full" src={person.imageUrl} alt=""/>
+                                <img className="h-16 w-16 rounded-full" src={person.image} alt=""/>
                                 <div>
-                                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person.name}</h3>
-                                    <p className="text-sm font-semibold leading-6 text-primary">{person.role}</p>
+                                    <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">{person?.name}</h3>
+                                    <p className="text-sm font-semibold leading-6 text-primary">{person?.designation}</p>
                                 </div>
                             </div>
                         </motion.li>

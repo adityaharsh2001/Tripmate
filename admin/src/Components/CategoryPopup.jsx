@@ -2,33 +2,55 @@ import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {toast} from "react-hot-toast";
 
-const CategoryPopup = ({open, setOpen}) => {
+const CategoryPopup = ({open, setOpen, categoryData = null}) => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
     const handleCreateCategory = async (e) => {
         try {
             e.preventDefault()
-            await axios.post('http://localhost:9000/v1/packages/categories', {
-                    name,
-                    description,
-                    image
-                }, {
-                    withCredentials: true,
-                    headers: {
-                        Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+            if (!name || !description || !image) {
+                toast.error('All fields are required')
+                return
+            }
+            if (categoryData) {
+                await axios.put(`http://localhost:9000/v1/packages/categories/${id}`, {
+                        name,
+                        description,
+                        image
+                    }, {
+                        withCredentials: true,
+                        headers: {
+                            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                        }
                     }
-                }
-            )
-            setOpen(false)
-            toast('Category created successfully', {
-                icon: '🎉'
-            })
+                )
+                setOpen(false)
+                toast('Category updated successfully', {
+                    icon: '🎉'
+                })
+                return
+            } else {
+                await axios.post('http://localhost:9000/v1/packages/categories', {
+                        name,
+                        description,
+                        image
+                    }, {
+                        withCredentials: true,
+                        headers: {
+                            Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                        }
+                    }
+                )
+                setOpen(false)
+                toast('Category created successfully', {
+                    icon: '🎉'
+                })
+            }
         } catch (e) {
             toast.error(e.response.data.message)
         }
     }
-
     const uploadSingleImage = async (e) => {
         try {
             const file = e.target.files[0]
@@ -49,7 +71,56 @@ const CategoryPopup = ({open, setOpen}) => {
             toast.error(e.response.data.message)
         }
     }
+    const setCategoryData = () => {
+        setName(categoryData.name)
+        setDescription(categoryData.description)
+        setImage(categoryData.image)
+    }
 
+    const updateCategory = async () => {
+        try {
+            await axios.patch(`http://localhost:9000/v1/packages/categories/${categoryData.id}`, {
+                name,
+                description,
+                image
+            }, {
+                withCredentials: true,
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                }
+            })
+            setOpen(false)
+            toast('Category updated successfully', {
+                icon: '🎉'
+            })
+        } catch (e) {
+            toast.error(e.response.data.message)
+        }
+    }
+
+    const deleteCategory = async (e) => {
+        try {
+            e.preventDefault()
+            await axios.delete(`http://localhost:9000/v1/packages/categories/${categoryData.id}`, {
+                withCredentials: true,
+                headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                }
+            })
+            setOpen(false)
+            toast('Category deleted successfully', {
+                icon: '🎉'
+            })
+        } catch (e) {
+            toast.error(e.response.data.message)
+        }
+    }
+
+    useEffect(() => {
+        if (categoryData) {
+            setCategoryData()
+        }
+    }, []);
     return (
         <>
             {
@@ -60,13 +131,18 @@ const CategoryPopup = ({open, setOpen}) => {
                     aria-hidden="true"
                     className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
                 >
-                    <div className="relative p-4 w-full max-w-md max-h-full">
+                    <div className="relative p-4 w-full max-h-full">
                         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             <div
                                 className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
                                     Create A New Category
                                 </h3>
+                                <button onClick={(e) => deleteCategory(e)} type="button"
+                                        className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                        data-modal-toggle="crud-modal">
+                                    <span className="material-symbols-outlined">delete</span>
+                                </button>
                                 <button
                                     onClick={() => setOpen(false)}
                                     type="button"
@@ -108,6 +184,7 @@ const CategoryPopup = ({open, setOpen}) => {
                                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                             placeholder="Type product name"
                                             required=""
+                                            defaultValue={categoryData?.name || 'Enter Category name'}
                                         />
                                     </div>
                                     <div className={"col-span-2"}>
@@ -117,6 +194,11 @@ const CategoryPopup = ({open, setOpen}) => {
                                         >
                                             Image
                                         </label>
+                                        {
+                                            categoryData?.image &&
+                                            <img src={categoryData?.image} alt="image"
+                                                 className="w-20 h-20 rounded-lg"/>
+                                        }
                                         <input
                                             onChange={uploadSingleImage}
                                             type="file"
@@ -140,13 +222,13 @@ const CategoryPopup = ({open, setOpen}) => {
                                             rows={4}
                                             className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                             placeholder="Write product description here"
-                                            defaultValue={""}
+                                            defaultValue={categoryData?.description || 'Enter Category description'}
                                         />
                                     </div>
                                 </div>
                                 <button
                                     type="button"
-                                    onClick={handleCreateCategory}
+                                    onClick={categoryData ? updateCategory : handleCreateCategory}
                                     className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                 >
                                     <svg
@@ -161,7 +243,7 @@ const CategoryPopup = ({open, setOpen}) => {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Add new product
+                                    {categoryData ? 'Update' : 'Create'}
                                 </button>
                             </form>
                         </div>
