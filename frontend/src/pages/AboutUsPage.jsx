@@ -21,7 +21,7 @@ const AboutUsPage = () => {
 
     const getTeam = async () => {
         try {
-            const response = await axios.get(`http://localhost:9000/v1/teams`);
+            const response = await axios.get(`http://admintm.geekyadi.dev/api/v1/teams`);
             setTeam(response.data);
             console.log(response.data);
         } catch (e) {

@@ -61,7 +61,7 @@ const Header = memo(() => {
 
     const getAllCategories = async () => {
         try {
-            const response = await axios.get('http://localhost:9000/v1/packages/categories', {
+            const response = await axios.get('http://admintm.geekyadi.dev/api/v1/packages/categories', {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 },

@@ -16,7 +16,7 @@ const Homepage = () => {
     const [featuredPackages, setFeaturedPackages] = useState([{}])
     const getCategory = async () => {
         try {
-            const response = await axios.get(`http://localhost:9000/v1/packages/categories`,
+            const response = await axios.get(`http://admintm.geekyadi.dev/api/v1/packages/categories`,
                 {
                     headers: {
                         'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const Homepage = () => {
     }
     const getFeaturedPackages = async () => {
         try {
-            const response = await axios.get(`http://localhost:9000/v1/packages/featured`,
+            const response = await axios.get(`http://admintm.geekyadi.dev/api/v1/packages/featured`,
                 {
                     headers: {
                         'Content-Type': 'application/json',

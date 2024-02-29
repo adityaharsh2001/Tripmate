@@ -51,7 +51,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
             e.preventDefault();
             const formData = new FormData();
             formData.append('image', e.target.files[0]);
-            const res = await axios.post('http://localhost:9000/v1/packages/upload/image', formData, {
+            const res = await axios.post('http://admintm.geekyadi.dev/api/v1/packages/upload/image', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -78,7 +78,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
             for (let i = 0; i < e.target.files.length; i++) {
                 formData.append('images', e.target.files[i])
             }
-            const res = await axios.post('http://localhost:9000/v1/packages/upload/images', formData, {
+            const res = await axios.post('http://admintm.geekyadi.dev/api/v1/packages/upload/images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -99,7 +99,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                 name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
             };
             e.preventDefault();
-            await axios.post('http://localhost:9000/v1/packages/packages', payload, {
+            await axios.post('http://admintm.geekyadi.dev/api/v1/packages/packages', payload, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -135,7 +135,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
     const deletePackage = async (e) => {
         try {
             e.preventDefault();
-            await axios.delete(`http://localhost:9000/v1/packages/package/${packageData.id}`, {
+            await axios.delete(`http://admintm.geekyadi.dev/api/v1/packages/package/${packageData.id}`, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -156,7 +156,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                 name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
             };
             e.preventDefault();
-            await axios.patch(`http://localhost:9000/v1/packages/package/${packageData.id}`, payload, {
+            await axios.patch(`http://admintm.geekyadi.dev/api/v1/packages/package/${packageData.id}`, payload, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
