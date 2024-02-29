@@ -33,14 +33,6 @@ const Explore = () => {
         try {
             const response = await axios.get(
                 `https://admintm.geekyadi.dev/api/v1/packages/packages${window.location.search}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${
-                            JSON.parse(localStorage.getItem("token"))?.access
-                                .token
-                        }`,
-                    },
-                }
             );
             setPackages(response.data);
         } catch (error) {
