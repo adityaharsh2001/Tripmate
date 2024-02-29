@@ -14,7 +14,7 @@ getFeaturedPackages = catchAsync(async (req, res) => {
   res.send(packages);
 });
 const getPackages = catchAsync(async (req, res) => {
-  if (req.query.category === 'all') {
+  if (!req.query.category || req.query.category === 'all') {
     const packages = await packageService.getPackages({});
     res.send(packages);
   } else {
