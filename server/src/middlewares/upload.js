@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');
 const path = require('path');
-const {BadRequestError} = require('../utils/apiError');
+const {BadRequestError} = require('../utils/ApiError');
 const {aws} = require('../config/config');
 const s3 = new AWS.S3({
   accessKeyId: aws.accessKeyId,
