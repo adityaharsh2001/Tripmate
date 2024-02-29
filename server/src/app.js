@@ -58,10 +58,17 @@ if (config.env === 'production') {
 }
 
 // v1 api routes
+<<<<<<< HEAD
 app.use('/v1', routes);
 // app.use('/', (req, res) => {
 //   res.send('Welcome to TripMate API');
 // });
+=======
+app.use('/api/v1', routes);
+//app.use('/', (req, res) => {
+  //res.send('Welcome to TripMate API');
+///});
+>>>>>>> 1e0c6e0 (kuch bhi)
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
