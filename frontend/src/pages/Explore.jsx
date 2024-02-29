@@ -13,7 +13,7 @@ const Explore = () => {
     const getAllCategories = async () => {
         try {
             const response = await axios.get(
-                `http://admintm.geekyadi.dev/api/v1/packages/categories`,
+                `https://admintm.geekyadi.dev/api/v1/packages/categories`,
                 {
                     withCredentials: true,
                     headers: {
@@ -33,7 +33,7 @@ const Explore = () => {
     const getPackagesByCategory = async () => {
         try {
             const response = await axios.get(
-                `http://admintm.geekyadi.dev/api/v1/packages/packages${window.location.search}`,
+                `https://admintm.geekyadi.dev/api/v1/packages/packages${window.location.search}`,
                 {
                     withCredentials: true,
                     headers: {

@@ -11,7 +11,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         try {
             e.preventDefault()
-            const response = await axios.post('http://admintm.geekyadi.dev/api/v1/auth/login', {
+            const response = await axios.post('https://admintm.geekyadi.dev/api/v1/auth/login', {
                 email: email,
                 password: password
             })

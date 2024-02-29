@@ -14,7 +14,7 @@ const PackageDetails = () => {
 
     const getPackage = async () => {
         try {
-            const response = await axios.get(`http://admintm.geekyadi.dev/api/v1/packages/package/${search.get('id')}`,
+            const response = await axios.get(`https://admintm.geekyadi.dev/api/v1/packages/package/${search.get('id')}`,
                 {
                     headers: {
                         'Content-Type': 'application/json',
