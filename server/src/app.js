@@ -40,7 +40,7 @@ app.use(compression());
 // enable cors
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5173", "https://admintm.geekyadi.dev", "https://tripmate.geekyadi.dev"],
+    origin: ["http://localhost:3000", "http://localhost:5173/", "https://admintm.geekyadi.dev", "https://tripmate.geekyadi.dev/"],
     methods: "GET, POST, PATCH, DELETE, PUT",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true
@@ -59,9 +59,9 @@ if (config.env === 'production') {
 
 // v1 api routes
 app.use('/v1', routes);
-app.use('/', (req, res) => {
-  res.send('Welcome to TripMate API');
-});
+// app.use('/', (req, res) => {
+//   res.send('Welcome to TripMate API');
+// });
 app.use((req, res, next) => {
   next(new ApiError(httpStatus.NOT_FOUND, 'Not found'));
 });
