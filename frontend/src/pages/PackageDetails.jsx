@@ -15,12 +15,6 @@ const PackageDetails = () => {
     const getPackage = async () => {
         try {
             const response = await axios.get(`https://admintm.geekyadi.dev/api/v1/packages/package/${search.get('id')}`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    }
-                }
             )
             setPackageData(response.data)
         } catch (e) {
@@ -31,10 +25,11 @@ const PackageDetails = () => {
         getPackage()
     }, [search])
     return (
-        <div className="w-full relative font-poppins flex flex-col items-center justify-start gap-[3.81rem] tracking-[normal]">
-        <Banner {...{packageData}}/>
-        <Tabs {...{packageData}}/>
-    </div>
+        <div
+            className="w-full relative font-poppins flex flex-col items-center justify-start gap-[3.81rem] tracking-[normal]">
+            <Banner {...{packageData}}/>
+            <Tabs {...{packageData}}/>
+        </div>
     );
 };
 
