@@ -22,7 +22,7 @@ const Tabs = ({ packageData }) => {
                     <div
                         key={index}
                         onClick={() => handleTabClick(index)}
-                        className={`flex cursor-pointer w-full p-10 gap-3 items-center justify-center ${
+                        className={`flex cursor-pointer w-full p-10 max-md:p-5 gap-3 items-center justify-center ${
                             activeTab === index ? 'bg-white' : 'bg-[#F8F8F8]'
                         }`}
                     >

@@ -31,29 +31,15 @@ function Information({packageData}) {
             </div>
             <div className="mt-16 max-md:mt-10 max-md:max-w-full">
                 <div className="flex gap-5 justify-between max-md:flex-col max-md:gap-0 max-md:">
-                    <div className="flex flex-col max-md:ml-0 max-md:w-full">
-                        <div
-                            className="flex flex-col self-stretch my-auto text-xl font-bold text-blue-600 capitalize tracking-[2px] max-md:mt-10">
-                            {
-                                packageData?.fields?.map((field, index) => (
-                                    <div key={index} className="mt-14">
-                                        {field.heading}
-                                    </div>
-                                ))
-                            }
-                        </div>
+                    <div className="flex items-start justify-start flex-col max-md:ml-0 max-md:w-full">
+                        {packageData?.fields?.map((field, index) => (
+                            <div key={index} className="flex max-md:flex-col items-center justify-center gap-10 my-auto">
+                                <div className={"text-xl font-bold  text-blue-600 capitalize tracking-[2px]"}>{field.heading}</div>
+                                <div className="text-base items-center justify-center leading-7 text-black">{field.description}</div>
+                            </div>
+                        ))}
                     </div>
-                    <div className="flex flex-col ml-5 max-md:w-full">
-                        <div className="flex flex-col self-stretch my-auto text-base leading-7 text-black max-md:mt-10">
-                            { packageData?.fields?.map((field, index) => (
-                                    <div key={index} className="mt-14">
-                                        {field.description}
-                                    </div>
-                                ))
-                            }
-                        </div>
-                    </div>
-                    <div className="flex flex-col ml-5 max-md:w-full">
+                    <div className="flex flex-col mt-5 max-md:w-full">
                         <ContactForm/>
                     </div>
                 </div>

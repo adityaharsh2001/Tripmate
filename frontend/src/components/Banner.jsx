@@ -1,14 +1,13 @@
 import {memo, useMemo} from "react";
 
-const Banner = ({packageData}) => {
-
+const Banner = ({bannerImage, name}) => {
     return (
         <div
-            className={`self-stretch flex flex-row items-center justify-center pt-[0.19rem] px-[0rem] pb-[0rem] box-border relative
+            className={`self-stretch flex flex-row items-center justify-center px-[0rem] box-border relative
             bg-cover bg-no-repeat bg-[top] max-w-full text-left text-[1.25rem]
             text-darkslategray-200 font-poppins`}
             style={{
-                backgroundImage: `url(${packageData?.bannerImage})`,
+                backgroundImage: `url(${bannerImage})`,
             }}
             >
             <div
@@ -18,11 +17,11 @@ const Banner = ({packageData}) => {
                 <div
                     className="flex flex-col items-center justify-between gap-[4.31rem] max-w-full text-left text-[1.13rem] text-seashell font-poppins">
                     <div
-                        className="flex flex-col relative mt-20 items-center justify-center gap-[1.63rem] max-w-full text-center text-[5.84rem] text-white font-yesteryear"
+                        className="flex flex-col relative py-20 mt-10 items-center justify-center gap-[1.63rem] max-w-full text-center text-[5.84rem] text-white font-yesteryear"
                         style={{zIndex: 2}}
                     >
                         <div className="relative m-auto inline-block z-[3] mq750:text-[3.94rem] mq450:text-[2.44rem]">
-                            {packageData?.name}
+                            {name}
                         </div>
                         <div
                             className="w-[48.5rem] flex flex-row items-start justify-center py-[0rem] px-[1.25rem] box-border max-w-full">

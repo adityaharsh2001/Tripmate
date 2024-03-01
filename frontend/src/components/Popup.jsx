@@ -1,8 +1,8 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 
-const Popup = ({isOpen, closePopup}) => {
+const Popup = ({ isOpen, closePopup }) => {
     const popupRef = useRef(null);
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(isOpen);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -11,17 +11,26 @@ const Popup = ({isOpen, closePopup}) => {
             }
         };
 
-        document.addEventListener("mousedown", handleClickOutside);
+        if (open) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [closePopup]);
+    }, [open, closePopup]);
+
+    useEffect(() => {
+        setOpen(isOpen);
+    }, [isOpen]);
 
     return (
         <>
             {isOpen && (<div
                 className="min-w-screen fixed m-auto left-0 top-0 bottom-0 right-0 z-[999] min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
-                <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
+                <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" ref={popupRef}
                      style={{maxWidth: "1000px"}}>
                     <div className="md:flex w-full">
                         <div className="hidden md:block w-1/2 bg-white py-10 px-10">

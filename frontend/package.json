@@ -2,6 +2,7 @@
   "name": "tripmate",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://admintm.geekyadi.dev",
   "dependencies": {
     "@tailwindcss/nesting": "^0.0.0-insiders.565cd3e",
     "@testing-library/jest-dom": "^5.16.5",
@@ -22,7 +23,8 @@
     "postcss-import": "^16.0.1",
     "postcss-nesting": "^12.0.3",
     "react": "^18.2.0",
-    "react-datepicker": "^6.1.0",
+    "react-date-picker": "^10.6.0",
+    "react-datepicker": "^6.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.50.1",
     "react-hot-toast": "^2.4.1",

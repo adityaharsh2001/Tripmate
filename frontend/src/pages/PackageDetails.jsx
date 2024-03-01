@@ -14,7 +14,7 @@ const PackageDetails = () => {
 
     const getPackage = async () => {
         try {
-            const response = await axios.get(`https://admintm.geekyadi.dev/api/v1/packages/package/${search.get('id')}`,
+            const response = await axios.get(`/api/v1/packages/package/${search.get('id')}`,
             )
             setPackageData(response.data)
         } catch (e) {
@@ -27,7 +27,7 @@ const PackageDetails = () => {
     return (
         <div
             className="w-full relative font-poppins flex flex-col items-center justify-start gap-[3.81rem] tracking-[normal]">
-            <Banner {...{packageData}}/>
+            <Banner {...{bannerImage: packageData.bannerImage, name: packageData.name}}/>
             <Tabs {...{packageData}}/>
         </div>
     );

@@ -1,17 +1,37 @@
-import React from 'react'
-import { InView } from 'react-intersection-observer'
-import { motion, useAnimation } from 'framer-motion'
+import React, {useEffect, useState} from 'react'
+import clsx from "clsx";
+import {useNavigate} from "react-router";
+import axios from "axios";
 
-const HeroSearch = () => {
+const HeroSearch = ({className}) => {
+    const [categories, setCategories] = useState([{}])
+    const navigate = useNavigate()
+    const getCategory = async () => {
+        try {
+            const response = await axios.get(`/api/v1/packages/categories`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            )
+            setCategories(response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    useEffect(() => {
+        getCategory()
+    }, [])
     return (
-        <div className={"mx-auto w-full flex flex-col justify-around"}>
+        <div className={clsx("flex items-center justify-center", className)}>
             <div
-                className="text-poppins bottom-0 left-0 right-0 mx-auto max-md:w-full w-fit border border-gray-100 bg-white/80 py-3 text-sm shadow backdrop-blur-lg rounded-3xl lg:max-w-screen-lg">
+                className="text-poppins border w-fit border-gray-100 backdrop-blur py-3 text-sm rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">
-                    <div className="flex items-center justify-between whitespace-nowrap">
+                    <div className="flex items-center justify-between">
                         <div className="flex items-center justify-between md:gap-10 gap-4">
                             <div className={"flex items-center text-black justify-between gap-3"}>
-                                <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                <svg width="20" height="20" viewBox="0 0 34 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_674_133)">
                                         <path opacity="0.3"
@@ -33,12 +53,20 @@ const HeroSearch = () => {
                                 <div className="flex flex-col items-start justify-start">
                                     <p className="md:font-bold">Location</p>
                                     <div className="flex items-center justify-start">
-                                        <span className="max-md:hidden text-gray-400">Where do you want to go?</span>
+                                        <select
+                                            onChange={(e) => navigate(`/explore?category=${e.target.value}`)}
+                                            className="max-md:hidden bg-transparent border-none text-sm">
+                                            <option value={"all"}>All</option>
+                                            {categories.map((category, index) => (
+                                                <option
+                                                    key={index}
+                                                    value={category.name}>{category.name}</option>))}
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                             <div className={"flex items-center text-black justify-start gap-3"}>
-                                <svg width="26" height="27" viewBox="0 0 26 27" fill="none"
+                                <svg width="20" height="20" viewBox="0 0 26 27" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_674_143)">
                                         <path
@@ -49,21 +77,20 @@ const HeroSearch = () => {
                                     </g>
                                     <defs>
                                         <clipPath id="clip0_674_143">
-                                            <rect width="26" height="26" fill="white" transform="translate(0 0.5)"/>
+                                            <rect width="26" height="26" fill="white"
+                                                  transform="translate(0 0.5)"/>
                                         </clipPath>
                                     </defs>
                                 </svg>
                                 <div className="flex flex-col items-start justify-start">
                                     <p className="md:font-bold">Date</p>
-                                    <div className="flex max-md:hidden items-center justify-start">
-                                        <span className="text-gray-400">Choose a Date</span>
-                                        <span className="material-symbols-outlined">expand_more</span>
-                                    </div>
+                                    <input type="date" className="bg-transparent border-none text-sm"/>
                                 </div>
                             </div>
                             <div className={"flex items-center text-black justify-start gap-3"}>
-                                <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                                <svg width="20" height="20" viewBox="0 0 26 26" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     xmlnsXlink="http://www.w3.org/1999/xlink">
                                     <rect width="26" height="26" fill="url(#pattern0)"/>
                                     <defs>
                                         <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
@@ -91,12 +118,6 @@ const HeroSearch = () => {
                     </div>
                 </div>
             </div>
-            <button
-                className="md:hidden w-[100] mt-5 cursor-pointer bg-primary [border:none] py-3 rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-center gap-[1rem] hover:bg-mediumpurple">
-                <b className=" text-[0.88rem] leading-[120%] font-poppins text-white text-left">
-                    Search
-                </b>
-            </button>
         </div>
     )
 }

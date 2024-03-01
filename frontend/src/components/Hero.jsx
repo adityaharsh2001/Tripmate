@@ -1,13 +1,13 @@
-import {motion, AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import HeroSearch from "./Hero-Search";
 
 const HeroSection = () => {
     return (
         <div className="flex flex-col h-screen items-center px-10 md:px-20 justify-start gap-10 text-[42px]"
              style={{
-                     backgroundImage: "linear-gradient(to right bottom, #00b4d8, #6ac0e7, #9cccf0, #c3d9f6, #e2e8fa, #e4eefc, #e8f4fe, #eef9ff, #d1f9ff, #affaff, #88fbff, #5ffbf1)"
+                 backgroundImage: "linear-gradient(to right bottom, #00b4d8, #6ac0e7, #9cccf0, #c3d9f6, #e2e8fa, #e4eefc, #e8f4fe, #eef9ff, #d1f9ff, #affaff, #88fbff, #5ffbf1)"
 
-                 }}
+             }}
         >
             <div className="w-full flex mt-[120px] max-md:flex-col items-center justify-center">
                 <AnimatePresence>
@@ -47,7 +47,7 @@ const HeroSection = () => {
                     </motion.div>
                 </AnimatePresence>
             </div>
-            <HeroSearch/>
+            <HeroSearch className={"absolute bottom-5 left-0 right-0 mx-auto "}/>
         </div>
     );
 };
