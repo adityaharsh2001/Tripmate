@@ -51,7 +51,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
             e.preventDefault();
             const formData = new FormData();
             formData.append('image', e.target.files[0]);
-            const res = await axios.post('https://admintm.geekyadi.dev/api/v1/packages/upload/image', formData, {
+            const res = await axios.post('/api/v1/packages/upload/image', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -78,7 +78,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
             for (let i = 0; i < e.target.files.length; i++) {
                 formData.append('images', e.target.files[i])
             }
-            const res = await axios.post('https://admintm.geekyadi.dev/api/v1/packages/upload/images', formData, {
+            const res = await axios.post('/api/v1/packages/upload/images', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -99,7 +99,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                 name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
             };
             e.preventDefault();
-            await axios.post('https://admintm.geekyadi.dev/api/v1/packages/packages', payload, {
+            await axios.post('/api/v1/packages/packages', payload, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -113,7 +113,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
         }
     };
     const handleFieldChange = (index, key, value, i) => {
-        e.preventDefault();
         const updatedFields = [...fields];
         if (key === 'description') {
             updatedFields[index][key][i] = value;
@@ -123,7 +122,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
         setFields(updatedFields);
     };
     const tourPlanChange = (index, key, value, i) => {
-        e.preventDefault();
         const updatedFields = [...tourPlan];
         if (key === 'description') {
             updatedFields[index][key][i] = value;
@@ -135,7 +133,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
     const deletePackage = async (e) => {
         try {
             e.preventDefault();
-            await axios.delete(`https://admintm.geekyadi.dev/api/v1/packages/package/${packageData.id}`, {
+            await axios.delete(`/v1/packages/package/${packageData.id}`, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -156,7 +154,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                 name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
             };
             e.preventDefault();
-            await axios.patch(`https://admintm.geekyadi.dev/api/v1/packages/package/${packageData.id}`, payload, {
+            await axios.patch(`/api/v1/packages/package/${packageData.id}`, payload, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -345,7 +343,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                                 type="text"
                                 name={`heading-${index}`}
                                 id={`heading-${index}`}
-                                value={field.heading}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Enter field heading"
                                 required=""
