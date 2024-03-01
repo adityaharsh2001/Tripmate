@@ -6,6 +6,7 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
+    const [featured, setFeatured] = useState(false)
     const handleCreateCategory = async (e) => {
         try {
             e.preventDefault()
@@ -17,7 +18,8 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
                 await axios.put(`/api/v1/packages/categories/${id}`, {
                         name,
                         description,
-                        image
+                        image,
+                        featured
                     }, {
                         withCredentials: true,
                         headers: {
@@ -83,7 +85,8 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
 /api/v1/packages/categories/${categoryData.id}`, {
                 name,
                 description,
-                image
+                image,
+                featured
             }, {
                 withCredentials: true,
                 headers: {
@@ -187,6 +190,25 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
                                             placeholder="Type product name"
                                             required=""
                                             defaultValue={categoryData?.name || 'Enter Category name'}
+                                        />
+                                    </div>
+                                    {/*featured*/}
+                                    <div className="col-span-2">
+                                        <label
+                                            htmlFor="featured"
+                                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                        >
+                                            Featured
+                                        </label>
+                                        <input
+                                            onChange={(e) => setFeatured(e.target.checked)}
+                                            type="checkbox"
+                                            name="featured"
+                                            id="featured"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                            placeholder="Type product name"
+                                            required=""
+                                            defaultValue={categoryData?.featured || 'Enter Category featured'}
                                         />
                                     </div>
                                     <div className={"col-span-2"}>

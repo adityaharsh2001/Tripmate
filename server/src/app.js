@@ -40,7 +40,7 @@ app.use(compression());
 // enable cors
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://localhost:5173/", "https://admintm.geekyadi.dev", "https://tripmate.geekyadi.dev/"],
+    origin: ["http://localhost:3000", "http://localhost:5173", "https://admintm.geekyadi.dev", "https://tripmate.geekyadi.dev"],
     methods: "GET, POST, PATCH, DELETE, PUT",
     allowedHeaders: "Content-Type, Authorization",
     credentials: true

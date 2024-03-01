@@ -4,7 +4,10 @@ import ContactForm from "../components/ContactForm";
 const Contact = () => {
     return (
         <div className={'bg-white'}>
-            <Banner {...{Head: "Let's Get In Touch"}}/>
+            <Banner {...{
+                name : "Contact Us",
+                bannerImage : "/images/contact.jpg"
+            }}/>
             <grid className="grid grid-cols-3 max-md:grid-cols-1 gap-4 max-md:gap-0">
                 <div className="max-w-full max-md:h-[400px] w-full">
                     <iframe

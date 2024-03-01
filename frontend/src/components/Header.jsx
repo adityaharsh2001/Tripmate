@@ -9,34 +9,28 @@ const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu, categories}) => {
     return (<div
         className={`${isMenuOpen ? "translate-x-0" : "-translate-x-full"} fixed inset-0 bg-white/80 shadow backdrop-blur-lg z-50 w-full py-10 h-full flex flex-col items-start px-10 justify-between gap-5 transition-all duration-300 md:hidden`}>
         <div className="flex flex-col items-start mt-[80px] justify-start gap-5">
-            {navLinks.map((link, index) => (
-                <Link
-                    key={index}
-                    to={link.path}
-                    onClick={toggleMenu}
-                >
-                    {link.name}
-                </Link>
-            ))}
+            {navLinks?.map((link, index) => (<Link
+                key={index}
+                to={link.path}
+                onClick={toggleMenu}
+            >
+                {link.name}
+            </Link>))}
             <div className={"flex flex-col items-start text-black justify-start gap-3"}>
                 <div className={"flex items-center text-black justify-start gap-3"}>
                     <span>Categories</span>
                     <span
                         onClick={() => setOpen(!open)}
-                        className={clsx("cursor-pointer material-symbols-outlined text-[1.4rem] text-gray-400",
-                            open && "transform rotate-180")}>expand_more</span>
+                        className={clsx("cursor-pointer material-symbols-outlined text-[1.4rem] text-gray-400", open && "transform rotate-180")}>expand_more</span>
                 </div>
-                {open &&
-                    <ul className="flex flex-col gap-2">
-                        <li className="text-gray-900 px-5  text-sm cursor-pointer font-medium hover:text-primary">All</li>
-                        {categories.map((category, index) => (
-                            <Link key={index} to={`/explore?category=${category.name}`}>
-                                <li key={index}
-                                    onClick={toggleMenu}
-                                    className="px-5 text-gray-900 text-sm cursor-pointer font-medium hover:text-primary">{category.name}</li>
-                            </Link>))}
-                    </ul>
-                }
+                {open && <ul className="flex flex-col gap-2">
+                    <li className="text-gray-900 px-5  text-sm cursor-pointer font-medium hover:text-primary">All</li>
+                    {categories.map((category, index) => (<Link key={index} to={`/explore?category=${category.name}`}>
+                        <li key={index}
+                            onClick={toggleMenu}
+                            className="px-5 text-gray-900 text-sm cursor-pointer font-medium hover:text-primary">{category.name}</li>
+                    </Link>))}
+                </ul>}
             </div>
         </div>
         <div className="flex flex-col w-full items-center justify-center gap-5">
@@ -68,10 +62,10 @@ const Header = memo(() => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [open, setOpen] = useState(false);
     const {openPopup} = usePopup();
-    const navLinks = [{name: "Home", path: "/"}, {name: "About", path: "/about-us"}, {
-        name: "Contact", path: "/contact"
-    }, {name: "Weekend Trips", path: "/weekend-trips"},];
-
+    const [navLinks, setNavLinks] = useState([
+        {name: "Home", path: "/"}, {name: "About", path: "/about-us"}, {
+            name: "Contact", path: "/contact"
+        }]);
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
@@ -88,6 +82,14 @@ const Header = memo(() => {
     useEffect(() => {
         getAllCategories();
     }, []);
+
+    useEffect(() => {
+        categories.map((category, index) => {
+            if (category.featured) {
+                setNavLinks((prev) => [...prev, {name: category.name, path: `/explore?category=${category.name}`}]);
+            }
+        });
+    }, [categories]);
     return (<>
         <header
             className="z-[9999] fixed inset-x-0 top-0 mx-auto w-full text-poppins max-w-screen-md h-[65px] py-3 backdrop-blur md:top-6 md:rounded-3xl lg:max-w-screen-lg">
@@ -100,7 +102,7 @@ const Header = memo(() => {
                         </a>
                     </div>
                     <div className="hidden md:flex md:items-center md:justify-center md:gap-5">
-                        {navLinks.map((link, index) => (<Link
+                        {navLinks?.map((link, index) => (<Link
                             key={index}
                             to={link.path}
                             className="inline-block rounded-lg px-2 py-1 text-sm font-medium text-gray-900 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900">

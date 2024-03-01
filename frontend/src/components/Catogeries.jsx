@@ -1,10 +1,10 @@
 import {memo, useEffect} from "react";
 import {motion, useAnimation} from "framer-motion";
 import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation, Pagination, EffectCoverflow, Autoplay} from "swiper/modules";
+import {Autoplay, Navigation, Pagination} from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import axios from "axios";
 import {useInView} from "react-intersection-observer";
+import {Link} from "react-router-dom";
 
 const Category = memo(({categories}) => {
     const slides = [];
@@ -22,25 +22,30 @@ const Category = memo(({categories}) => {
     }, [controls, inView]);
 
     for (let i = 0; i < categories.length; i++) {
-        slides.push(<SwiperSlide key={i} style={{width: "350px"}}>
-            <motion.div
-                className={"relative w-[250px] cursor-pointer"}
-                initial={{opacity: 0, y: 50}}
-                animate={controls}
-                transition={{duration: 1, delay: i * 0.5}}
-            >
-                <img src={categories[i]?.image}
-                         alt="hero" className="rounded-[20px] w-[250px] h-[250px] object-cover"/>
-                <div className={"absolute w-full bottom-2 rounded-b-[20px] text-white mx-auto p-2 text-sm left-0 right-0 bg-black/50"}>
-                    <p className="font-bold font-inherit">
-                        {categories[i]?.name}
-                    </p>
-                    <p className="font-body">
-                        {categories[i]?.description}
-                    </p>
-                </div>
-            </motion.div>
-        </SwiperSlide>);
+        slides.push(
+            <SwiperSlide key={i} style={{width: "350px"}}>
+                <Link to={`/explore?category=${categories[i]?.name}`}>
+                    <motion.div
+                        className={"relative w-[250px] cursor-pointer"}
+                        initial={{opacity: 0, y: 50}}
+                        animate={controls}
+                        transition={{duration: 1, delay: i * 0.5}}
+                    >
+                        <img src={categories[i]?.image}
+                             alt="hero" className="rounded-[20px] w-[250px] h-[250px] object-cover"/>
+                        <div
+                            className={"absolute w-full bottom-2 rounded-b-[20px] text-white mx-auto p-2 text-sm left-0 right-0 bg-black/50"}>
+                            <p className="font-bold font-inherit">
+                                {categories[i]?.name}
+                            </p>
+                            <p className="font-body">
+                                {categories[i]?.description}
+                            </p>
+                        </div>
+                    </motion.div>
+                </Link>
+            </SwiperSlide
+            >);
     }
 
     return (<>

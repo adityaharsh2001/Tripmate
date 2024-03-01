@@ -4,10 +4,11 @@ const Banner = ({bannerImage, name}) => {
     return (
         <div
             className={`self-stretch flex flex-row items-center justify-center px-[0rem] box-border relative
-            bg-cover bg-no-repeat bg-[top] max-w-full text-left text-[1.25rem]
+            max-w-full text-left bg-[center] text-[1.25rem]
             text-darkslategray-200 font-poppins`}
             style={{
                 backgroundImage: `url(${bannerImage})`,
+                backgroundSize: "cover",
             }}
             >
             <div

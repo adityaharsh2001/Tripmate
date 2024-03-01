@@ -8,6 +8,10 @@ const categorySchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
     image: {
       type: String,
       required: true,
