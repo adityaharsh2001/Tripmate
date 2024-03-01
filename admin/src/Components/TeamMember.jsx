@@ -11,7 +11,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
 
     const handleCreateTeamMember = async () => {
         try {
-            const response = await axios.post('https://admintm.geekyadi.dev/api/v1/teams/', {
+            const response = await axios.post('/api/v1/teams/', {
                 name, image, designation,
             }, {
                 withCredentials: true, headers: {
@@ -33,7 +33,8 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
 
     const updateTeamMember = async () => {
         try {
-            const response = await axios.patch(`https://admintm.geekyadi.dev/api/v1/teams/team/${teamData.id}`, {
+            const response = await axios.patch(`.
+/api/v1/teams/team/${teamData.id}`, {
                 name, image, designation,
             }, {
                 withCredentials: true, headers: {
@@ -56,7 +57,8 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
     const deleteTeamMember = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.delete(`https://admintm.geekyadi.dev/api/v1/teams/team/${teamData.id}`, {
+            const response = await axios.delete(`.
+/api/v1/teams/team/${teamData.id}`, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 },

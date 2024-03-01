@@ -20,13 +20,13 @@ const Register = () => {
         try {
             if (password !== repeatPassword)
                 return alert('Passwords do not match')
-            await axios.post('https://admintm.geekyadi.dev/api/v1/auth/register', {
+            await axios.post('/api/v1/auth/register', {
                 name: name,
                 email: email,
                 password: password
             })
             toast.success('Account created successfully')
-            await axios.post('https://admintm.geekyadi.dev/api/v1/auth/verify-email', {
+            await axios.post('/api/v1/auth/verify-email', {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             })
             toast('Email verification sent to your email', {

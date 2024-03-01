@@ -1,12 +1,13 @@
-import {useState} from 'react'
 import Login from './Components/Login'
 import './App.css'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Register from "./Components/Register.jsx";
 import {Toaster} from 'react-hot-toast';
 import Dashboard from "./Components/Dashboard.jsx";
+import axios from "axios";
 
 function App() {
+    axios.defaults.baseURL = `https://admintm.geekyadi.dev/`
     return (
         <>
             <Router>

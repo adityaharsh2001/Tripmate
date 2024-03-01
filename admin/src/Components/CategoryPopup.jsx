@@ -14,7 +14,7 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
                 return
             }
             if (categoryData) {
-                await axios.put(`https://admintm.geekyadi.dev/api/v1/packages/categories/${id}`, {
+                await axios.put(`/api/v1/packages/categories/${id}`, {
                         name,
                         description,
                         image
@@ -31,7 +31,7 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
                 })
                 return
             } else {
-                await axios.post('https://admintm.geekyadi.dev/api/v1/packages/categories', {
+                await axios.post('/api/v1/packages/categories', {
                         name,
                         description,
                         image
@@ -56,7 +56,7 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
             const file = e.target.files[0]
             const formData = new FormData()
             formData.append('image', file)
-            const res = await axios.post('https://admintm.geekyadi.dev/api/v1/packages/upload/image', formData, {
+            const res = await axios.post('/api/v1/packages/upload/image', formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -79,7 +79,8 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
 
     const updateCategory = async () => {
         try {
-            await axios.patch(`https://admintm.geekyadi.dev/api/v1/packages/categories/${categoryData.id}`, {
+            await axios.patch(`.
+/api/v1/packages/categories/${categoryData.id}`, {
                 name,
                 description,
                 image
@@ -101,7 +102,8 @@ const CategoryPopup = ({open, setOpen, categoryData = null}) => {
     const deleteCategory = async (e) => {
         try {
             e.preventDefault()
-            await axios.delete(`https://admintm.geekyadi.dev/api/v1/packages/categories/${categoryData.id}`, {
+            await axios.delete(`.
+/api/v1/packages/categories/${categoryData.id}`, {
                 withCredentials: true,
                 headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
