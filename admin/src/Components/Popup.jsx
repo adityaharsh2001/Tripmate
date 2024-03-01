@@ -225,7 +225,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                         </label>
                         <input
                             onChange={(e) => setPrice(e.target.value)}
-                            type="number"
                             name="price"
                             id="price"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -349,7 +348,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                                 id={`heading-${index}`}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                 placeholder="Enter field heading"
-                                required=""
                             />
                         </div>
                         <div className="col-span-2">
@@ -364,7 +362,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                                         name={`description-${index}-${i}`}
                                         id={`description-${index}-${i}`}
                                         className="bg-gray-50 mt-2 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Enter bullet point"
+                                        placeholder={description || "Enter bullet point"}
                                         required=""
                                     />
                                     <button onClick={() => {
