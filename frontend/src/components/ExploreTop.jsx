@@ -27,12 +27,9 @@ const ExploreTop = ({featuredPackages}) => {
             animate={controls}
             className="self-stretch py-10 flex flex-col md:flex-row items-center justify-between py-4 px-10 md:px-20 box-border gap-[1.25rem] max-w-full text-left  text-secondary font-poppins"
         >
-            <div className="flex-col items-start py-10 justify-start gap-[1rem] max-w-full">
-                <b className="relative tracking-[0.2em] leading-[120%] uppercase text-[18px]">
-                    Top Destination
-                </b>
+            <div className="flex-col items-start w-full py-10  w-full text-center justify-start gap-[1rem] max-w-full">
                 <h1 className="m-0 relative text-[32px] font-bold font-inherit text-grey-scale-black">
-                    Explore top destination
+                    Weekend Trips
                 </h1>
             </div>
             <div className="md:flex hidden flex-row items-start justify-start gap-[2rem]">

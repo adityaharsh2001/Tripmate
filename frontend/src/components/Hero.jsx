@@ -21,15 +21,15 @@ const HeroSection = () => {
                                     <p className="m-0">
                                         <span className="text-black">{`Explore `}</span>
                                         <span className="text-black">with</span>
+                                        <span className="text-primary"> Your </span>
+                                        <span className="text-secondary">Tripmate</span>
                                     </p>
-                                    <p className="text-secondary m-0 text-black">Your Tripmate</p>
                                 </div>
                                 <div
                                     className="relative text-[1.13rem] w-full leading-[160%] font-body text-grey-scale-black-50 inline-block">
-                                    <p className="m-0">
+                                    <p className="m-0 font-bold text-black">
                                         We Committed to helping Our customer achieve their Goals
                                     </p>
-                                    <p className="m-0">{`as many choices as possible `}</p>
                                 </div>
                             </div>
                         </div>

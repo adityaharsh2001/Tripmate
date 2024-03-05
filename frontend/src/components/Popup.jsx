@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
-const Popup = ({ isOpen, closePopup }) => {
+const Popup = ({isOpen, closePopup}) => {
     const popupRef = useRef(null);
     const [open, setOpen] = useState(isOpen);
 

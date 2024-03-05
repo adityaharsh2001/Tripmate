@@ -29,7 +29,7 @@ const HeroSearch = ({className}) => {
                 className="text-poppins border w-fit border-gray-100 backdrop-blur py-3 text-sm rounded-3xl lg:max-w-screen-lg">
                 <div className="px-4">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center justify-between md:gap-10 gap-4">
+                        <div className="flex items-center w-full justify-between md:gap-10 gap-4">
                             <div className={"flex items-center text-black justify-between gap-3"}>
                                 <svg width="20" height="20" viewBox="0 0 34 34" fill="none"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -50,61 +50,18 @@ const HeroSearch = ({className}) => {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                                <div className="flex flex-col items-start justify-start">
+                                <div className="flex gap-5 items-center justify-center">
                                     <p className="md:font-bold">Location</p>
-                                    <div className="flex items-center justify-start">
+                                    <div className="flex items-center justify-center">
                                         <select
                                             onChange={(e) => navigate(`/explore?category=${e.target.value}`)}
-                                            className="max-md:hidden bg-transparent border-none text-sm">
+                                            className="bg-transparent border-none text-sm">
                                             <option value={"all"}>All</option>
                                             {categories.map((category, index) => (
                                                 <option
                                                     key={index}
                                                     value={category.name}>{category.name}</option>))}
                                         </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={"flex items-center text-black justify-start gap-3"}>
-                                <svg width="20" height="20" viewBox="0 0 26 27" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_674_143)">
-                                        <path
-                                            d="M21.6665 3.75004H20.5832V1.58337H18.4165V3.75004H7.58317V1.58337H5.4165V3.75004H4.33317C3.1415 3.75004 2.1665 4.72504 2.1665 5.91671V23.25C2.1665 24.4417 3.1415 25.4167 4.33317 25.4167H21.6665C22.8582 25.4167 23.8332 24.4417 23.8332 23.25V5.91671C23.8332 4.72504 22.8582 3.75004 21.6665 3.75004ZM21.6665 5.91671V9.16671H4.33317V5.91671H21.6665ZM4.33317 23.25V11.3334H21.6665V23.25H4.33317Z"
-                                            fill="#425E6F"/>
-                                        <path opacity="0.3" d="M4.3335 5.92749H21.6668V9.16666H4.3335V5.92749Z"
-                                              fill="#425E6F"/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_674_143">
-                                            <rect width="26" height="26" fill="white"
-                                                  transform="translate(0 0.5)"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                <div className="flex flex-col items-start justify-start">
-                                    <p className="md:font-bold">Date</p>
-                                    <input type="date" className="bg-transparent border-none text-sm"/>
-                                </div>
-                            </div>
-                            <div className={"flex items-center text-black justify-start gap-3"}>
-                                <svg width="20" height="20" viewBox="0 0 26 26" fill="none"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     xmlnsXlink="http://www.w3.org/1999/xlink">
-                                    <rect width="26" height="26" fill="url(#pattern0)"/>
-                                    <defs>
-                                        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1"
-                                                 height="1">
-                                            <use xlinkHref="#image0_674_162" transform="scale(0.0416667)"/>
-                                        </pattern>
-                                        <image id="image0_674_162" width="24" height="24"
-                                               xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nO2SsUrDYBDHO7jo4ODg7BMUnHRQk++qUrHFyam56yB0y12KDyBSBN/GybG2b5KCi1BdtHvK5UvEStPQpINIDw7yffnn/7vcXaXyrwJIIs1T5CNoBcdFz7mAsllZA2AVLSq6IPBnALDeorIzAJLIIH8Acs/15OD8prtzeN3dBOLqqgDP9Za/nafLBCxKQ/zkOHcb+o2L/hWQDA3xJE7kAXhBszDAkLyfebe7qjfIj5k6lIdSLXJt5fP+bgLEY32uITcKA4BkaLU8tqbW3EXf0UHH9ygvS7eo0elsJdovWylX1dSQvBmSE33ntGUPSEaA/Lk0oJ5sjgXISM30nIJjc+Qw1s8BvOYBaujvJwMeJCZhCpkxt+3r/wZc5EEM8X2s9YLm9z1yGPd+xlwitx1c5s1yYegqZhaD3Ctlnoauom5LMhMdfP9n5VP+bHJtNTzPPwAAAABJRU5ErkJggg=="/>
-                                    </defs>
-                                </svg>
-                                <div className="flex flex-col items-start justify-start">
-                                    <p className="md:font-bold">Guest</p>
-                                    <div className="flex items-center max-md:hidden justify-start">
-                                        <span className="text-gray-400">Add Guests</span>
                                     </div>
                                 </div>
                             </div>

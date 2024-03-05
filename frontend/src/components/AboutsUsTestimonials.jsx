@@ -40,10 +40,9 @@ const TestimonialItem = ({ name, role, imageSrc, text }) => {
     );
 };
 
-const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
+const AboutsUsTestimonials = ({ people = []}) => {
     const controls = useAnimation();
     const { ref, inView } = useInView();
-
     useEffect(() => {
         if (inView) {
             controls.start({
@@ -55,7 +54,7 @@ const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
     }, [controls, inView]);
 
     return (
-        <div className="text-gray-600 dark:text-gray-300 text-[1.44rem]" id="reviews">
+        <div className="text-gray-600 w-full dark:text-gray-300 text-[1.44rem]" id="reviews">
             <div className="mx-auto md:px-20 px-10">
                 <div className="flex flex-col py-5 mt-10 max-md:mt-10 max-md:max-w-full">
                     <div
@@ -68,8 +67,8 @@ const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
                         </h1>
                     </div>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8">
-                    {testimonials.map((testimonial, index) => (
+                <div className="flex max-md:flex-col gap-10 mt-10">
+                    {people?.map((peoples, index) => (
                         <motion.div
                             key={index}
                             ref={ref}
@@ -77,10 +76,10 @@ const AboutsUsTestimonials = ({ testimonials = testimonialData }) => {
                             initial={{ opacity: 0, y: 50 }}
                         >
                             <TestimonialItem
-                                name={testimonial.name}
-                                role={testimonial.role}
-                                imageSrc={testimonial.imageSrc}
-                                text={testimonial.text}
+                                name={peoples.name}
+                                role={peoples.designation}
+                                imageSrc={peoples.image}
+                                text={peoples.text}
                             />
                         </motion.div>
                     ))}

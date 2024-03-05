@@ -17,7 +17,7 @@ const StarRating = () => {
         <div className="flex items-center justify-center w-full gap-3 mb-10">
             {[1, 2, 3, 4, 5].map((i) => (
                 <div className={`cursor-pointer ${i <= rating ? 'text-primary' : 'text-gray-400'}`}
-                        onClick={() => handleStarClick(i)}>
+                     onClick={() => handleStarClick(i)}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
                         <g clip-path="url(#clip0_13624_2974)">
                             <path
@@ -27,7 +27,7 @@ const StarRating = () => {
                         <defs>
                             <clipPath id="clip0_13624_2974">
                                 <rect width="30" height="30"
-                                        fill="white"/>
+                                      fill="white"/>
                             </clipPath>
                         </defs>
                     </svg>
@@ -216,6 +216,19 @@ const Testimonials = memo(() => {
                                         <input type="email"
                                                className="w-full -ml-10 px-4 py-2 rounded-lg  border-gray-200 outline-none focus:border-indigo-500"
                                                placeholder="johnsmith@example.com"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex -mx-3">
+                                <div className="w-full px-3 mb-5">
+                                    <label htmlFor="" className="text-xs font-semibold px-1">Review</label>
+                                    <div className="flex">
+                                        <div
+                                            className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                            <i className="mdi mdi-message-outline text-gray-400 text-lg"></i></div>
+                                        <textarea
+                                            className="w-full -ml-10 px-4 py-2 rounded-lg  border-gray-200 outline-none focus:border-indigo-500"
+                                            placeholder="Your Review"/>
                                     </div>
                                 </div>
                             </div>

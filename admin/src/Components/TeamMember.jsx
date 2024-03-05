@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import axios from "axios";
 import {toast} from "react-hot-toast";
-import {Input} from "postcss";
 
 const TeamMember = ({open, setOpen, teamData = null}) => {
     console.log('teamData', teamData);
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [designation, setDesignation] = useState('');
+    const [text, setText] = useState('');
 
     const handleCreateTeamMember = async () => {
         try {
             const response = await axios.post('/api/v1/teams/', {
-                name, image, designation,
+                name, image, text, designation
             }, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -22,6 +22,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                 toast.success('Team Member created successfully');
                 setName('');
                 setImage('');
+                setText('')
                 setDesignation('');
                 setOpen(false);
             }
@@ -35,7 +36,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
         try {
             const response = await axios.patch(`.
 /api/v1/teams/team/${teamData.id}`, {
-                name, image, designation,
+                name, image, designation, text
             }, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -46,6 +47,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                 setName('');
                 setImage('');
                 setDesignation('');
+                setText('')
                 setOpen(false);
             }
         } catch (error) {
@@ -68,6 +70,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                 setName('');
                 setImage('');
                 setDesignation('');
+                setText('');
                 setOpen(false);
             }
         } catch (error) {
@@ -204,6 +207,22 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                                         id="designation"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder={teamData?.designation || 'Enter Team Member designation'}
+                                        required=""
+                                    />
+                                </div>
+                                <div className="col-span-2">
+                                    <label
+                                        htmlFor="text"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Text
+                                    </label>
+                                    <textarea
+                                        onChange={(e) => setText(e.target.value)}
+                                        name="text"
+                                        id="text"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder={teamData?.text || 'Enter Team Member text'}
                                         required=""
                                     />
                                 </div>

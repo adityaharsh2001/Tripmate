@@ -1,105 +1,61 @@
-import React, {useEffect} from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useRef, useEffect } from "react";
 
 function Index() {
-  const [ref, inView] = useInView({
-    triggerOnce: true, // This ensures the animation only plays once
-    threshold: 0.5, // This specifies the percentage of the element's visibility required to trigger the animation
-  });
-  const controls = useAnimation();
+    const containerRef = useRef(null);
 
-  useEffect(() => {
-    if (inView) {
-        controls.start("visible");
-    } else {
-        controls.start("hidden");
-    }
-}, [controls, inView]);
+    useEffect(() => {
+        const scrollContainer = containerRef.current;
 
-  return (
-    <>
-      <div className="grid px-10 py-10 md:px-20 grid-cols-2 md:grid-cols-4 gap-4">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5 }}
-          className="p-4 flex items-center justify-center"
-        >
-          <img
-            src="/partners/1.svg"
-            alt="partner"
-            style={{ width: "100px", height: "60px", objectFit: "cover" }}
-          />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="p-4 flex items-center justify-center"
-        >
-          <img src="/partners/2.svg" alt="partner" style={{ maxWidth: "50px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="p-4 flex items-center justify-center"
-        >
-          <img src="/partners/3.svg" alt="partner" style={{ maxWidth: "100px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="p-4 flex items-center justify-center"
-        >
-          <img src="/partners/4.png" alt="partner" style={{ maxWidth: "100px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="p-4 flex items-center justify-center"
-        >
-            <img src="/partners/5.png" alt="partner" style={{ maxWidth: "150px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="p-4 flex items-center justify-center"
-        >
-            <img src="/partners/6.png" alt="partner" style={{ maxWidth: "150px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="p-4 flex items-center justify-center"
-        >
-            <img src="/partners/7.svg" alt="partner" style={{ maxWidth: "100px" }} />
-        </motion.div>
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="p-4 flex items-center justify-center"
-        >
-            <img src="/partners/8.svg" alt="partner" style={{ maxWidth: "100px" }} />
-        </motion.div>
-    
-      </div>
-    </>
-  );
+        if (!scrollContainer) return;
+
+        const containerWidth = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        let scrollLeft = 0;
+
+        const scrollLoop = () => {
+            scrollLeft++;
+            if (scrollLeft >= containerWidth) {
+                scrollLeft = 0;
+            }
+            scrollContainer.scrollLeft = scrollLeft;
+        };
+
+        const intervalId = setInterval(scrollLoop, 15);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    return (
+        <>
+            <div className="flex items-center justify-center gap-10 py-10 px-20" style={{overflowX: "hidden"}}>
+                <div className={"flex items-start justify-start gap-[10rem] max-w-full"} style={{overflowX: "hidden"}} ref={containerRef}>
+                    <div>
+                        <img src="/partners/1.svg" alt="partner" style={{width: "100px", height: "60px", objectFit: "cover"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/2.svg" alt="partner" style={{maxWidth: "50px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/3.svg" alt="partner" style={{width: "100px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/4.png" alt="partner" style={{width: "100px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/5.png" alt="partner" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/6.png" alt="partner" style={{maxWidth: "150px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/7.svg" alt="partner" style={{maxWidth: "100px"}}/>
+                    </div>
+                    <div>
+                        <img src="/partners/8.svg" alt="partner" style={{maxWidth: "100px"}}/>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
 
 export default Index;

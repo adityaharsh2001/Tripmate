@@ -45,12 +45,9 @@ const Stats = memo(() => {
                 className="max-w-full md:max-w-[50%] flex flex-col items-center justify-center box-border gap-[1rem]">
                 <div className="self-stretch flex flex-col gap-[0.5rem] items-center justify-between">
                     <div className="self-stretch flex flex-col items-start justify-start gap-[1rem]">
-                        <b className="self-stretch relative tracking-[0.2em] leading-[120%] uppercase text-[18px]">
-                            Your Trip Mate
-                        </b>
-                        <h1 className="m-0 self-stretch relative text-[32px] leading-[120%] font-bold font-inherit text-grey-scale-black ">
-                            We will helping you to fulfil your dream destination
-                        </h1>
+                        <h2 className="m-0 self-stretch text-[32px] relative leading-[120%] font-bold font-inherit text-grey-scale-black ">
+                            Find your dream destination
+                        </h2>
                         <div className="text-[1rem] leading-[160%] font-body text-grey-scale-black-50 inline-block">
                             <p className="">
                                 We understand that every traveler's preferences are unique, and their needs vary when it
@@ -102,7 +99,7 @@ const Stats = memo(() => {
                         }}
                         transition={{duration: 0.5, delay: 0.3}}
                     >
-                        <StatsBox stats="12K+" desc="Happy Travelers"/>
+                        <StatsBox stats="12000+" desc="Happy Clients"/>
                     </motion.div>
                     <motion.div
                         initial="hidden"
@@ -113,7 +110,7 @@ const Stats = memo(() => {
                         }}
                         transition={{duration: 0.5, delay: 0.4}}
                     >
-                        <StatsBox stats="9k+" desc="Successful Trips"/>
+                        <StatsBox stats="9000+" desc="Successful Trips"/>
                     </motion.div>
                 </motion.div>
             </motion.div>
