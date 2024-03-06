@@ -10,45 +10,9 @@ import {usePopup} from '../context/PopUpContext';
 import Category from "../components/Catogeries";
 import axios from "axios";
 
-const Homepage = () => {
-    const {isOpen, closePopup} = usePopup();
-    const [categories, setCategories] = useState([{}])
-    const [featuredPackages, setFeaturedPackages] = useState([{}])
-    const getCategory = async () => {
-        try {
-            const response = await axios.get(`/api/v1/packages/categories`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                }
-            )
-            setCategories(response.data)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    const getFeaturedPackages = async () => {
-        try {
-            const response = await axios.get(`/api/v1/packages/featured`,
-                {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    }
-                }
-            )
-            setFeaturedPackages(response.data)
-        } catch (e) {
-            console.log(e)
-        }
-    }
-    useEffect(() => {
-        getCategory()
-        getFeaturedPackages()
-    }, [])
+const Homepage = ({categories, featuredPackages}) => {
     return (
         <div className={"text-secondary font-poppins"}>
-            <Popup isOpen={isOpen} closePopup={closePopup}/>
             <Hero/>
             <ExploreTop {...{featuredPackages}}/>
             <Category {...{categories}}/>

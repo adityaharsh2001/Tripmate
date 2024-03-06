@@ -9,8 +9,7 @@ export const usePopup = () => {
 export const PopupProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const openPopup = () => {
-        console.log('openPopup');
+    const togglePopup = () => {
         setIsOpen(true);
     };
 
@@ -19,7 +18,7 @@ export const PopupProvider = ({ children }) => {
     };
 
     return (
-        <PopupContext.Provider value={{ isOpen, openPopup, closePopup }}>
+        <PopupContext.Provider value={{ isOpen, openPopup: togglePopup, closePopup }}>
             {children}
         </PopupContext.Provider>
     );

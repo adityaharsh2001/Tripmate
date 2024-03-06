@@ -8,8 +8,8 @@ const ContactForm = () => {
             <div className="md:flex w-full">
                 <div className="w-full  py-10 bg-whitesmoke px-5 md:px-10">
                     <div className="text-center mb-10">
-                        <h1 className="font-bold text-3xl text-secondary">Enquire Now</h1>
-                        <p>Enter Details to Book your tour</p>
+                        <h1 className="font-bold text-3xl text-secondary">Have Questions? </h1>
+                        <p>We are happy to talk to you</p>
                     </div>
                     <div>
                         <div className="flex -mx-3">
@@ -66,35 +66,7 @@ const ContactForm = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex -mx-3 mb-10">
-                            <div className="w-1/2 px-3 mb-5">
-                                <label htmlFor="" className="text-xs font-semibold px-1">
-                                    Guests</label>
-                                <div className="flex">
-                                    <div
-                                        className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
-                                        <i className="mdi mdi-account-outline text-gray-400 text-lg"></i>
-                                    </div>
-                                    <div
-                                        className="w-full -ml-10 py-2 rounded-lg outline-none focus:border-indigo-500">
-                                        <div className="relative flex items-center">
-                                            <button type="button" id="decrement-button"
-                                                    data-input-counter-decrement="counter-input"
-                                                    className="flex-shrink-0 bg-white inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                                -
-                                            </button>
-                                            <input type="text" id="counter-input" data-input-counter
-                                                   className="flex-shrink-0 text-gray-400 border-0 bg-transparent text-sm font-normal focus:outline-none focus:ring-0 max-w-[2.5rem] text-center"
-                                                   placeholder="" value="12" required/>
-                                            <button type="button" id="increment-button"
-                                                    data-input-counter-increment="counter-input"
-                                                    className="flex-shrink-0 bg-white bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                                +
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="flex -mx-3">
                             <div className="w-full px-3 mb-5 ">
                                 <label htmlFor="" className="text-xs font-semibold px-1">Destination</label>
                                 <div className="flex w-full relative">
@@ -121,6 +93,19 @@ const ContactForm = () => {
                                             <span className="py-1 text-gray-400">Goa</span>
                                         </div>
                                     }
+                                </div>
+                            </div>
+                        </div>
+                        <div className={'flex -mx-3 mb-10'}>
+                            <div className="w-full px-3 mb-5">
+                                <label htmlFor="" className="text-xs font-semibold px-1">Message</label>
+                                <div className="flex">
+                                    <div
+                                        className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
+                                        <i className="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
+                                    <textarea
+                                        className="w-full -ml-10 px-4 py-2 rounded-lg  border-gray-200 outline-none focus:border-indigo-500"
+                                        placeholder="Type your message here"/>
                                 </div>
                             </div>
                         </div>

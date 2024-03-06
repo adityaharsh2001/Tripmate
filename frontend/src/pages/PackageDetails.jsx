@@ -10,6 +10,7 @@ const PackageDetails = () => {
     const location = useLocation()
     const [search, setSearch] = useSearchParams()
     const [packageData, setPackageData] = React.useState({})
+    const [categories, setCategories] = React.useState([{}])
     setSearch(location.search)
 
     const getPackage = async () => {
@@ -21,14 +22,32 @@ const PackageDetails = () => {
             toast.error('Error fetching package')
         }
     }
+    const getCategory = async () => {
+        try {
+            const response = await axios.get(`/api/v1/packages/categories`,
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                }
+            )
+            console.log(response.data)
+            setCategories(response.data)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     useEffect(() => {
         getPackage()
+        getCategory()
     }, [search])
+
     return (
         <div
             className="w-full relative font-poppins flex flex-col items-center justify-start gap-[3.81rem] tracking-[normal]">
             <Banner {...{bannerImage: packageData.bannerImage, name: packageData.name}}/>
-            <Tabs {...{packageData}}/>
+            <Tabs {...{packageData , categories}}/>
         </div>
     );
 };

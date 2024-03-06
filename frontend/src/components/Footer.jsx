@@ -62,7 +62,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="#"
+                                    href="https://www.instagram.com/yourtripmate.in?igsh=NHprbWE3MHUyMnQx"
                                     rel="noreferrer"
                                     target="_blank"
                                     className="text-white transition hover:opacity-75"

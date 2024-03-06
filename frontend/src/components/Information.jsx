@@ -1,7 +1,8 @@
 import * as React from "react";
 import ContactForm from "./ContactForm";
+import PackageForm from "./PackageForm";
 
-function Information({packageData}) {
+function Information({packageData, categories}) {
     return (
         <div className="flex flex-col self-center px-9 py-12 bg-white w-full">
             <div className="flex gap-5 flex-col justify-between mt-7 max-w-full capitalize max-md:flex-wrap">
@@ -39,8 +40,8 @@ function Information({packageData}) {
                             </div>
                         ))}
                     </div>
-                    <div className="flex flex-col mt-5 max-md:w-full">
-                        <ContactForm/>
+                    <div className="flex flex-col mt-5 w-full">
+                        <PackageForm categories={categories}/>
                     </div>
                 </div>
             </div>
