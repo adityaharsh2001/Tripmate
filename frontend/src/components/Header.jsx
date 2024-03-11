@@ -34,20 +34,21 @@ const HamburgerMenu = ({navLinks, isMenuOpen, toggleMenu, categories}) => {
             </div>
         </div>
         <div className="flex flex-col w-full items-center justify-center gap-5">
-            <button
-                className="cursor-pointer justify-center w-full [border:none] py-2 px-4 bg-white rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-start gap-[1rem] hover:bg-gainsboro">
-                <Link to={"/explore"}>
+            <Link to={"/explore"} className={"w-full"} onClick={toggleMenu}>
+                <button
+                    className="cursor-pointer justify-center w-full [border:none] py-2 px-4 bg-white rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-start gap-[1rem] hover:bg-gainsboro">
                     <b className="relative text-[0.88rem] leading-[120%] font-poppins text-secondary text-left">
                         Explore
                     </b>
-                </Link>
-                <img
-                    className="h-[1.5rem] w-[1.5rem] relative overflow-hidden shrink-0"
-                    alt=""
-                    src="/images/work-1.svg"
-                />
-            </button>
+                    <img
+                        className="h-[1.5rem] w-[1.5rem] relative overflow-hidden shrink-0"
+                        alt=""
+                        src="/images/work-1.svg"
+                    />
+                </button>
+            </Link>
             <button
+                onClick={usePopup().openPopup}
                 className="cursor-pointer justify-center w-full bg-primary [border:none] py-3 px-6 rounded-81xl border-[1px] border-solid border-light flex flex-row items-center justify-start gap-[1rem] hover:bg-mediumpurple">
                 <b className="relative text-[0.88rem] leading-[120%] font-poppins text-white text-center">
                     Book Now

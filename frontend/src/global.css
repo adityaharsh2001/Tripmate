@@ -19,8 +19,8 @@
     z-index:100;
 }
 .partner-img {
-    width: 100px; /* Adjust the width to your desired size */
-    height: auto; /* This ensures the aspect ratio is maintained */
+    width: 100px;
+    height: auto;
 }
 .my-float{
     margin-top:16px;

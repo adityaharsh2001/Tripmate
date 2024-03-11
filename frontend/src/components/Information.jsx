@@ -40,7 +40,7 @@ function Information({packageData, categories}) {
                             </div>
                         ))}
                     </div>
-                    <div className="flex flex-col mt-5 w-full">
+                    <div className="flex flex-col mt-5 max-md:w-full w-1/2">
                         <PackageForm categories={categories}/>
                     </div>
                 </div>

@@ -186,7 +186,13 @@ const Testimonials = memo(() => {
             className="min-w-screen fixed m-auto left-0 top-0 bottom-0 right-0 z-[999] min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
             <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden"
                  style={{maxWidth: "500px"}} ref={popupRef}>
-                <div className="md:flex w-full">
+                <div className="relative md:flex w-full">
+                    <div className="absolute top-5 right-5">
+                        <button onClick={toggleModal}
+                                className="text-3xl cursor-pointer bg-transparent font-semibold text-gray-500 hover:text-gray-600">
+                            &times;
+                        </button>
+                    </div>
                     <div className="w-full py-10 bg-whitesmoke px-5 md:px-10">
                         <div className="text-center mb-10">
                             <h1 className="font-bold text-3xl text-secondary">Write A Review</h1>

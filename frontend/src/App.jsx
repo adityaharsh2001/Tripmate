@@ -136,7 +136,7 @@ function App() {
                     />
                     <Route path="/about-us" element={<AboutUsPage/>}/>
                     <Route path="/explore" element={<Explore/>}/>
-                    <Route path="/contact" element={<Contact/>}/>
+                    <Route path="/contact" element={<Contact categories={categories}/>}/>
                 </Routes>
                 <Footer/>
             </div>
