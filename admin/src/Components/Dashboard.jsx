@@ -271,21 +271,21 @@ const Dashboard = () => {
                                 <td className="px-6 py-4 h-full flex gap-2 items-center justify-center whitespace-nowrap">
                                     <button
                                         type="button"
-                                        onClick={() => deleteReview(review.id)}
+                                        onClick={() => deleteReview(review._id)}
                                         className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
                                     >
                                         Delete
                                     </button>
                                     <button
                                         type="button"
-                                        onClick={() => featureReview(review.id)}
+                                        onClick={() => featureReview(review._id)}
                                         className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
                                     >
                                         List In Website
                                     </button>
                                     {/*//remove from website*/}
                                     <button type="button"
-                                            onClick={() => removeFeaturedReview(review.id)}
+                                            onClick={() => removeFeaturedReview(review._id)}
                                             className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
                                         Remove From Website
                                     </button>
