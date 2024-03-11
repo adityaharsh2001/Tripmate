@@ -5,3 +5,4 @@ module.exports.userService = require('./user.service');
 module.exports.packageService = require('./package.service');
 module.exports.uploadService = require('./upload.service');
 module.exports.teamService = require('./team.service');
+module.exports.reviewService = require('./review.service');

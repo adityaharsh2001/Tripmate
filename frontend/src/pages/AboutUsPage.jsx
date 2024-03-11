@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
-import AboutsUsTestimonials from "../components/AboutsUsTestimonials";
+import Team from "../components/Team";
 import {motion, useAnimation} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Team from "../components/Team";
+import About from "../components/About";
 
 const AboutUsPage = () => {
     const [team, setTeam] = React.useState([]);
@@ -27,7 +27,6 @@ const AboutUsPage = () => {
             toast.error("Error fetching team");
         }
     }
-
     useEffect(() => {
         getTeam();
     }, []);
@@ -37,8 +36,8 @@ const AboutUsPage = () => {
         initial={{opacity: 0, y: 50}}
         ref={ref}
     >
-        <Team/>
-        <AboutsUsTestimonials people={team}/>
+        <About/>
+        <Team people={team}/>
     </motion.div>);
 };
 

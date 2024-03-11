@@ -7,7 +7,7 @@ import Dashboard from "./Components/Dashboard.jsx";
 import axios from "axios";
 
 function App() {
-    axios.defaults.baseURL = `https://admintm.geekyadi.dev/`
+    axios.defaults.baseURL = `http://localhost:9000/`
     return (
         <>
             <Router>

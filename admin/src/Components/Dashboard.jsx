@@ -3,6 +3,7 @@ import Popup from './Popup.jsx';
 import axios from 'axios';
 import CategoryPopup from './CategoryPopup.jsx';
 import TeamMember from './TeamMember.jsx';
+import {toast} from "react-hot-toast";
 
 const Dashboard = () => {
     const [open, setOpen] = useState(false);
@@ -16,7 +17,61 @@ const Dashboard = () => {
     const [openTeamMember, setOpenTeamMember] = useState(false);
     const [teamMembers, setTeamMembers] = useState([]);
     const [selectedTeamMember, setSelectedTeamMember] = useState(null);
+    const [reviews, setReviews] = useState([]);
 
+    const getReviews = async () => {
+        try {
+            const response = await axios.get('/api/v1/reviews/reviews', {
+                withCredentials: true, headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                },
+            });
+            setReviews(response.data);
+        } catch (error) {
+            console.error('Error fetching reviews:', error);
+        }
+    }
+    const deleteReview = async (id) => {
+        try {
+            const response = await axios.delete(`/api/v1/reviews/review/${id}`, {
+                withCredentials: true, headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                },
+            });
+            toast.success('Review deleted successfully');
+        } catch (error) {
+            toast.error('Error deleting review');
+            console.error('Error fetching reviews:', error);
+        }
+    }
+
+    const featureReview = async (id) => {
+        try {
+            const response = await axios.patch(`/api/v1/reviews/review/${id}`, {
+                withCredentials: true, headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                },
+            });
+            toast.success('Review featured successfully');
+        } catch (error) {
+            toast.error('Error featuring review');
+            console.error('Error fetching reviews:', error);
+        }
+    }
+
+    const removeFeaturedReview = async (id) => {
+        try {
+            const response = await axios.patch(`/api/v1/reviews/remove-featured/${id}`, {
+                withCredentials: true, headers: {
+                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
+                },
+            });
+            toast.success('Review removed from featured successfully');
+        } catch (error) {
+            toast.error('Error removing review from featured');
+            console.error('Error fetching reviews:', error);
+        }
+    }
     const getAllCategories = async () => {
         try {
             const response = await axios.get('/api/v1/packages/categories', {
@@ -59,6 +114,7 @@ const Dashboard = () => {
         getAllCategories();
         getAllPackages();
         getTeamMembers();
+        getReviews();
     }, []);
 
     const handlePackageClick = (packageData) => {
@@ -148,7 +204,6 @@ const Dashboard = () => {
                         </tbody>
                     </table>
                 </div>
-
                 <div className={"w-full"}>
                     <div className="flex items-center w-full justify-between mb-4">
                         <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Team Members</h2>
@@ -181,25 +236,77 @@ const Dashboard = () => {
                         </tbody>
                     </table>
                 </div>
+                {/*//reviews*/}
+                <div className="w-full">
+                    <div className="flex items-center w-full justify-between mb-4">
+                        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">Reviews</h2>
+                    </div>
+                    <table className="min-w-full divide-y divide-gray-200">
+                        <thead className="bg-gray-50 dark:bg-gray-700">
+                        <tr>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Name
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Email
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Review
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Rating
+                            </th>
+                            <th className="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Actions
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody className="bg-white divide-y divide-gray-200">
+                        {reviews?.map((review, index) => (
+                            <tr>
+                                <td className="px-6 py-4 whitespace-nowrap">{review.name}</td>
+                                <td className="px-6 py-4 whitespace-nowrap">{review.email}</td>
+                                <td className="px-6 py-4 max-w-[300px] ">{review.review}</td>
+                                <td className="px-6 py-4 whitespace-nowrap">{review.rating}</td>
+                                <td className="px-6 py-4 h-full flex gap-2 items-center justify-center whitespace-nowrap">
+                                    <button
+                                        type="button"
+                                        onClick={() => deleteReview(review.id)}
+                                        className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+                                    >
+                                        Delete
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => featureReview(review.id)}
+                                        className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+                                    >
+                                        List In Website
+                                    </button>
+                                    {/*//remove from website*/}
+                                    <button type="button"
+                                            onClick={() => removeFeaturedReview(review.id)}
+                                            className="cursor-pointer flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                                        Remove From Website
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                </div>
             </main>
         </div>
         <CategoryPopup open={openCategory} setOpen={setOpenCategory}/>
-        {openPackage && selectedPackage && (
-            <Popup open={openPackage} setOpen={setOpenPackage} categories={categories}
-                   packageData={selectedPackage}/>)}
+        {openPackage && selectedPackage && (<Popup open={openPackage} setOpen={setOpenPackage} categories={categories}
+                                                   packageData={selectedPackage}/>)}
         {openCategoryDetails && selectedCategory && (
             <CategoryPopup open={openCategoryDetails} setOpen={setOpenCategoryDetails}
                            categoryData={selectedCategory}/>)}
         <Popup open={open} setOpen={setOpen} categories={categories}/>
-        {openTeamMember && (
-            <TeamMember open={openTeamMember} setOpen={setOpenTeamMember}
-            />
-        )}
+        {openTeamMember && (<TeamMember open={openTeamMember} setOpen={setOpenTeamMember}/>)}
         {selectedTeamMember && openTeamMember && (
-            <TeamMember open={openTeamMember} setOpen={setOpenTeamMember}
-                        teamData={selectedTeamMember}
-            />
-        )}
+            <TeamMember open={openTeamMember} setOpen={setOpenTeamMember} teamData={selectedTeamMember}/>)}
     </>);
 };
 

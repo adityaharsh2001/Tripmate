@@ -23,6 +23,9 @@ const teamSchema = mongoose.Schema(
       required: true,
       trim: true,
     },
+    socials: {
+      type: Object,
+    },
   }
 );
 

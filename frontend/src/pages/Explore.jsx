@@ -29,7 +29,7 @@ const Explore = () => {
                 <Banner name={"Explore"} bannerImage={"/images/20008474_6230276.svg"}/>
                 <HeroSearch className={"absolute bottom-10 px-5 mt-5 z-40"} categories={categories}/>
             </div>
-            <div className="flex relative mt-10 max-md:flex-col items-start px-10 md:px-20 justify-center gap-10 w-full">
+            <div className="flex relative mt-10 max-md:flex-col items-center px-10 md:px-20 justify-center gap-10 w-full">
                     {packages.map((pack) => (<PackageCard featuredPackage={pack}/>))}
             </div>
         </div>);

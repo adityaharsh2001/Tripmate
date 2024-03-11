@@ -1,11 +1,10 @@
 import React, {memo, useEffect, useRef, useState} from "react";
 import "swiper/swiper-bundle.css";
+import axios from "axios";
+import toast from "react-hot-toast";
 
-const StarRating = () => {
-    const [rating, setRating] = useState(0); // Initial rating state
-
+const StarRating = ({rating, setRating}) => {
     const handleStarClick = (index) => {
-        //set and remove rating based on user click
         if (rating === index) {
             setRating(0);
         } else {
@@ -38,6 +37,50 @@ const StarRating = () => {
 };
 
 const Testimonials = memo(() => {
+    const [reviews, setReviews] = useState([]);
+    const [rating, setRating] = useState(0);
+    const [name, setName] = useState('');
+    const [review, setReview] = useState('');
+    const [email, setEmail] = useState('');
+    useEffect(() => {
+        getFeaturedReviews();
+    }, []);
+    const getFeaturedReviews = async () => {
+        try {
+            const response = await axios.get(
+                `/api/v1/reviews/featured`,
+            );
+            setReviews(response.data);
+        } catch (error) {
+            console.error("Error fetching featured reviews:", error);
+        }
+    }
+    const CreateReview = async () => {
+        try {
+            const response = await axios.post(
+                `/api/v1/reviews/reviews`, {
+                    name: name,
+                    email: email,
+                    review: review,
+                    rating: rating
+                }
+            );
+            toast.success("Review sent successfully");
+        } catch (error) {
+            toast.error("Error creating review");
+            console.error("Error creating review:", error);
+        }
+    }
+    const getReviews = async () => {
+        try {
+            const response = await axios.get(
+                `/api/v1/reviews/reviews`,
+            );
+            setReviews(response.data);
+        } catch (error) {
+            console.error("Error fetching reviews:", error);
+        }
+    }
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({
         rating: 0, review: '', name: ''
@@ -73,20 +116,12 @@ const Testimonials = memo(() => {
         setIsModalOpen(!isModalOpen);
     };
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({
-            ...formData, [name]: value
-        });
-    };
-
-    const handleSubmitReview = (event) => {
+    const handleSubmitReview = async (event) => {
         event.preventDefault();
         // Your logic to handle form submission
-        console.log(formData);
-        // Reset form data
+        await CreateReview();
         setFormData({
-            rating: 0, review: '', name: ''
+            rating: 0, review: '', name: '', email: ''
         });
         // Close modal
         setIsModalOpen(false);
@@ -145,40 +180,38 @@ const Testimonials = memo(() => {
                     <h4 className="font-manrope font-semibold text-3xl leading-10 text-black mb-6">Most
                         helpful positive
                         review</h4>
-                    <div className="flex sm:items-center flex-col sm:flex-row justify-between  mb-4">
-                        <div className="flex items-center gap-3">
-                            {[1, 2, 3, 4, 5].map((i) => (
-                                <svg key={i} xmlns="http://www.w3.org/2000/svg" width="30" height="30"
-                                     viewBox="0 0 30 30" fill="none">
-                                    <g clip-path="url(#clip0_13624_2974)">
-                                        <path
-                                            d="M14.1033 2.56698C14.4701 1.82374 15.5299 1.82374 15.8967 2.56699L19.1757 9.21093C19.3214 9.50607 19.6029 9.71064 19.9287 9.75797L27.2607 10.8234C28.0809 10.9426 28.4084 11.9505 27.8149 12.5291L22.5094 17.7007C22.2737 17.9304 22.1662 18.2614 22.2218 18.5858L23.4743 25.8882C23.6144 26.7051 22.7569 27.3281 22.0233 26.9424L15.4653 23.4946C15.174 23.3415 14.826 23.3415 14.5347 23.4946L7.9767 26.9424C7.24307 27.3281 6.38563 26.7051 6.52574 25.8882L7.7782 18.5858C7.83384 18.2614 7.72629 17.9304 7.49061 17.7007L2.1851 12.5291C1.59159 11.9505 1.91909 10.9426 2.73931 10.8234L10.0713 9.75797C10.3971 9.71064 10.6786 9.50607 10.8243 9.21093L14.1033 2.56698Z"
-                                            fill={i === 5 ? 'rgba(251, 191, 36, 0.3)' : '#FBBF24'}/>
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_13624_2974">
-                                            <rect width="30" height="30" fill="white"/>
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            ))}
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <h6 className="font-semibold text-lg leading-8 text-black">@john.doe</h6>
-                            <p className="font-medium text-base leading-7 text-gray-400">Nov 01, 2023</p>
-                        </div>
-                    </div>
-
-                    <p className="font-normal text-lg leading-8 text-gray-500 ">
-                        I recently had the opportunity to explore Pagedone's UI design system, and it left a
-                        lasting
-                        impression on my workflow. The system seamlessly blends user-friendly features with
-                        a robust set
-                        of design components, making it a go-to for creating visually stunning and
-                        consistent
-                        interfaces.
-                    </p>
-
+                    {
+                        reviews?.map((review) => (
+                            <>
+                                <div className="flex sm:items-center flex-col sm:flex-row justify-between  mb-4">
+                                    <div className="flex items-center gap-3">
+                                        {[1, 2, 3, 4, 5].map((i) => (
+                                            <svg key={i} xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                 viewBox="0 0 30 30" fill="none">
+                                                <g clip-path="url(#clip0_13624_2974)">
+                                                    <path
+                                                        d="M14.1033 2.56698C14.4701 1.82374 15.5299 1.82374 15.8967 2.56699L19.1757 9.21093C19.3214 9.50607 19.6029 9.71064 19.9287 9.75797L27.2607 10.8234C28.0809 10.9426 28.4084 11.9505 27.8149 12.5291L22.5094 17.7007C22.2737 17.9304 22.1662 18.2614 22.2218 18.5858L23.4743 25.8882C23.6144 26.7051 22.7569 27.3281 22.0233 26.9424L15.4653 23.4946C15.174 23.3415 14.826 23.3415 14.5347 23.4946L7.9767 26.9424C7.24307 27.3281 6.38563 26.7051 6.52574 25.8882L7.7782 18.5858C7.83384 18.2614 7.72629 17.9304 7.49061 17.7007L2.1851 12.5291C1.59159 11.9505 1.91909 10.9426 2.73931 10.8234L10.0713 9.75797C10.3971 9.71064 10.6786 9.50607 10.8243 9.21093L14.1033 2.56698Z"
+                                                        fill={i > review.rating ? 'rgba(251, 191, 36, 0.3)' : '#FBBF24'}/>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_13624_2974">
+                                                        <rect width="30" height="30" fill="white"/>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        ))}
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        <h6 className="font-semibold text-lg leading-8 text-black">@{review.name}</h6>
+                                        <p className="font-medium text-base leading-7 text-gray-400">{new Date(review.createdAt).toDateString()} </p>
+                                    </div>
+                                </div>
+                                <p className="font-normal text-lg mb-10 leading-8 text-gray-500 ">
+                                    {review.review}
+                                </p>
+                            </>
+                        ))
+                    }
                 </div>
             </div>
         </div>
@@ -207,6 +240,7 @@ const Testimonials = memo(() => {
                                             className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                         <input type="text"
+                                               onChange={(e) => setName(e.target.value)}
                                                className="w-full -ml-10 px-4 py-2 rounded-lg outline-none focus:border-indigo-500"
                                                placeholder="John"/>
                                     </div>
@@ -220,6 +254,7 @@ const Testimonials = memo(() => {
                                             className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i className="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
                                         <input type="email"
+                                               onChange={(e) => setEmail(e.target.value)}
                                                className="w-full -ml-10 px-4 py-2 rounded-lg  border-gray-200 outline-none focus:border-indigo-500"
                                                placeholder="johnsmith@example.com"/>
                                     </div>
@@ -233,12 +268,13 @@ const Testimonials = memo(() => {
                                             className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center">
                                             <i className="mdi mdi-message-outline text-gray-400 text-lg"></i></div>
                                         <textarea
+                                            onChange={(e) => setReview(e.target.value)}
                                             className="w-full -ml-10 px-4 py-2 rounded-lg  border-gray-200 outline-none focus:border-indigo-500"
                                             placeholder="Your Review"/>
                                     </div>
                                 </div>
                             </div>
-                            <StarRating/>
+                            <StarRating {...{rating, setRating}}/>
                             <button onClick={handleSubmitReview}
                                     className="w-full px-6 py-3 cursor-pointer rounded-81xl bg-primary text-white font-semibold text-lg">Submit
                                 Review

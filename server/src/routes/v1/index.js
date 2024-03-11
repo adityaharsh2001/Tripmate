@@ -4,6 +4,7 @@ const userRoute = require('./user.route');
 const docsRoute = require('./docs.route');
 const packageRoute = require('./package.route');
 const teamRoute = require('./team.route');
+const reviewRoute = require('./review.route');
 const config = require('../../config/config');
 const router = express.Router();
 
@@ -23,6 +24,10 @@ const defaultRoutes = [
   {
     path: '/teams',
     route: teamRoute,
+  },
+  {
+    path: '/reviews',
+    route: reviewRoute,
   },
 ];
 

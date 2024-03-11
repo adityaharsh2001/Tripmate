@@ -3,16 +3,21 @@ import axios from "axios";
 import {toast} from "react-hot-toast";
 
 const TeamMember = ({open, setOpen, teamData = null}) => {
-    console.log('teamData', teamData);
     const [name, setName] = useState('');
     const [image, setImage] = useState('');
     const [designation, setDesignation] = useState('');
     const [text, setText] = useState('');
+    const [socials, setSocials] = useState({
+        insta : '',
+        twitter : '',
+        facebook : '',
+        linkedIn : '',
+    });
 
     const handleCreateTeamMember = async () => {
         try {
             const response = await axios.post('/api/v1/teams/', {
-                name, image, text, designation
+                name, image, text, designation, socials
             }, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -23,6 +28,12 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                 setName('');
                 setImage('');
                 setText('')
+                setSocials({
+                    insta : '',
+                    twitter : '',
+                    facebook : '',
+                    linkedIn : '',
+                });
                 setDesignation('');
                 setOpen(false);
             }
@@ -34,9 +45,8 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
 
     const updateTeamMember = async () => {
         try {
-            const response = await axios.patch(`.
-/api/v1/teams/team/${teamData.id}`, {
-                name, image, designation, text
+            const response = await axios.patch(`./api/v1/teams/team/${teamData.id}`, {
+                name, image, designation, text, socials
             }, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
@@ -59,8 +69,7 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
     const deleteTeamMember = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.delete(`.
-/api/v1/teams/team/${teamData.id}`, {
+            const response = await axios.delete(`./api/v1/teams/team/${teamData.id}`, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 },
@@ -104,6 +113,8 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
             setName(teamData.name);
             setImage(teamData.image);
             setDesignation(teamData.designation);
+            setText(teamData.text);
+            setSocials(teamData.socials);
         }
     }, [teamData])
     return (
@@ -207,6 +218,78 @@ const TeamMember = ({open, setOpen, teamData = null}) => {
                                         id="designation"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                                         placeholder={teamData?.designation || 'Enter Team Member designation'}
+                                        required=""
+                                    />
+                                </div>
+                                {/*//socials*/}
+                                <div className="col-span-2">
+                                    <label
+                                        htmlFor="insta"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Instagram
+                                    </label>
+                                    <input
+                                        onChange={(e) => setSocials({...socials, insta: e.target.value})}
+                                        type="text"
+                                        name="insta"
+                                        id="insta"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder={teamData?.socials?.insta || 'Enter Instagram link'}
+                                        required=""
+                                    />
+                                </div>
+                                {/*factbook*/}
+                                <div className="col-span-2">
+                                    <label
+                                        htmlFor="facebook"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Facebook
+                                    </label>
+                                    <input
+                                        onChange={(e) => setSocials({...socials, facebook: e.target.value})}
+                                        type="text"
+                                        name="facebook"
+                                        id="facebook"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder={teamData?.socials?.facebook || 'Enter Facebook link'}
+                                        required=""
+                                    />
+                                </div>
+                                {/*twitter*/}
+                                <div className="col-span-2">
+                                    <label
+                                        htmlFor="twitter"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        Twitter
+                                    </label>
+                                    <input
+                                        onChange={(e) => setSocials({...socials, twitter: e.target.value})}
+                                        type="text"
+                                        name="twitter"
+                                        id="twitter"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder={teamData?.socials?.twitter || 'Enter Twitter link'}
+                                        required=""
+                                    />
+                                </div>
+                                {/*linkedIn*/}
+                                <div className="col-span-2">
+                                    <label
+                                        htmlFor="linkedIn"
+                                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                    >
+                                        LinkedIn
+                                    </label>
+                                    <input
+                                        onChange={(e) => setSocials({...socials, linkedIn: e.target.value})}
+                                        type="text"
+                                        name="linkedIn"
+                                        id="linkedIn"
+                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        placeholder={teamData?.socials?.linkedIn || 'Enter LinkedIn link'}
                                         required=""
                                     />
                                 </div>
