@@ -5,6 +5,7 @@ import {useInView} from "react-intersection-observer";
 import axios from "axios";
 import toast from "react-hot-toast";
 import About from "../components/About";
+import Testimonials from "../components/Testimonials";
 
 const AboutUsPage = () => {
     const [team, setTeam] = React.useState([]);
@@ -38,6 +39,8 @@ const AboutUsPage = () => {
     >
         <About/>
         <Team people={team}/>
+        <div className="w-full h-1 py-10"/>
+        <Testimonials/>
     </motion.div>);
 };
 

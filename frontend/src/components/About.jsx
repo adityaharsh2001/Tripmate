@@ -62,9 +62,12 @@ export default function About() {
                      initial={{opacity: 0, y: 50}}>
                     <div
                         className="flex flex-col items-start justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
-                        <b className="relative tracking-[0.2em] leading-[120%] uppercase inline-block ">
-                            About Your Tripmate
-                        </b>
+                        <div
+                            className="flex flex-col items-center justify-start py-[1.25rem] box-border gap-[1rem] max-w-full">
+                            <h1 className="m-0 text-[32px] leading-[120%] font-bold font-inherit text-grey-scale-black ">
+                                About Your Tripmate
+                            </h1>
+                        </div>
                         <p className="text-base leading-7 text-black max-md:max-w-full">
                             We are a travel agency with 5 years of experience in Group Trip and Customise trips, for
                             Solo, Friends, Couple, corporate, Families and all, our Expert team provides you a budget
