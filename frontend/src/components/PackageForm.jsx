@@ -72,7 +72,7 @@ const PackageForm = ({categories}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex -mx-3">
+                        <div className="flex max-md:flex-col items-center justify-center -mx-3">
                             <div className="w-1/2 px-3 mb-5">
                                 <label htmlFor="" className="text-xs font-semibold px-1">
                                     Guests</label>

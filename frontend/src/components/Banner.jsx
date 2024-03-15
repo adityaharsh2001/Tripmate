@@ -4,7 +4,7 @@ const Banner = ({bannerImage, name}) => {
     return (
         <div
             className={`self-stretch flex flex-row items-center justify-center px-[0rem] box-border relative
-            max-w-full text-left bg-[center] text-[1.25rem]
+            max-w-full text-left bg-[center] max-md:text-[32px] text-[1.25rem]
             text-darkslategray-200 font-poppins`}
             style={{
                 backgroundImage: `url(${bannerImage})`,
@@ -21,7 +21,7 @@ const Banner = ({bannerImage, name}) => {
                         className="flex flex-col relative py-20 mt-10 items-center justify-center gap-[1.63rem] max-w-full text-center text-[5.84rem] text-white font-yesteryear"
                         style={{zIndex: 2}}
                     >
-                        <div className="relative m-auto inline-block z-[3] mq750:text-[3.94rem] mq450:text-[2.44rem]">
+                        <div className="relative m-auto inline-block z-[3] mq750:text-[3.94rem] max-md:text-[48px]">
                             {name}
                         </div>
                         <div

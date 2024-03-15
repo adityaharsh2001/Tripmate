@@ -5,7 +5,7 @@ import ContactForm from "../components/ContactForm";
 const Contact = ({categories}) => {
     return (<div className={'bg-white'}>
         <Banner {...{
-            name: "Contact Us", bannerImage: "/images/contact.jpg"
+            name: "", bannerImage: "/images/contact.jpg"
         }}/>
         <grid className="flex gap-3 px-20 max-md:px-10 flex-col">
             <div className="flex flex-col py-10 gap-4  text-base px-4 items-center justify-center">

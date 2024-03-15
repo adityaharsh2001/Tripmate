@@ -19,13 +19,13 @@ const Tabs = ({ packageData , categories}) => {
     }, []);
 
     return (
-        <div className={"w-[80vw] relative top-[-8rem] shadow-2xl flex flex-col z-[40]"}>
+        <div className={"w-[80vw] max-md:w-full relative top-[-8rem] h-full md:shadow-2xl flex flex-col z-[40]"}>
             <div className={"w-full flex items-center justify-between"}>
                 {tabs.map((tab, index) => (
                     <div
                         key={index}
                         onClick={() => handleTabClick(index)}
-                        className={`flex cursor-pointer w-full p-10 max-md:p-5 gap-3 items-center justify-center ${
+                        className={`flex whitespace-nowrap cursor-pointer w-full p-10 max-md:p-5 gap-3 items-center justify-center ${
                             activeTab === index ? 'bg-white' : 'bg-[#F8F8F8]'
                         }`}
                     >
