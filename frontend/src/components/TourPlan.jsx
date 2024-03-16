@@ -14,9 +14,18 @@ const TourPlan = ({ packageData }) => {
                                     <div className="flex flex-row items-center justify-start gap-2">
                                         <span className="text-base font-normal">{day.title}</span>
                                     </div>
-                                    <ul className="flex inside-point flex-col text-sm items-start justify-start gap-2">
-                                        <li>{day.description}</li>
-                                    </ul>
+                                    {
+                                        day.description.length < 2 ? (
+                                            <ul className="flex inside-point flex-col text-sm items-start justify-start gap-2">
+                                                <li>{day.description}</li>
+                                            </ul>
+                                        ) : day.description.map((desc, index) => (
+                                            <ul key={index} className="flex inside-point flex-col text-sm items-start justify-start gap-2">
+                                                <li>{desc}</li>
+                                            </ul>
+                                        ))
+                                    }
+
                                 </div>
                             </div>
                         </div>

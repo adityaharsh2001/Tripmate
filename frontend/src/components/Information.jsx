@@ -1,15 +1,17 @@
 import * as React from "react";
 import PackageForm from "./PackageForm";
-const ImagePopup = ({ image, closePopup }) => {
+
+const ImagePopup = ({image, closePopup}) => {
     return (
         <div
             className="fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex items-center justify-center"
             onClick={closePopup}
         >
-            <img src={image} alt="" className="max-w-full max-h-full" />
+            <img src={image} alt="" className="max-w-full max-h-full"/>
         </div>
     );
 };
+
 function Information({packageData, categories}) {
     const [activeImage, setActiveImage] = React.useState(null);
 
@@ -73,8 +75,16 @@ function Information({packageData, categories}) {
                                      className="flex max-md:flex-col mb-10 max-md:items-start max-md:justify-start items-center justify-center gap-3 md:gap-10 my-auto">
                                     <div
                                         className={"text-xl font-bold  text-blue-600 capitalize tracking-[2px]"}>{field.heading}</div>
-                                    <div
-                                        className="text-base items-center justify-center leading-7 text-black">{field.description}</div>
+                                    {field.description.length < 2 ?
+                                        <div
+                                            className="text-base items-center justify-center leading-7 text-black">{field.description}</div>
+                                        :
+                                        <ul className="flex inside-point flex-col gap-2.5 text-base items-start justify-start leading-7 text-black">
+                                            {field.description.map((desc, index) => (
+                                                <li key={index}>{desc}</li>
+                                            ))}
+                                        </ul>
+                                    }
                                 </div>
                             </>
                         ))}
@@ -91,7 +101,8 @@ function Information({packageData, categories}) {
             <div
                 className="flex flex-wrap justify-center content-start items-center px-16 py-2.5 mt-12 mr-9 mb-4 max-md:px-5 max-md:mt-10 max-md:mr-2.5 max-md:max-w-full">
                 <div className="flex flex-col max-w-full w-[990px]">
-                    <div className="grid cursor-pointer grid-cols-4 gap-5 max-md:grid-cols-2 max-md:gap-0 max-md:grid-rows-2">
+                    <div
+                        className="grid cursor-pointer grid-cols-4 gap-5 max-md:grid-cols-2 max-md:gap-0 max-md:grid-rows-2">
                         {
                             packageData?.images?.map((image, index) => (
                                 <img
@@ -103,7 +114,7 @@ function Information({packageData, categories}) {
                                 />
                             ))
                         }
-                        {activeImage && <ImagePopup image={activeImage} closePopup={closePopup} />}
+                        {activeImage && <ImagePopup image={activeImage} closePopup={closePopup}/>}
                     </div>
                 </div>
             </div>

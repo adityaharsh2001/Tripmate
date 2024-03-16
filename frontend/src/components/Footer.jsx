@@ -158,7 +158,7 @@ const Footer = () => {
                         </ul>
 
                         <p className="mt-8 text-xs text-white sm:mt-0">
-                            &copy; 2023. Your Tripmate. All rights reserved.
+                            &copy; 2024. Your Tripmate. All rights reserved.
                         </p>
                     </div>
                 </div>
