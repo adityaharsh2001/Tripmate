@@ -118,7 +118,7 @@ function App() {
             <div className={"App bg-whitesmoke"}>
                 <Header/>
                 <div className="bounce float flex flex-col gap-5 fixed bottom-10 right-10 z-50">
-                    <a href="http://wa.me/8700045647?text=Hello%20I%20want%20to%20book%20a%20tour"
+                    <a href="https://wa.me/+918700045647?text=Hello%20I%20want%20to%20book%20a%20tour"
                        className={"bg-[#25d366] w-[50px] rounded-full p-4 flex items-center justify-center shadow-lg"}
                        target="_blank">
                         <i className="fa fa-whatsapp"/>
