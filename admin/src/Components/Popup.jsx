@@ -6,6 +6,8 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
     const [price, setPrice] = React.useState('');
     const [name, setName] = React.useState('');
     const [description, setDescription] = React.useState('');
+    const [cardDescription, setCardDescription] = React.useState('');
+    const [duration, setDuration] = React.useState('');
     const [featured, setFeatured] = React.useState(false);
     const [category, setCategory] = React.useState('');
     const [images, setImage] = React.useState('');
@@ -31,6 +33,8 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
             setSetFeaturedImage(packageData.featuredImage);
             setBannerImage(packageData.bannerImage);
             setTourPlan(packageData.tourPlan);
+            setDuration(packageData.duration);
+            setCardDescription(packageData.cardDescription);
             setFields(() => {
                 return [...packageData.fields.map((field) => {
                     return {
@@ -96,7 +100,18 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
         try {
             e.preventDefault();
             const payload = {
-                name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
+                name,
+                description,
+                price,
+                fields,
+                tourPlan,
+                category,
+                featured,
+                images,
+                featuredImage,
+                bannerImage,
+                cardDescription,
+                duration
             };
             e.preventDefault();
             await axios.post('/api/v1/packages/packages', payload, {
@@ -133,7 +148,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
     const deletePackage = async (e) => {
         try {
             e.preventDefault();
-            await axios.delete(`/v1/packages/package/${packageData.id}`, {
+            await axios.delete(`/api/v1/packages/package/${packageData.id}`, {
                 withCredentials: true, headers: {
                     Authorization: `Bearer ${JSON.parse(localStorage.getItem('token'))?.access.token}`,
                 }
@@ -151,7 +166,18 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
         try {
             e.preventDefault();
             const payload = {
-                name, description, price, fields, tourPlan, category, featured, images, featuredImage, bannerImage
+                name,
+                description,
+                price,
+                fields,
+                tourPlan,
+                category,
+                featured,
+                images,
+                featuredImage,
+                bannerImage,
+                cardDescription,
+                duration
             };
             e.preventDefault();
             await axios.patch(`/api/v1/packages/package/${packageData.id}`, payload, {
@@ -221,7 +247,6 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                         </label>
                         <input
                             onChange={(e) => setPrice(e.target.value)}
-                            type="number"
                             name="price"
                             id="price"
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
@@ -332,6 +357,40 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                             defaultValue={packageData?.description || "Enter product description"}
                         />
                     </div>
+                    <div className="col-span-2">
+                        <label
+                            htmlFor="description"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Card Description
+                        </label>
+                        <textarea
+                            onChange={(e) => setCardDescription(e.target.value)}
+                            id="description"
+                            rows={4}
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Write product description here"
+                            defaultValue={packageData?.cardDescription || "Enter Card description"}
+                        />
+                    </div>
+                    {/*//set Duration */}
+                    <div className="col-span-2 sm:col-span-1">
+                        <label
+                            htmlFor="duration"
+                            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >
+                            Duration
+                        </label>
+                        <input
+                            onChange={(e) => setDuration(e.target.value)}
+                            type="text"
+                            name="duration"
+                            id="duration"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder={packageData?.duration || "Enter product duration"}
+                            required=""
+                        />
+                    </div>
                     {/* Dynamic fields */}
                     {fields?.map((field, index) => (<div key={index} className="grid gap-4 mb-4 grid-cols-2">
                         <div className="col-span-2">
@@ -344,7 +403,7 @@ const Popup = ({open, setOpen, categories, packageData = null}) => {
                                 name={`heading-${index}`}
                                 id={`heading-${index}`}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Enter field heading"
+                                placeholder={field.heading || "Enter field heading"}
                                 required=""
                             />
                         </div>

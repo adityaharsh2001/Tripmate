@@ -54,7 +54,15 @@ const packageSchema = mongoose.Schema(
       trim: true,
     },
     price: {
-      type: Number,
+      type: String,
+      required: true,
+    },
+    duration: {
+      type: String,
+      required: true,
+    },
+    cardDescription: {
+      type: String,
       required: true,
     },
     bannerImage: {
