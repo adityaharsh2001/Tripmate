@@ -35,8 +35,8 @@ function Information({packageData, categories}) {
 
     useEffect(() => {
         // scan all fields the packageData object and render make any text that is wrapped inside *** *** bold
-        const fields = packageData.fields;
-        const newFields = fields.map(field => {
+        const fields = packageData?.fields;
+        const newFields = fields?.map(field => {
             const newField = {...field};
             newField.description = field.description.map(desc => {
                 return desc.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
