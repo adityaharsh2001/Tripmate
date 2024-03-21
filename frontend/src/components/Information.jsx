@@ -1,5 +1,6 @@
 import * as React from "react";
 import PackageForm from "./PackageForm";
+import {useEffect} from "react";
 
 const ImagePopup = ({image, closePopup}) => {
     return (
@@ -15,7 +16,6 @@ const ImagePopup = ({image, closePopup}) => {
 function Information({packageData, categories}) {
     const [activeImage, setActiveImage] = React.useState(null);
 
-    // Close the popup when clicking outside of the image
     React.useEffect(() => {
         const handleOutsideClick = (event) => {
             if (!event.target.closest(".max-w-full")) {
@@ -32,10 +32,19 @@ function Information({packageData, categories}) {
         };
     }, [activeImage]);
 
-    const openPopup = (image) => {
-        setActiveImage(image);
-    };
 
+    useEffect(() => {
+        // scan all fields the packageData object and render make any text that is wrapped inside *** *** bold
+        const fields = packageData.fields;
+        const newFields = fields.map(field => {
+            const newField = {...field};
+            newField.description = field.description.map(desc => {
+                return desc.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>");
+            });
+            return newField;
+        });
+        packageData.fields = newFields;
+    }, []);
     const closePopup = () => {
         setActiveImage(null);
     };
@@ -67,7 +76,7 @@ function Information({packageData, categories}) {
                 }
             </div>
             <div className="mt-16 max-md:mt-10 max-md:max-w-full">
-                <div className="flex flex-wrap gap-5 justify-between max-md:flex-col max-md:gap-0 max-md:">
+                <div className="flex flex-wrap gap-5 justify-center max-md:flex-col max-md:gap-0 max-md:">
                     <div className="flex items-start justify-start flex-col max-md:ml-0 max-md:w-full">
                         {packageData?.fields?.map((field, index) => (
                             <>
@@ -79,7 +88,7 @@ function Information({packageData, categories}) {
                                         <div
                                             className="text-base items-center justify-center leading-7 text-black">{field.description}</div>
                                         :
-                                        <ul className="flex inside-point flex-col gap-2.5 text-base items-start justify-start leading-7 text-black">
+                                        <ul className="flex flex-col gap-2.5 text-base items-start justify-start leading-7 text-black">
                                             {field.description.map((desc, index) => (
                                                 <li key={index}>{desc}</li>
                                             ))}

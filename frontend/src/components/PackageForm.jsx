@@ -20,8 +20,7 @@ const PackageForm = ({categories}) => {
         return `Hello, Am ${Fullname} and I want to book a tour for ${Guests} guests to ${Destination}`
     }
     return (
-        <div className="bg-gray-100 text-gray-500 w-full overflow-hidden"
-             style={{maxWidth: "1000px"}}>
+        <div className="bg-gray-100 text-gray-500 w-full overflow-hidden">
             <div className="md:flex w-full">
                 <div className="w-full  py-10 bg-whitesmoke px-5 md:px-10">
                     <div className="text-center mb-10">
